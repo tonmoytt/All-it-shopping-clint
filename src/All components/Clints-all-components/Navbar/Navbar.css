@@ -1,0 +1,21 @@
+@keyframes offerTextFade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-offerText {
+  animation: offerTextFade 5s ease-in-out infinite;
+}

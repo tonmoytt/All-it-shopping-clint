@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphone",
+    "price": "$120",
+    "image": "https://i.ibb.co/Gff6z6n6/hedphone.jpg",
+    "category": "slider"
+  },
+  {
+    "id": 2,
+    "name": "Smart Watch",
+    "price": "$180",
+    "image": "https://i.ibb.co/NnZhTkzT/watch.webp",
+    "category": "slider"
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Speaker",
+    "price": "$90",
+    "image": "https://i.ibb.co/67LK075f/jbl.webp",
+    "category": "slider"
+  }
+]

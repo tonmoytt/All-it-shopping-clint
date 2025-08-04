@@ -1,2 +1,18 @@
  @import "tailwindcss";
  @plugin "daisyui";
+
+ /* index.css or a separate CSS file */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
