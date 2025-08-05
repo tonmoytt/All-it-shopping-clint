@@ -1,0 +1,448 @@
+/* Footer Container */
+.footer-container {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+  color: #d1d5db;
+  padding: 5rem 2rem 3rem;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+/* Wave SVG */
+.footer-wave svg {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+
+/* Main grid layout */
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-main {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+  }
+}
+
+/* About section */
+.footer-about h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.footer-about p {
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #cbd5e1;
+}
+
+.footer-contact-info p {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+  color: #94a3b8;
+}
+
+.footer-contact-info a {
+  color: #fbbf24;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+/* Quick Links & Support */
+.footer-links h3,
+.footer-support h3,
+.footer-newsletter-social h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.footer-links ul,
+.footer-support ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li,
+.footer-support ul li {
+  margin-bottom: 1rem;
+}
+
+.footer-links ul li a,
+.footer-support ul li a {
+  color: #a1a8bb;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover,
+.footer-support ul li a:hover {
+  color: #fbbf24;
+  text-decoration: underline;
+}
+
+/* Newsletter form */
+.newsletter-form {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(251, 191, 36, 0.2);
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #1e293b;
+  color: #f3f4f6;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: #94a3b8;
+}
+
+.newsletter-form input[type="email"]:focus {
+  background-color: #334155;
+}
+
+.newsletter-form button {
+  background-color: #fbbf24;
+  border: none;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #f59e0b;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1.6rem;
+  font-size: 2.4rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+.social-icons a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fbbf24;
+  transform: scale(1.2);
+}
+
+/* Payment icons */
+.payment-icons {
+  display: flex;
+  gap: 1.8rem;
+  font-size: 3rem;
+  color: #a1a8bb;
+  user-select: none;
+  margin-bottom: 1.5rem;
+}
+
+.payment-icons svg {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.payment-icons svg:hover {
+  color: #fbbf24;
+}
+
+/* App Download Buttons */
+.app-download {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1e293b;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fbbf24;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(251, 191, 36, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.app-btn:hover {
+  background-color: #fbbf24;
+  color: #1e293b;
+  box-shadow: 0 5px 12px rgba(251, 191, 36, 0.7);
+}
+
+/* Footer bottom */
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid #334155;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  letter-spacing: 0.7px;
+  user-select: none;
+}
+
+.footer-bottom .heart {
+  color: #f87171;
+}
+
+/* Scroll to top button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #fbbf24;
+  color: #1e293b;
+  border-radius: 50%;
+  padding: 0.75rem;
+  font-size: 1.4rem;
+  box-shadow: 0 5px 10px rgba(251, 191, 36, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  z-index: 9999;
+  user-select: none;
+}
+
+.scroll-top-btn:hover {
+  background-color: #f59e0b;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .footer-main {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-about,
+  .footer-links,
+  .footer-support,
+  .footer-newsletter-social {
+    padding: 0 1rem;
+  }
+  .app-download {
+    flex-direction: column;
+  }
+  .app-btn {
+    justify-content: center;
+  }
+}
+
+/* Parallax border animation for the footer container */
+.footer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(270deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease infinite;
+  z-index: 10;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* =========================== */
+/* Background gradient with subtle noise texture */
+.footer-container {
+  background: linear-gradient(135deg, #0a1a2b 0%, #12263f 50%, #0a1a2b 100%);
+  position: relative;
+  overflow: hidden;
+  /* subtle noise overlay */
+}
+.footer-container::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'><circle fill='%23222222' cx='1' cy='1' r='1'/></svg>");
+  opacity: 0.03;
+  z-index: 1;
+}
+
+/* =========================== */
+/* Neon Glow Animated Border */
+.footer-container {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow:
+    0 0 15px 3px rgba(251, 191, 36, 0.15),
+    inset 0 0 10px 1px rgba(251, 191, 36, 0.25);
+  position: relative;
+  z-index: 5;
+  transition: box-shadow 0.5s ease;
+}
+
+.footer-container:hover {
+  box-shadow:
+    0 0 30px 6px rgba(251, 191, 36, 0.6),
+    inset 0 0 20px 2px rgba(251, 191, 36, 0.5);
+}
+
+/* Animated border glow - using :before */
+.footer-container::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 16px;
+  pointer-events: none;
+  background: linear-gradient(
+    270deg,
+    #fbbf24,
+    #f59e0b,
+    #fbbf24,
+    #f59e0b,
+    #fbbf24
+  );
+  background-size: 600% 600%;
+  animation: glowingBorder 15s linear infinite;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+@keyframes glowingBorder {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* =========================== */
+/* Enhanced Shadow for Boxes */
+.footer-main > div {
+  background: rgba(18, 38, 63, 0.5);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-main > div:hover {
+  box-shadow:
+    0 12px 36px rgba(251, 191, 36, 0.7),
+    inset 0 0 18px rgba(251, 191, 36, 0.15);
+  transform: translateY(-4px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* =========================== */
+/* Buttons - shadow & hover */
+.newsletter-form button {
+  box-shadow:
+    0 4px 15px rgba(251, 191, 36, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.newsletter-form button:hover {
+  box-shadow:
+    0 6px 25px rgba(251, 191, 36, 0.85);
+  background-color: #d97706;
+}
+
+/* Scroll to top button - stronger shadow */
+.scroll-top-btn {
+  box-shadow:
+    0 8px 22px rgba(251, 191, 36, 0.7);
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.scroll-top-btn:hover {
+  box-shadow:
+    0 10px 30px rgba(251, 191, 36, 0.95);
+  transform: scale(1.15);
+}
+
+/* =========================== */
+/* Social icons enhanced */
+.social-icons a {
+  filter: drop-shadow(0 0 1.2px rgba(251, 191, 36, 0.5));
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+.social-icons a:hover {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 10px #fbbf24);
+  transform: scale(1.3);
+}
+
+/* Payment icons enhanced */
+.payment-icons svg {
+  filter: drop-shadow(0 0 1.5px rgba(251, 191, 36, 0.4));
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+.payment-icons svg:hover {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 12px #fbbf24);
+}
+
+/* =========================== */
+/* Smooth transition for all */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================== */
+/* Responsive tweaks for shadows */
+@media (max-width: 768px) {
+  .footer-main > div:hover {
+    transform: none;
+    box-shadow:
+      0 6px 18px rgba(251, 191, 36, 0.5),
+      inset 0 0 12px rgba(251, 191, 36, 0.1);
+  }
+}

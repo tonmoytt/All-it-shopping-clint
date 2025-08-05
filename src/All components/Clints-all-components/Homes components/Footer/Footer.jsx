@@ -114,7 +114,7 @@ const Footer = () => {
           <a href="#">SKINCARE.COM</a>
         </div>
         <div className="text-right">
-          © 2025 ALL_IT_CENTER &nbsp;&nbsp;
+          © 2025 ALL-IT-CENTER 
           
         </div>
       </div>

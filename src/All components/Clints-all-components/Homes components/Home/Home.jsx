@@ -7,6 +7,7 @@ import SpecialProduct from '../SpecialProduct/SpecialProduct';
 import UPcomeing from '../UPcomeing/UPcomeing';
 import NewProduct from '../NewProduct/NewProduct';
 import Footer from '../Footer/Footer';
+import OptionalFooter from '../Footer/OptionalFooter/OptionalFooter';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
            <UPcomeing></UPcomeing>
            <NewProduct></NewProduct>
            <Footer></Footer>
+           {/* <OptionalFooter></OptionalFooter> */}
            
         </div>
     );
