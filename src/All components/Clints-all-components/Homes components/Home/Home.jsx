@@ -5,6 +5,8 @@ import Post from '../Post/Post';
 import Banner from '../Banner/Banner';
 import SpecialProduct from '../SpecialProduct/SpecialProduct';
 import UPcomeing from '../UPcomeing/UPcomeing';
+import NewProduct from '../NewProduct/NewProduct';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -14,6 +16,8 @@ const Home = () => {
            <Banner></Banner>
            <SpecialProduct></SpecialProduct>
            <UPcomeing></UPcomeing>
+           <NewProduct></NewProduct>
+           <Footer></Footer>
            
         </div>
     );

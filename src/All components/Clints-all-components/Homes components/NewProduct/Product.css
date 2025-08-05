@@ -1,0 +1,15 @@
+/* NewProduct.css */
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 1.5rem !important;   /* w-10 */
+  height: 1.5rem !important;  /* h-10 */
+  background-color: rgb(59, 187, 238); /* optional for visibility */
+  border-radius: 9999px;      /* fully rounded */
+  color: white !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1rem !important; /* icon size */
+}
