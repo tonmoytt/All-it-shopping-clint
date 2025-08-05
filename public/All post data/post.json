@@ -1,0 +1,652 @@
+[
+  {
+    "id": 1,
+    "name": "Panasonic Rice Cooker",
+    "price": 4200,
+    "image": "https://i.ibb.co/kh7nqY6/rice-cooker-1.jpg",
+    "description": "Automatic keep-warm function with 2.2L capacity.",
+    "category": "Rice Cooker",
+    "productTag": "Top Sell",
+    "oldPrice": 4603,
+    "rating": 4,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Panasonic",
+    "model": "RC-2200"
+  },
+  {
+    "id": 2,
+    "name": "Miyako Rice Cooker",
+    "price": 3800,
+    "image": "https://i.ibb.co/nmPPpGV/rice-cooker-2.jpg",
+    "description": "Non-stick coating, 1.8L capacity, energy-efficient.",
+    "category": "Rice Cooker",
+    "productTag": "Featured",
+    "oldPrice": 4308,
+    "rating": 4,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sold",
+    "brand": "Miyako",
+    "model": "RC-18"
+  },
+  {
+    "id": 3,
+    "name": "Vision Rice Cooker",
+    "price": 3500,
+    "image": "https://i.ibb.co/qmTXv2K/rice-cooker-3.jpg",
+    "description": "Fast cooking rice cooker with warm mode.",
+    "category": "Rice Cooker",
+    "productTag": "New Arrival",
+    "oldPrice": 3762,
+    "rating": 2,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+      "productCategory": "Featured",
+    "status": "sold",
+    "brand": "Vision",
+    "model": "SmartCook"
+  },
+  {
+    "id": 4,
+    "name": "Sharp Pressure Cooker",
+    "price": 5600,
+    "image": "https://i.ibb.co/v1NCY8j/pressure-cooker-1.jpg",
+    "description": "Durable stainless steel body with safety lock.",
+    "category": "Pressure Cooker",
+    "productTag": "Top Sell",
+    "oldPrice": 6041,
+    "rating": 1,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Sharp",
+    "model": "PC-SS5"
+  },
+  {
+    "id": 5,
+    "name": "Nova Pressure Cooker",
+    "price": 4500,
+    "image": "https://i.ibb.co/g7YxZcJ/pressure-cooker-2.jpg",
+    "description": "5L pressure cooker with heat-resistant handle.",
+    "category": "Pressure Cooker",
+    "productTag": "Featured",
+    "oldPrice": 5107,
+    "rating": 1,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sale",
+    "brand": "Nova",
+    "model": "NPC-5L"
+  },
+  {
+    "id": 6,
+    "name": "Kiam Pressure Cooker",
+    "price": 4800,
+    "image": "https://i.ibb.co/mTw7bTp/pressure-cooker-3.jpg",
+    "description": "Aluminum body, gas and electric stove compatible.",
+    "category": "Pressure Cooker",
+    "productTag": "New Arrival",
+    "oldPrice": 5129,
+    "rating": 5,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+      "productCategory": "Featured",
+    "status": "sold",
+    "brand": "Kiam",
+    "model": "KPC-AL5"
+  },
+  {
+    "id": 7,
+    "name": "Philips Blender 3-in-1",
+    "price": 5200,
+    "image": "https://i.ibb.co/vHs7dFb/blender-1.jpg",
+    "description": "Durable stainless blades, 600W power.",
+    "category": "Blender",
+    "productTag": "Top Sell",
+    "oldPrice": 5940,
+    "rating": 4,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Philips",
+    "model": "PH-BL3"
+  },
+  {
+    "id": 8,
+    "name": "Walton Smart Blender",
+    "price": 3900,
+    "image": "https://i.ibb.co/f1F6g9C/blender-2.jpg",
+    "description": "Pulse control, 1.5L plastic jar.",
+    "category": "Blender",
+    "productTag": "Featured",
+    "oldPrice": 4165,
+    "rating": 4,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sold",
+    "brand": "Walton",
+    "model": "WBL-15L"
+  },
+  {
+    "id": 9,
+    "name": "Miyako Heavy Duty Blender",
+    "price": 4500,
+    "image": "https://i.ibb.co/yqZH14K/blender-3.jpg",
+    "description": "300W motor, stainless steel blade.",
+    "category": "Blender",
+    "productTag": "New Arrival",
+    "oldPrice": 4876,
+    "rating": 5,
+    "colors": [
+      "#ff4500",
+      "#ff6347"
+    ],
+      "productCategory": "Featured",
+    "status": "sale",
+    "brand": "Miyako",
+    "model": "MY-HD"
+  },
+  {
+    "id": 10,
+    "name": "Nova Dry Iron",
+    "price": 1800,
+    "image": "https://i.ibb.co/vHzXZyq/iron-1.jpg",
+    "description": "Lightweight with adjustable temperature control.",
+    "category": "Iron",
+    "productTag": "Top Sell",
+    "oldPrice": 2052,
+    "rating": 3,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Nova",
+    "model": "NI-Temp"
+  },
+  {
+    "id": 11,
+    "name": "Vision Dry Iron",
+    "price": 1650,
+    "image": "https://i.ibb.co/1mwYB9V/iron-2.jpg",
+    "description": "Non-stick soleplate with easy grip handle.",
+    "category": "Iron",
+    "productTag": "Featured",
+    "oldPrice": 1831,
+    "rating": 1,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sale",
+    "brand": "Vision",
+    "model": "VI-Grip"
+  },
+  {
+    "id": 12,
+    "name": "Singer Steam Iron",
+    "price": 2500,
+    "image": "https://i.ibb.co/ccDgt3f/iron-3.jpg",
+    "description": "Steam burst with anti-drip system.",
+    "category": "Iron",
+    "productTag": "New Arrival",
+    "oldPrice": 2703,
+    "rating": 4,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+      "productCategory": "Featured",
+    "status": "sold",
+    "brand": "Singer",
+    "model": "SG-Steam"
+  },
+  {
+    "id": 13,
+    "name": "Hitachi Rice Cooker Pro",
+    "price": 5900,
+    "image": "https://i.ibb.co/d4QyWpw/rice-cooker-4.jpg",
+    "description": "Advanced heating technology for fluffy rice.",
+    "category": "Rice Cooker",
+    "productTag": "Top Sell",
+    "oldPrice": 6728,
+    "rating": 3,
+    "colors": [
+      "#ff1493",
+      "#ff69b4"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sold",
+    "brand": "Hitachi",
+    "model": "HT-RCPro"
+  },
+  {
+    "id": 14,
+    "name": "Kiam Rice Cooker",
+    "price": 3400,
+    "image": "https://i.ibb.co/pXtVdw1/rice-cooker-5.jpg",
+    "description": "Simple operation, long-lasting build.",
+    "category": "Rice Cooker",
+    "productTag": "Featured",
+    "oldPrice": 3690,
+    "rating": 1,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sale",
+    "brand": "Walton",
+    "model": "WRC-6L"
+  },
+  {
+    "id": 15,
+    "name": "Walton Digital Rice Cooker",
+    "price": 6100,
+    "image": "https://i.ibb.co/HtVhYk2/rice-cooker-6.jpg",
+    "description": "Digital timer and automatic keep-warm.",
+    "category": "Rice Cooker",
+    "productTag": "New Arrival",
+    "oldPrice": 6558,
+    "rating": 3,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+      "productCategory": "Featured",
+    "status": "sale",
+    "brand": "Kiam",
+    "model": "KRC-Simple"
+  },
+  {
+    "id": 16,
+    "name": "Prestige Pressure Cooker",
+    "price": 5500,
+    "image": "https://i.ibb.co/mFpmPGN/pressure-cooker-4.jpg",
+    "description": "Induction compatible with safety valve.",
+    "category": "Pressure Cooker",
+    "productTag": "Top Sell",
+    "oldPrice": 6179,
+    "rating": 5,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Prestige",
+    "model": "PRG-5"
+  },
+  {
+    "id": 17,
+    "name": "Singer Pressure Cooker",
+    "price": 5000,
+    "image": "https://i.ibb.co/X2xHRZK/pressure-cooker-5.jpg",
+    "description": "Ergonomic handles, strong lid lock.",
+    "category": "Pressure Cooker",
+    "productTag": "Featured",
+    "oldPrice": 5519,
+    "rating": 1,
+    "colors": [
+      "#ff4500",
+      "#ff6347"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sale",
+    "brand": "Singer",
+    "model": "SG-PC"
+  },
+  {
+    "id": 18,
+    "name": "Walton Pressure Cooker",
+    "price": 4700,
+    "image": "https://i.ibb.co/nDQ2m2x/pressure-cooker-6.jpg",
+    "description": "3-layer bottom for even heating.",
+    "category": "Pressure Cooker",
+    "productTag": "New Arrival",
+    "oldPrice": 4945,
+    "rating": 1,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+      "productCategory": "Featured",
+    "status": "sale",
+    "brand": "Walton",
+    "model": "WPC-6L"
+  },
+  {
+    "id": 19,
+    "name": "Panasonic Power Blender",
+    "price": 6000,
+    "image": "https://i.ibb.co/Fq1gMYH/blender-4.jpg",
+    "description": "Ice crushing and smoothie mode.",
+    "category": "Blender",
+    "productTag": "Top Sell",
+    "oldPrice": 6532,
+    "rating": 4,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "productCategory": "New Arrival",
+    "status": "sale",
+    "brand": "Panasonic",
+    "model": "PN-PB600"
+  },
+  {
+    "id": 20,
+    "name": "Philips Daily Collection Blender",
+    "price": 5300,
+    "image": "https://i.ibb.co/xmgTnYX/blender-5.jpg",
+    "description": "Easy-clean and detachable blades.",
+    "category": "Blender",
+    "productTag": "Featured",
+    "oldPrice": 5806,
+    "rating": 3,
+    "colors": [
+      "#ff1493",
+      "#ff69b4"
+    ],
+    "productCategory": "Top Sell",
+    "status": "sale",
+    "brand": "JuiceMaster",
+    "model": "JM-2in1"
+  },
+  {
+    "id": 21,
+    "name": "Electric Rice Cooker 3L",
+    "price": 6600,
+    "image": "https://i.ibb.co/jwX7vtr/rice-cooker-3l.jpg",
+    "description": "Cook perfect rice every time with this 3L electric rice cooker.",
+    "category": "Rice Cooker",
+    "productCategory": "Featured",
+    "oldPrice": 7520,
+    "rating": 4,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+    "status": "sale",
+    "brand": "ElectricCo",
+    "model": "E-RC3L"
+  },
+  {
+    "id": 22,
+    "name": "Stainless Pressure Cooker 8L",
+    "price": 9360,
+    "image": "https://i.ibb.co/nzvD7V0/pressure-cooker-8l.jpg",
+    "description": "Durable 8L stainless steel pressure cooker for large meals.",
+    "category": "Pressure Cooker",
+    "productCategory": "Top Sell",
+    "oldPrice": 10536,
+    "rating": 1,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "status": "sale",
+    "brand": "ElectricPro",
+    "model": "EPC-6L"
+  },
+  {
+    "id": 23,
+    "name": "Mini Blender USB Rechargeable",
+    "price": 3000,
+    "image": "https://i.ibb.co/Z2FY9hv/mini-blender-usb.jpg",
+    "description": "Portable USB blender for smoothies on-the-go.",
+    "category": "Blender",
+    "productCategory": "New Arrival",
+    "oldPrice": 3415,
+    "rating": 3,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "status": "sale",
+    "brand": "MiniMix",
+    "model": "MM-USB"
+  },
+  {
+    "id": 24,
+    "name": "Heavy Duty Iron Box",
+    "price": 5400,
+    "image": "https://i.ibb.co/VJybCWT/iron-heavy-duty.jpg",
+    "description": "Professional-grade iron with fast heating technology.",
+    "category": "Iron",
+    "productCategory": "Top Sell",
+    "oldPrice": 6158,
+    "rating": 2,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "status": "sold",
+    "brand": "HeavyDuty",
+    "model": "HD-Iron"
+  },
+  {
+    "id": 25,
+    "name": "Smart Rice Cooker with LCD",
+    "price": 10200,
+    "image": "https://i.ibb.co/KjhfK1W/smart-rice-cooker.jpg",
+    "description": "LCD-enabled smart rice cooker with multiple cooking modes.",
+    "category": "Rice Cooker",
+    "productCategory": "Featured",
+    "oldPrice": 11240,
+    "rating": 4,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+    "status": "sale",
+    "brand": "SmartCooker",
+    "model": "SC-LCD"
+  },
+  {
+    "id": 26,
+    "name": "Aluminum Pressure Cooker 5L",
+    "price": 5040,
+    "image": "https://i.ibb.co/0qYjzP6/pressure-cooker-aluminum.jpg",
+    "description": "Lightweight and efficient aluminum 5L cooker.",
+    "category": "Pressure Cooker",
+    "productCategory": "New Arrival",
+    "oldPrice": 5348,
+    "rating": 4,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "status": "sale",
+    "brand": "Tradition",
+    "model": "TR-PC3L"
+  },
+  {
+    "id": 27,
+    "name": "2-in-1 Juicer Blender",
+    "price": 6960,
+    "image": "https://i.ibb.co/JK1nb06/2in1-blender.jpg",
+    "description": "Multipurpose 2-in-1 juicer blender for kitchen versatility.",
+    "category": "Blender",
+    "productCategory": "Top Sell",
+    "oldPrice": 7922,
+    "rating": 4,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "status": "sale",
+    "brand": "GlassMix",
+    "model": "GMX-01"
+  },
+  {
+    "id": 28,
+    "name": "Steam Iron 2200W",
+    "price": 4680,
+    "image": "https://i.ibb.co/YXqF9Qd/steam-iron.jpg",
+    "description": "High power steam iron for efficient wrinkle removal.",
+    "category": "Iron",
+    "productCategory": "New Arrival",
+    "oldPrice": 5239,
+    "rating": 3,
+    "colors": [
+      "#ff1493",
+      "#ff69b4"
+    ],
+    "status": "sale",
+    "brand": "SteamPro",
+    "model": "SP-2200"
+  },
+  {
+    "id": 29,
+    "name": "Multi-cook Rice Cooker",
+    "price": 7200,
+    "image": "https://i.ibb.co/m9jV06N/multicook-rice-cooker.jpg",
+    "description": "Rice cooker with multiple modes including stew and soup.",
+    "category": "Rice Cooker",
+    "productCategory": "Featured",
+    "oldPrice": 8130,
+    "rating": 3,
+    "colors": [
+      "#ff8c00",
+      "#ffd700"
+    ],
+    "status": "sale",
+    "brand": "MultiTech",
+    "model": "MTC-RC60"
+  },
+  {
+    "id": 30,
+    "name": "Electric Pressure Cooker 6L",
+    "price": 10680,
+    "image": "https://i.ibb.co/FVg4W4Z/electric-pressure-cooker.jpg",
+    "description": "Digital electric cooker for smart pressure cooking.",
+    "category": "Pressure Cooker",
+    "productCategory": "Top Sell",
+    "oldPrice": 12089,
+    "rating": 3,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "status": "sold",
+    "brand": "StainlessPro",
+    "model": "SPC-8L"
+  },
+  {
+    "id": 31,
+    "name": "Blender with Glass Jar",
+    "price": 3960,
+    "image": "https://i.ibb.co/M7S8k45/glass-jar-blender.jpg",
+    "description": "Stylish blender with a durable glass jar and sharp blades.",
+    "category": "Blender",
+    "productCategory": "New Arrival",
+    "oldPrice": 4475,
+    "rating": 4,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "status": "sale",
+    "brand": "CompactMix",
+    "model": "CM-BL28"
+  },
+  {
+    "id": 32,
+    "name": "Cordless Steam Iron",
+    "price": 5760,
+    "image": "https://i.ibb.co/z8c1pNF/cordless-iron.jpg",
+    "description": "Enjoy freedom of movement with cordless ironing.",
+    "category": "Iron",
+    "productCategory": "Featured",
+    "oldPrice": 6518,
+    "rating": 2,
+    "colors": [
+      "#e9967a",
+      "#ff7f50"
+    ],
+    "status": "sale",
+    "brand": "CordlessEase",
+    "model": "CE-Iron"
+  },
+  {
+    "id": 33,
+    "name": "Smart Multifunction Rice Cooker",
+    "price": 11040,
+    "image": "https://i.ibb.co/S5Pf0PC/smart-multi-rice.jpg",
+    "description": "Smart rice cooker with delay timer and 8 cooking programs.",
+    "category": "Rice Cooker",
+    "productCategory": "New Arrival",
+    "oldPrice": 11959,
+    "rating": 1,
+    "colors": [
+      "#dc143c",
+      "#ff8c00"
+    ],
+    "status": "sale",
+    "brand": "Deluxe",
+    "model": "D-RC92"
+  },
+  {
+    "id": 34,
+    "name": "Traditional Pressure Cooker 3L",
+    "price": 4200,
+    "image": "https://i.ibb.co/BsSVFyB/pressure-cooker-3l.jpg",
+    "description": "Reliable and affordable 3L pressure cooker.",
+    "category": "Pressure Cooker",
+    "productCategory": "Featured",
+    "oldPrice": 4524,
+    "rating": 4,
+    "colors": [
+      "#ff4500",
+      "#ff6347"
+    ],
+    "status": "sale",
+    "brand": "AluminumX",
+    "model": "AX-PC5"
+  },
+  {
+    "id": 35,
+    "name": "Compact Electric Blender",
+    "price": 3360,
+    "image": "https://i.ibb.co/tKh4TGH/compact-blender.jpg",
+    "description": "Compact design blender for quick blending tasks.",
+    "category": "Blender",
+    "productCategory": "Top Sell",
+    "oldPrice": 3685,
+    "rating": 3,
+    "colors": [
+      "#ff0000",
+      "#ffa500"
+    ],
+    "status": "sale",
+    "brand": "Philips",
+    "model": "PH-BL3"
+  }
+]

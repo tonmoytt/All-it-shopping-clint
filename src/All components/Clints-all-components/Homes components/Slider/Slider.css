@@ -1,0 +1,9 @@
+/* Slider.css */
+
+.swiper-button-custom {
+  @apply w-9 h-9 bg-yellow-400 text-black rounded-full text-xs flex items-center justify-center;
+}
+
+.swiper-button-custom::after {
+  @apply text-base font-bold;
+}

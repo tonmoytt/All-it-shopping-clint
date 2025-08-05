@@ -8,6 +8,7 @@ import {
 import Root from './All components/Clints-all-components/Root/Root';
 import ErrorPages from './All components/Clints-all-components/ErrorPages/ErrorPages';
 import Home from './All components/Clints-all-components/Homes components/Home/Home';
+import Details from './All components/Clints-all-components/Homes components/Post/Details/Details';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-      }
+      },
+      {
+        path: '/details/:id',
+        element: <Details></Details>
+      },
 
     ]
   },
