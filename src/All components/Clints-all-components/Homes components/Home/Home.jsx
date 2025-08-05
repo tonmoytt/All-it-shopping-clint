@@ -3,6 +3,8 @@ import Header from '../Header/Header';
 import Slider from '../Slider/Slider';
 import Post from '../Post/Post';
 import Banner from '../Banner/Banner';
+import SpecialProduct from '../SpecialProduct/SpecialProduct';
+import UPcomeing from '../UPcomeing/UPcomeing';
 
 const Home = () => {
     return (
@@ -10,6 +12,8 @@ const Home = () => {
            <Slider></Slider>
            <Post></Post>
            <Banner></Banner>
+           <SpecialProduct></SpecialProduct>
+           <UPcomeing></UPcomeing>
            
         </div>
     );
