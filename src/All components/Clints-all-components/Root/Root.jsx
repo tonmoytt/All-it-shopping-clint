@@ -1,13 +1,19 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Homes components/Header/Header';
 
 const Root = () => {
+    const location = useLocation();
+
+    // Check if current route is /signup or /login
+    const isAuthPage = location.pathname === '/signup' || location.pathname === '/login';
+
     return (
-        <div> <Header></Header>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
+        <div >
+            {!isAuthPage && <Header />}
+            <Navbar />
+            <Outlet />
         </div>
     );
 };

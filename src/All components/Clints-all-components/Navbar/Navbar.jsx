@@ -1,31 +1,34 @@
-import { useEffect, useRef, useState } from 'react';
-import { FaBars, FaChevronRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-
-
+import { useContext, useEffect, useRef, useState } from 'react';
+import { FaBars, FaChevronRight, FaMoon, FaSun, FaUser } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import './navbar.css';
+import user from '../../../assets/Logo/user.png'
+import logout from '../../../assets/Logo/l.png'
+import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
-    
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-     const dropdownRef = useRef(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-    const handleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const {currentUser , SignoutUser} =useContext(Authconnect)
 
-    const handleItemClick = () => {
-        setIsDropdownOpen(false);
-    };
+  const handleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
-    
-  // ✅ Close dropdown when clicked outside
+  const handleItemClick = () => {
+    setIsDropdownOpen(false);
+  };
+
+  // ✅ Outside click close for dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
     };
@@ -34,103 +37,144 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-    return (
-        <div className="bg-black text-white text-sm px-20 py-2 flex justify-between items-center">
-            {/* ALL CATEGORIES + Menu */}
-            <div className="relative">
-                <div className="bg-yellow-300 text-black px-5 py-[8px] flex items-center gap-2 font-semibold rounded-sm w-64">
-                    <FaBars className="text-lg" />
-                    <span className="uppercase text-md tracking-wide">All Categories</span>
-                </div>
 
-                {/* Always Visible Menu */}
-                <div className="absolute top-[100%] left-0 w-64 bg-white text-black shadow-xl py-3 mt-1 z-50">
-                    <ul className="space-y-3 px-5 text-[16px] font-sans leading-5">
-                        <li className="flex justify-between items-center border-b border-gray-200 pb-4 text-gray-700">
-                            <span className="flex items-center gap-2">Electronic <span className="text-[8px] bg-black text-white px-[6px] rounded">NEW</span></span>
-                            <FaChevronRight className="text-xs text-gray-400" />
-                        </li>
-                        <li className="border-b border-gray-200 pb-4 text-gray-700">Blogs</li>
-                        <li className="flex justify-between items-center border-b border-gray-200 pb-4 text-gray-700">
-                            <span className="flex items-center gap-2">Accessories <span className="text-[8px] bg-green-500 text-white px-[6px] rounded">SALE</span></span>
-                            <FaChevronRight className="text-xs text-gray-400" />
-                        </li>
-                        <li className="border-b border-gray-200 pb-4 text-gray-700">Collection</li>
-                        <li className="border-b border-gray-200 pb-4 text-gray-700">Contact</li>
-                        <li className="border-b border-gray-200 pb-4 text-gray-700">Included Pages</li>
-                        <li className="border-b border-gray-200 pb-4 text-gray-700">Aboutus</li>
-                        <li className="text-gray-700">FAQs</li>
-                    </ul>
-                </div>
+  // ✅ Toggle dark mode class on body
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+   const handleSignOut = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to log out!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Log Out!',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await SignoutUser();
+          Swal.fire({
+            icon: 'success',
+            title: 'Logged out!',
+            text: 'You have been logged out successfully.',
+            timer: 2000,
+            showConfirmButton: false,
+          });
+        } catch (error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: error.message || 'Logout failed, please try again.',
+          });
+        }
+      }
+    });
+  };
+
+  return (
+    <div className={`  max-w-full ${isDarkMode ? 'dark' : ''}`}>
+      <div className="navbar-container bg-black">
+        {/* ALL CATEGORIES Button */}
+        <div className="relative">
+          <div className="category-button">
+            <FaBars className="text-lg" />
+            <span className="uppercase text-md tracking-wide">All Categories</span>
+          </div>
+
+          {isHomePage && (
+            <div className="dropdown-menu">
+              <ul className="dropdown-list">
+                <li className="dropdown-item">
+                  <span className="flex items-center gap-2">
+                    Electronic <span className="badge-new">NEW</span>
+                  </span>
+                  <FaChevronRight className="icon-arrow" />
+                </li>
+                <li className="dropdown-item">Blogs</li>
+                <li className="dropdown-item">
+                  <span className="flex items-center gap-2">
+                    Accessories <span className="badge-sale">SALE</span>
+                  </span>
+                  <FaChevronRight className="icon-arrow" />
+                </li>
+                <li className="dropdown-item">Collection</li>
+                <li className="dropdown-item">Contact</li>
+                <li className="dropdown-item">Included Pages</li>
+                <li className="dropdown-item">Aboutus</li>
+                <li className="dropdown-item">FAQs</li>
+              </ul>
             </div>
-
-            {/* Middle Menu */}
-             <ul className="flex gap-7 items-center text-[13px] font-semibold uppercase tracking-wide mx-auto">
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">About us</a>
-      </li>
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">Collection</a>
-      </li>
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">Contact</a>
-      </li>
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">Blog</a>
-      </li>
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">Shop</a>
-      </li>
-      <li>
-        <a href="#" className="text-gray-300 hover:text-yellow-400 pb-1">Services</a>
-      </li>
-
-      {/* ✅ View More Dropdown */}
-      <li className="relative group list-none" ref={dropdownRef}>
-        <button
-          onClick={handleDropdown}
-          className="flex items-center gap-1 text-[13px] text-gray-300 hover:text-yellow-400 transition duration-300"
-        >
-          View More
-          <FaChevronRight
-            className={`transform transition duration-300 ${
-              isDropdownOpen ? "rotate-90 text-yellow-400" : ""
-            }`}
-          />
-        </button>
-
-        {/* Dropdown Menu */}
-        <div
-          className={`absolute top-6 left-0 w-40 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 ease-in-out border border-gray-200 z-50 ${
-            isDropdownOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
-          }`}
-        >
-          <Link
-            to="/product"
-            onClick={handleItemClick}
-            className="block px-4 py-2 hover:bg-gray-100 text-gray-700 transition"
-          >
-            Product
-          </Link>
-          <Link
-            to="/category"
-            onClick={handleItemClick}
-            className="block px-4 py-2 hover:bg-gray-100 text-gray-700 transition"
-          >
-            Category
-          </Link>
+          )}
         </div>
-      </li>
-    </ul>
 
-            {/* Offer Animation Text Removed */}
-            <div className="relative overflow-hidden w-[240px] h-[40px] flex items-center justify-center">
-                <div className="bg-yellow-400 text-black font-bold text-[14px] px-4 py-2 ">
-                    <p className='animate-offerText'>FLAT 10% OFF ALL iPhone</p>
-                </div>
+        {/* Middle Menu */}
+        <ul className="middle-menu text-white">
+         <Link to='/'> <li> Home </li></Link>
+          <li> About us </li>
+          <li> Collection </li>
+          <li> Contact </li>
+          <li> Blog </li>
+          <li> Shop </li>
+          <li> Services </li>
+
+          {/* View More Dropdown */}
+          <li className="relative group list-none" ref={dropdownRef}>
+            <button onClick={handleDropdown} className="dropdown-toggle">
+              View More
+              <FaChevronRight className={`icon-arrow ${isDropdownOpen ? "rotate" : ""}`} />
+            </button>
+            <div
+              className={`dropdown-content ${isDropdownOpen ? "show" : "hide"}`}
+            >
+              <Link to="/product" onClick={handleItemClick}>Product</Link>
+              <Link to="/category" onClick={handleItemClick}>Category</Link>
             </div>
+          </li>
+        </ul>
+
+        {/* Offer Text */}
+        <div className="offer-text">
+          <p className="animate-offerText">FLAT 10% OFF ALL iPhone</p>
         </div>
-    );
+        <div className='  flex text-end'>
+
+{
+  currentUser?  <div className="pl-">
+            <button onClick={handleSignOut}>
+                <img className='w-9 h-9' src={logout} alt="" /> 
+            </button>
+          </div>     : 
+
+          <div className="pl-">
+            <button>
+              <Link to='/login'> <img className='w-8 h-8' src={user} alt="" /></Link>
+            </button>
+          </div>
+}
+          
+
+          {/* 🌞/🌙 Toggle Button */}
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="toggle-theme "
+            title="Toggle theme"
+          >
+            {isDarkMode ? <FaSun className='h-5 w-5' /> : <FaMoon className='h-5 w-5 rounded-full text-yellow-400' />}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

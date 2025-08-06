@@ -16,3 +16,16 @@
 .animate-fadeIn {
   animation: fadeIn 1s ease-in-out forwards;
 }
+
+
+/* global.css বা index.css এ যোগ করো */
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+/* index.css বা Tailwind config এ যুক্ত করতে পারো */
+:root.dark {
+  background-color: #111827;
+  color: #f3f4f6;
+}
