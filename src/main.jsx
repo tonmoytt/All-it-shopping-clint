@@ -12,6 +12,11 @@ import Details from './All components/Clints-all-components/Homes components/Pos
 import Signup from './All components/Clints-all-components/AuthincationPages/Signup/Signup';
 import GradientLogin from './All components/Clints-all-components/AuthincationPages/Signup/GradientLogin/GradientLogin';
 import Authincation from './All components/Clints-all-components/AuthincationPages/Authincation/Authincation';
+import { HelmetProvider } from 'react-helmet-async';
+import About from './All components/Clints-all-components/Navbar/About/About';
+import Contact from './All components/Clints-all-components/Navbar/Contact/Contact';
+import Blog from './All components/Clints-all-components/Navbar/Blog/Blog';
+import Collection from './All components/Clints-all-components/Navbar/Collection';
 
 const router = createBrowserRouter([
   {
@@ -35,14 +40,32 @@ const router = createBrowserRouter([
         path: '/login',
         element: <GradientLogin />
       },
+      {
+        path: '/about',
+        element: <About />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
+      },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
+        path: '/collection',
+        element: <Collection />
+      },
     ]
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Authincation>
-      <RouterProvider router={router} />
-    </Authincation>
+    <HelmetProvider>
+      <Authincation>
+        <RouterProvider router={router} />
+      </Authincation>
+    </HelmetProvider>
   </StrictMode>
 );

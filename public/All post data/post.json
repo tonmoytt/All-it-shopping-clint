@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Panasonic Rice Cooker",
     "price": 4200,
-    "image": "https://i.ibb.co/kh7nqY6/rice-cooker-1.jpg",
+    "image": "https://i.ibb.co.com/XZTCCRg9/Panasonic-Rice-Cooker.jpg",
     "description": "Automatic keep-warm function with 2.2L capacity.",
     "category": "Rice Cooker",
     "productTag": "Top Sell",
@@ -16,13 +16,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Panasonic",
-    "model": "RC-2200"
+    "model": "RC-2200",
+    "collection": "collection"
   },
   {
     "id": 2,
     "name": "Miyako Rice Cooker",
     "price": 3800,
-    "image": "https://i.ibb.co/nmPPpGV/rice-cooker-2.jpg",
+    "image": "https://i.ibb.co.com/prNzzzxX/Vision-Rice-Cooker.jpg",
     "description": "Non-stick coating, 1.8L capacity, energy-efficient.",
     "category": "Rice Cooker",
      "specialCategory": "special",
@@ -36,13 +37,14 @@
     "productCategory": "Top Sell",
     "status": "sold",
     "brand": "Miyako",
-    "model": "RC-18"
+    "model": "RC-18",
+    "collection": "collection"
   },
   {
     "id": 3,
     "name": "Vision Rice Cooker",
     "price": 3500,
-    "image": "https://i.ibb.co/qmTXv2K/rice-cooker-3.jpg",
+    "image": "https://i.ibb.co.com/DgD1wXkW/Miyako-Rice-Cooker.jpg",
     "description": "Fast cooking rice cooker with warm mode.",
     "category": "Rice Cooker",
     "productTag": "New Arrival",
@@ -55,13 +57,14 @@
       "productCategory": "Featured",
     "status": "sold",
     "brand": "Vision",
-    "model": "SmartCook"
+    "model": "SmartCook",
+    "collection": "collection"
   },
   {
     "id": 4,
     "name": "Sharp Pressure Cooker",
     "price": 5600,
-    "image": "https://i.ibb.co/v1NCY8j/pressure-cooker-1.jpg",
+    "image": "https://i.ibb.co.com/99crS1Wt/4-Sharp-Pressure-Cooker.jpg",
     "description": "Durable stainless steel body with safety lock.",
     "category": "Pressure Cooker",
     "specialCategory": "special",
@@ -75,13 +78,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Sharp",
-    "model": "PC-SS5"
+    "model": "PC-SS5",
+    "collection": "collection"
   },
   {
     "id": 5,
     "name": "Nova Pressure Cooker",
     "price": 4500,
-    "image": "https://i.ibb.co/g7YxZcJ/pressure-cooker-2.jpg",
+    "image": "https://i.ibb.co.com/bM95FS91/5-Nova-Pressure-Cooker.jpg",
     "description": "5L pressure cooker with heat-resistant handle.",
     "category": "Pressure Cooker",
      "specialCategory": "special",
@@ -95,13 +99,14 @@
     "productCategory": "Top Sell",
     "status": "sale",
     "brand": "Nova",
-    "model": "NPC-5L"
+    "model": "NPC-5L",
+    "collection": "collection"
   },
   {
     "id": 6,
     "name": "Kiam Pressure Cooker",
     "price": 4800,
-    "image": "https://i.ibb.co/mTw7bTp/pressure-cooker-3.jpg",
+    "image": "https://i.ibb.co.com/3YYSc3fq/6-Kiam-Pressure-Cooker.jpg",
     "description": "Aluminum body, gas and electric stove compatible.",
     "category": "Pressure Cooker",
     "productTag": "New Arrival",
@@ -114,13 +119,14 @@
       "productCategory": "Featured",
     "status": "sold",
     "brand": "Kiam",
-    "model": "KPC-AL5"
+    "model": "KPC-AL5",
+    "collection": "collection"
   },
   {
     "id": 7,
     "name": "Philips Blender 3-in-1",
     "price": 5200,
-    "image": "https://i.ibb.co/vHs7dFb/blender-1.jpg",
+    "image": "https://i.ibb.co.com/4RTYCNQR/7-Philips-Blender-3-in-1.jpg",
     "description": "Durable stainless blades, 600W power.",
     "category": "Blender",
     "productTag": "Top Sell",
@@ -133,13 +139,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Philips",
-    "model": "PH-BL3"
+    "model": "PH-BL3",
+    "collection": "collection"
   },
   {
     "id": 8,
     "name": "Walton Smart Blender",
     "price": 3900,
-    "image": "https://i.ibb.co/f1F6g9C/blender-2.jpg",
+    "image": "https://i.ibb.co.com/5g5zxnhR/8-Walton-Smart-Blender.jpg",
     "description": "Pulse control, 1.5L plastic jar.",
     "category": "Blender",
      "specialCategory": "special",
@@ -153,13 +160,14 @@
     "productCategory": "Top Sell",
     "status": "sold",
     "brand": "Walton",
-    "model": "WBL-15L"
+    "model": "WBL-15L",
+    "collection": "collection"
   },
   {
     "id": 9,
     "name": "Miyako Heavy Duty Blender",
     "price": 4500,
-    "image": "https://i.ibb.co/yqZH14K/blender-3.jpg",
+    "image": "https://i.ibb.co.com/XZjH2rN9/9-Miyako-Heavy-Duty-Blender.jpg",
     "description": "300W motor, stainless steel blade.",
     "category": "Blender",
     "specialCategory": "special",
@@ -173,13 +181,14 @@
       "productCategory": "Featured",
     "status": "sale",
     "brand": "Miyako",
-    "model": "MY-HD"
+    "model": "MY-HD",
+    "collection": "collection"
   },
   {
     "id": 10,
     "name": "Nova Dry Iron",
     "price": 1800,
-    "image": "https://i.ibb.co/vHzXZyq/iron-1.jpg",
+    "image": "https://i.ibb.co.com/HpYLZv3Q/10-Nova-Dry-Iron.jpg",
     "description": "Lightweight with adjustable temperature control.",
     "category": "Iron",
     "productTag": "Top Sell",
@@ -192,13 +201,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Nova",
-    "model": "NI-Temp"
+    "model": "NI-Temp",
+    "collection": "collection"
   },
   {
     "id": 11,
     "name": "Vision Dry Iron",
     "price": 1650,
-    "image": "https://i.ibb.co/1mwYB9V/iron-2.jpg",
+    "image": "https://i.ibb.co.com/SwNZXgrp/11-Vision-Dry-Iron.jpg",
     "description": "Non-stick soleplate with easy grip handle.Non-stick soleplate with easy grip handle.",
     "category": "Iron",
      "specialCategory": "special",
@@ -213,13 +223,14 @@
     "productCategory": "Top Sell",
     "status": "sale",
     "brand": "Vision",
-    "model": "VI-Grip"
+    "model": "VI-Grip",
+    "collection": "collection"
   },
   {
     "id": 12,
     "name": "Singer Steam Iron",
     "price": 2500,
-    "image": "https://i.ibb.co/ccDgt3f/iron-3.jpg",
+    "image": "https://i.ibb.co.com/LjcTJWz/12-Singer-Steam-Iron.jpg",
     "description": "Steam burst with anti-drip system.",
     "category": "Iron",
     "productTag": "New Arrival",
@@ -232,13 +243,14 @@
       "productCategory": "Featured",
     "status": "sold",
     "brand": "Singer",
-    "model": "SG-Steam"
+    "model": "SG-Steam",
+    "collection": "collection"
   },
   {
     "id": 13,
     "name": "Hitachi Rice Cooker Pro",
     "price": 5900,
-    "image": "https://i.ibb.co/d4QyWpw/rice-cooker-4.jpg",
+    "image": "https://i.ibb.co.com/d4fT6y7P/13.jpg",
     "description": "Advanced heating technology for fluffy rice.",
     "category": "Rice Cooker",
     "productTag": "Top Sell",
@@ -251,13 +263,14 @@
     "productCategory": "New Arrival",
     "status": "sold",
     "brand": "Hitachi",
-    "model": "HT-RCPro"
+    "model": "HT-RCPro",
+    "collection": "collection"
   },
   {
     "id": 14,
     "name": "Kiam Rice Cooker",
     "price": 3400,
-    "image": "https://i.ibb.co/pXtVdw1/rice-cooker-5.jpg",
+    "image": "https://i.ibb.co.com/8LSX76MT/15-Kiam-Rice-Cooker.jpg",
     "description": "Simple operation, long-lasting build.",
     "category": "Rice Cooker",
     "specialCategory": "special",
@@ -271,13 +284,14 @@
     "productCategory": "Top Sell",
     "status": "sale",
     "brand": "Walton",
-    "model": "WRC-6L"
+    "model": "WRC-6L",
+    "collection": "collection"
   },
   {
     "id": 15,
     "name": "Walton Digital Rice Cooker",
     "price": 6100,
-    "image": "https://i.ibb.co/HtVhYk2/rice-cooker-6.jpg",
+    "image": "https://i.ibb.co.com/d4fT6y7P/13.jpg",
     "description": "Digital timer and automatic keep-warm.",
     "category": "Rice Cooker",
      "specialCategory": "special",
@@ -291,13 +305,14 @@
       "productCategory": "Featured",
     "status": "sale",
     "brand": "Kiam",
-    "model": "KRC-Simple"
+    "model": "KRC-Simple",
+    "collection": "collection"
   },
   {
     "id": 16,
     "name": "Prestige Pressure Cooker",
     "price": 5500,
-    "image": "https://i.ibb.co/mFpmPGN/pressure-cooker-4.jpg",
+    "image": "https://i.ibb.co.com/wq975hJ/16.jpg",
     "description": "Induction compatible with safety valve.Induction compatible with safety valve.Induction compatible with safety valve.Induction compatible with safety valve.",
     "category": "Pressure Cooker",
     "dealCategory": "DEAL",
@@ -311,13 +326,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Prestige",
-    "model": "PRG-5"
+    "model": "PRG-5",
+    "collection": "collection"
   },
   {
     "id": 17,
     "name": "Singer Pressure Cooker",
     "price": 5000,
-    "image": "https://i.ibb.co/X2xHRZK/pressure-cooker-5.jpg",
+    "image": "https://i.ibb.co.com/k2zFskts/17-Singer-Pressure-Cooker.jpg",
     "description": "Ergonomic handles, strong lid lock.",
     "category": "Pressure Cooker",
     "productTag": "Featured",
@@ -330,13 +346,14 @@
     "productCategory": "Top Sell",
     "status": "sale",
     "brand": "Singer",
-    "model": "SG-PC"
+    "model": "SG-PC",
+    "collection": "collection"
   },
   {
     "id": 18,
     "name": "Walton Pressure Cooker",
     "price": 4700,
-    "image": "https://i.ibb.co/nDQ2m2x/pressure-cooker-6.jpg",
+    "image": "https://i.ibb.co.com/BKNJQ8x1/18-Walton-Pressure-Cooker.jpg",
     "description": "3-layer bottom for even heating.",
     "category": "Pressure Cooker",
     "productTag": "New Arrival",
@@ -349,13 +366,14 @@
       "productCategory": "Featured",
     "status": "sale",
     "brand": "Walton",
-    "model": "WPC-6L"
+    "model": "WPC-6L",
+    "collection": "collection"
   },
   {
     "id": 19,
     "name": "Panasonic Power Blender",
     "price": 6000,
-    "image": "https://i.ibb.co/Fq1gMYH/blender-4.jpg",
+    "image": "https://i.ibb.co.com/h1F0xx0S/19-Panasonic-Power-Blender.jpg",
     "description": "Ice crushing and smoothie mode.",
     "category": "Blender",
      "specialCategory": "special",
@@ -369,13 +387,14 @@
     "productCategory": "New Arrival",
     "status": "sale",
     "brand": "Panasonic",
-    "model": "PN-PB600"
+    "model": "PN-PB600",
+    "collection": "collection"
   },
   {
     "id": 20,
     "name": "Philips Daily Collection Blender",
     "price": 5300,
-    "image": "https://i.ibb.co/xmgTnYX/blender-5.jpg",
+    "image": "https://i.ibb.co.com/5gB1KG0B/20.jpg",
     "description": "Easy-clean and detachable blades.",
     "category": "Blender",
     "productTag": "Featured",
@@ -388,13 +407,14 @@
     "productCategory": "Top Sell",
     "status": "sale",
     "brand": "JuiceMaster",
-    "model": "JM-2in1"
+    "model": "JM-2in1",
+    "collection": "collection"
   },
   {
     "id": 21,
     "name": "Electric Rice Cooker 3L",
     "price": 6600,
-    "image": "https://i.ibb.co/jwX7vtr/rice-cooker-3l.jpg",
+    "image": "https://i.ibb.co.com/TDZZY0Yk/21-Electric-Rice-Cooker-3-L.jpg",
     "description": "Cook perfect rice every time with this 3L electric rice cooker.Cook perfect rice every time with this 3L electric rice cooker.",
     "category": "Rice Cooker",
     "dealCategory": "DEAL",
@@ -408,13 +428,14 @@
     ],
     "status": "sale",
     "brand": "ElectricCo",
-    "model": "E-RC3L"
+    "model": "E-RC3L",
+    "collection": "collection"
   },
   {
     "id": 22,
     "name": "Stainless Pressure Cooker 8L",
     "price": 9360,
-    "image": "https://i.ibb.co/nzvD7V0/pressure-cooker-8l.jpg",
+    "image": "https://i.ibb.co.com/FLgbWH3Z/22-Stainless-Pressure-Cooker-8-L.jpg",
     "description": "Durable 8L stainless steel pressure cooker for large meals.",
     "category": "Pressure Cooker",
      "specialCategory": "special",
@@ -427,13 +448,14 @@
     ],
     "status": "sale",
     "brand": "ElectricPro",
-    "model": "EPC-6L"
+    "model": "EPC-6L",
+    "collection": "collection"
   },
   {
     "id": 23,
     "name": "Mini Blender USB Rechargeable",
     "price": 3000,
-    "image": "https://i.ibb.co/Z2FY9hv/mini-blender-usb.jpg",
+    "image": "https://i.ibb.co.com/TBM4cXcb/23-Mini-Blender-USB-Rechargeable.jpg",
     "description": "Portable USB blender for smoothies on-the-go.",
     "category": "Blender",
     "specialCategory": "special",
@@ -446,13 +468,14 @@
     ],
     "status": "sale",
     "brand": "MiniMix",
-    "model": "MM-USB"
+    "model": "MM-USB",
+    "collection": "collection"
   },
   {
     "id": 24,
     "name": "Heavy Duty Iron Box",
     "price": 5400,
-    "image": "https://i.ibb.co/VJybCWT/iron-heavy-duty.jpg",
+    "image": "https://i.ibb.co.com/RkW2X1N2/24-Heavy-Duty-Iron-Box.jpg",
     "description": "Professional-grade iron with fast heating technology.",
     "category": "Iron",
     "productCategory": "Top Sell",
@@ -464,13 +487,14 @@
     ],
     "status": "sold",
     "brand": "HeavyDuty",
-    "model": "HD-Iron"
+    "model": "HD-Iron",
+    "collection": "collection"
   },
   {
     "id": 25,
     "name": "Smart Rice Cooker with LCD",
     "price": 10200,
-    "image": "https://i.ibb.co/KjhfK1W/smart-rice-cooker.jpg",
+    "image": "https://i.ibb.co.com/7d5j1VzL/25-Smart-Rice-Cooker-with-LCD.jpg",
     "description": "LCD-enabled smart rice cooker with multiple cooking modes.",
     "category": "Rice Cooker",
     "productCategory": "Featured",
@@ -482,13 +506,14 @@
     ],
     "status": "sale",
     "brand": "SmartCooker",
-    "model": "SC-LCD"
+    "model": "SC-LCD",
+    "collection": "collection"
   },
   {
     "id": 26,
     "name": "Aluminum Pressure Cooker 5L",
     "price": 5040,
-    "image": "https://i.ibb.co/0qYjzP6/pressure-cooker-aluminum.jpg",
+    "image": "https://i.ibb.co.com/V00w7GsJ/26-Aluminum-Pressure-Cooker-5-L.jpg",
     "description": "Lightweight and efficient aluminum 5L cooker.",
     "category": "Pressure Cooker",
     "productCategory": "New Arrival",
@@ -500,13 +525,14 @@
     ],
     "status": "sale",
     "brand": "Tradition",
-    "model": "TR-PC3L"
+    "model": "TR-PC3L",
+    "collection": "collection"
   },
   {
     "id": 27,
     "name": "2-in-1 Juicer Blender",
     "price": 6960,
-    "image": "https://i.ibb.co/JK1nb06/2in1-blender.jpg",
+    "image": "https://i.ibb.co.com/hnwTrW1/27-2-in-1-Juicer-Blender.jpg",
     "description": "Multipurpose 2-in-1 juicer blender for kitchen versatility.Cook perfect rice every time with this 3L electric rice cooker.",
     "category": "Blender",
     "dealCategory": "DEAL",
@@ -519,13 +545,14 @@
     ],
     "status": "sale",
     "brand": "GlassMix",
-    "model": "GMX-01"
+    "model": "GMX-01",
+    "collection": "collection"
   },
   {
     "id": 28,
     "name": "Steam Iron 2200W",
     "price": 4680,
-    "image": "https://i.ibb.co/YXqF9Qd/steam-iron.jpg",
+    "image": "https://i.ibb.co.com/DDzzt7Zj/28-Steam-Iron-2200-W.jpg",
     "description": "High power steam iron for efficient wrinkle removal.",
     "category": "Iron",
     "specialCategory": "special",
@@ -538,13 +565,14 @@
     ],
     "status": "sale",
     "brand": "SteamPro",
-    "model": "SP-2200"
+    "model": "SP-2200",
+    "collection": "collection"
   },
   {
     "id": 29,
     "name": "Multi-cook Rice Cooker",
     "price": 7200,
-    "image": "https://i.ibb.co/m9jV06N/multicook-rice-cooker.jpg",
+    "image": "https://i.ibb.co.com/Pv2SWWzh/29.jpg",
     "description": "Rice cooker with multiple modes including stew and soup.",
     "category": "Rice Cooker",
     "productCategory": "Featured",
@@ -556,13 +584,14 @@
     ],
     "status": "sale",
     "brand": "MultiTech",
-    "model": "MTC-RC60"
+    "model": "MTC-RC60",
+    "collection": "collection"
   },
   {
     "id": 30,
     "name": "Electric Pressure Cooker 6L",
     "price": 10680,
-    "image": "https://i.ibb.co/FVg4W4Z/electric-pressure-cooker.jpg",
+    "image": "https://i.ibb.co.com/MDqDgp8T/30-Electric-Pressure-Cooker-6-L.jpg",
     "description": "Digital electric cooker for smart pressure cooking.",
     "category": "Pressure Cooker",
     "productCategory": "Top Sell",
@@ -574,13 +603,14 @@
     ],
     "status": "sold",
     "brand": "StainlessPro",
-    "model": "SPC-8L"
+    "model": "SPC-8L",
+    "collection": "collection"
   },
   {
     "id": 31,
     "name": "Blender with Glass Jar",
     "price": 3960,
-    "image": "https://i.ibb.co/M7S8k45/glass-jar-blender.jpg",
+    "image": "https://i.ibb.co.com/NgHywTHj/31-Blender-with-Glass-Jar.jpg",
     "description": "Stylish blender with a durable glass jar and sharp blades.",
     "category": "Blender",
     "productCategory": "New Arrival",
@@ -592,13 +622,14 @@
     ],
     "status": "sale",
     "brand": "CompactMix",
-    "model": "CM-BL28"
+    "model": "CM-BL28",
+    "collection": "collection"
   },
   {
     "id": 32,
     "name": "Cordless Steam Iron",
     "price": 5760,
-    "image": "https://i.ibb.co/z8c1pNF/cordless-iron.jpg",
+    "image": "https://i.ibb.co.com/VYbvfFGY/32-Cordless-Steam-Iron.jpg",
     "description": "Enjoy freedom of movement with cordless ironing.",
     "category": "Iron",
     "specialCategory": "special",
@@ -611,13 +642,14 @@
     ],
     "status": "sale",
     "brand": "CordlessEase",
-    "model": "CE-Iron"
+    "model": "CE-Iron",
+    "collection": "collection"
   },
   {
     "id": 33,
     "name": "Smart Multifunction Rice Cooker",
     "price": 11040,
-    "image": "https://i.ibb.co/S5Pf0PC/smart-multi-rice.jpg",
+    "image": "https://i.ibb.co.com/S47PTTKj/33-Smart-Multifunction-Rice-Cooker.jpg",
     "description": "Smart rice cooker with delay timer and 8 cooking programs.",
     "category": "Rice Cooker",
     "productCategory": "New Arrival",
@@ -629,16 +661,17 @@
     ],
     "status": "sale",
     "brand": "Deluxe",
-    "model": "D-RC92"
+    "model": "D-RC92",
+    "collection": "collection"
   },
   {
     "id": 34,
     "name": "Traditional Pressure Cooker 3L",
     "price": 4200,
-    "image": "https://i.ibb.co/BsSVFyB/pressure-cooker-3l.jpg",
+    "image": "https://i.ibb.co.com/VWJf7TYb/34-Traditional-Pressure-Cooker-3-L.jpg",
     "description": "Reliable and affordable 3L pressure cooker.",
     "category": "Pressure Cooker",
-     "specialCategory": "special",
+    "specialCategory": "special",
     "productCategory": "Featured",
     "oldPrice": 4524,
     "rating": 4,
@@ -648,13 +681,14 @@
     ],
     "status": "sale",
     "brand": "AluminumX",
-    "model": "AX-PC5"
+    "model": "AX-PC5",
+    "collection": "collection"
   },
   {
     "id": 35,
     "name": "Compact Electric Blender",
     "price": 3360,
-    "image": "https://i.ibb.co/tKh4TGH/compact-blender.jpg",
+    "image": "https://i.ibb.co.com/HLQPdMDW/35-Compact-Electric-Blender.jpg",
     "description": "Compact design blender for quick blending tasks.Cook perfect rice every time with this 3L electric rice cooker.",
     "category": "Blender",
     "specialCategory": "special",
@@ -668,6 +702,109 @@
     ],
     "status": "sale",
     "brand": "Philips",
-    "model": "PH-BL3"
+    "model": "PH-BL3",
+    "collection": "collection"
+  },
+  {
+    "id": 41,
+    "img": "https://i.ibb.co.com/20TwMVS3/blog1.webp",
+    "name": "Amina Rahman",
+    "category": "Website Admin",
+    "category2": "blog",
+    "date": "2024-11-02",
+    "description": "Amina Rahman is a seasoned Website Admin with a proven track record in delivering reliable web operations and ensuring site stability. She specializes in server maintenance",
+     "ldescription": "CMS configuration, uptime monitoring, and routine security audits to protect user data and preserve performance. Amina coordinates with development and design teams to manage deployments, rollback strategies, and content updates while documenting processes and runbooks for efficiency. She emphasizes automation, clear incident response procedures, and user-focused improvements that reduce friction. Her practical approach balances technical detail with accessible communication, enabling stakeholders to make informed decisions and keep the platform running smoothly under high demand."
+  },
+  {
+    "id": 42,
+    "img": "https://i.ibb.co.com/7dx7Wth0/blog2.webp",
+    "name": "Tanvir Hossain",
+    "category": "Chief Executive Officer",
+    "category2": "blog",
+    "date": "2025-03-15",
+    "description": "Tanvir Hossain is a strategic Chief Executive Officer who drives company vision and aligns teams around measurable growth objectives. With deep experience in product-led scaling, fundraising, and cross-functional ",
+     "ldescription": " leadership, he builds high-performing cultures that prioritize customer value and operational excellence. Tanvir partners with board members, investors, and senior leaders to set long-term strategy while ensuring short-term execution through OKRs and data-driven decision making. He focuses on talent development, sustainable unit economics, and market differentiation, constantly balancing innovation with disciplined resource allocation. Tanvir’s leadership style blends clear communication, stakeholder alignment, and relentless focus on outcomes to deliver durable business results."
+  },
+  {
+    "id": 43,
+    "img": "https://i.ibb.co.com/RG1y6Xjv/blog3.webp",
+    "name": "Sadia Akter",
+    "category": "Digital Marketer",
+    "category2": "blog",
+    "date": "2024-09-21",
+    "description": "Sadia Akter is a results-driven Digital Marketer with extensive experience in campaign planning, performance advertising, and lifecycle marketing. She",
+     "ldescription": " crafts integrated strategies that combine paid search, social media, email automation, and content to drive acquisition and retention. Sadia leverages analytics to test messaging, optimize funnel conversion, and allocate budget to high-impact channels. She works closely with product and design teams to create on-brand creatives and landing experiences that increase ROI. Her iterative approach emphasizes rapid experimentation, clear KPIs, and learning loops that scale successful tactics. Sadia is committed to customer-centric marketing that builds both short-term growth and long-term brand equity."
+  },
+  {
+    "id": 44,
+    "img": "https://i.ibb.co.com/XZNyN3RS/blog4.webp",
+    "name": "Rafiq Khan",
+    "category": "Product Manager",
+    "category2": "blog",
+    "date": "2025-01-10",
+    "description": "Rafiq Khan is an experienced Product Manager who turns customer insights into prioritized roadmaps and delivered features. He combines user research, market analysis, and",
+     "ldescription": " technical understanding to define requirements that solve real problems and create measurable value. Rafiq coordinates engineering, design, and marketing teams to align delivery timelines, scope, and success metrics, using agile practices and clear acceptance criteria. He tracks product performance with analytics, conducts A/B tests, and iterates based on evidence to improve retention and monetization. Rafiq’s pragmatic leadership ensures stakeholder alignment and a focus on outcomes, enabling teams to ship reliable, user-focused products on schedule."
+  },
+  {
+    "id": 45,
+    "img": "https://i.ibb.co.com/XrtJcLpY/blog5.webp",
+    "name": "Mehzabeen Sultana",
+    "category": "Chief Technology Officer",
+    "category2": "blog",
+    "date": "2024-12-05",
+    "description": "Mehzabeen Sultana is a Chief Technology Officer who designs and implements scalable technology strategies that support rapid growth. She leads platform architecture decisions, technical hiring, and",
+     "ldescription": " engineering process improvements to increase delivery velocity and system resilience. Mehzabeen champions best practices in code quality, observability, and security while ensuring technical debt is managed and prioritized. She partners with product and operations teams to balance roadmap ambitions with infrastructure needs, advocating for automation, CI/CD pipelines, and robust deployment strategies. Her leadership develops engineering talent and fosters a culture of ownership, continuous learning, and pragmatic innovation that aligns technology with business goals."
+  },
+  {
+    "id": 46,
+    "img": "https://i.ibb.co.com/TMR0tX0g/blog6.webp",
+    "name": "Imran Chowdhury",
+    "category": "Operations Manager",
+    "category2": "blog",
+    "date": "2025-06-18",
+    "description": "Imran Chowdhury is an Operations Manager skilled in process design, cross-team coordination, and operational optimization. He builds repeatable workflows, service-level agreements, and ",
+     "ldescription": "performance dashboards that reduce friction and improve throughput. Imran focuses on supply chain coordination, customer support efficiency, and cost control while implementing tooling that automates routine tasks. He trains teams on escalation paths and continuous improvement methods, fostering an environment where small iterative changes compound into sustained gains. Imran balances day-to-day operations with strategic initiatives, maintaining service reliability while supporting scale. His data-informed approach ensures resources are allocated to areas that directly impact customer satisfaction and business efficiency."
+  },
+  {
+    "id": 47,
+    "img": "https://i.ibb.co.com/4nbf3yrs/blog7.webp",
+    "name": "Nadia Karim",
+    "category": "Growth Marketer",
+    "category2": "blog",
+    "date": "2024-08-30",
+    "description": "Nadia Karim is a Growth Marketer who specializes in rapid experimentation and funnel optimization to accelerate user acquisition and activation. She runs cross-channel growth loops that ",
+     "ldescription": "combine viral mechanics, paid media, partnerships, and on-site optimization to expand reach. Nadia sets up instrumentation and analytics to identify bottlenecks, designs hypothesis-driven tests, and scales wins through automation and playbooks. She collaborates closely with product and engineering to implement in-product growth features and measure LTV:CAC improvements. Nadia values high-tempo testing, clear metrics, and replicable processes that convert insights into scalable growth channels and sustainable user engagement."
+  },
+  {
+    "id": 48,
+    "img": "https://i.ibb.co.com/XrtJcLpY/blog5.webp",
+    "name": "Faisal Ahmed",
+    "category": "Content Strategist",
+    "category2": "blog",
+    "date": "2025-02-04",
+    "description": "Faisal Ahmed is a Content Strategist focused on creating cohesive editorial plans that support product marketing and SEO objectives. He develops content frameworks, editorial calendars, and ",
+     "ldescription": "distribution plans that amplify brand voice and drive organic traffic. Faisal collaborates with designers, writers, and product teams to produce high-quality assets—blogs, guides, case studies, and multimedia—that educate users and nurture leads. He measures content performance through engagement metrics and conversion tracking, iterating to improve clarity and relevance. Faisal emphasizes storytelling tied to customer problems and outcomes, ensuring content both supports acquisition channels and strengthens long-term thought leadership in the market."
+  },
+  {
+    "id": 49,
+    "img": "https://i.ibb.co.com/7dx7Wth0/blog2.webp",
+    "name": "Rumana Begum",
+    "category": "Head of Marketing",
+    "category2": "blog",
+    "date": "2024-10-12",
+    "description": "Rumana Begum is Head of Marketing with a track record of building integrated brand and performance programs that increase awareness and revenue. She leads",
+     "ldescription": " campaign strategy, channel planning, and marketing operations to deliver consistent messaging across paid, owned, and earned channels. Rumana aligns marketing initiatives to sales and product goals, setting KPIs and dashboards for attribution and ROI analysis. She prioritizes customer segmentation, lifecycle campaigns, and creative testing to improve conversion rates and customer lifetime value. Her collaborative leadership style empowers teams to execute high-quality work while maintaining brand integrity and measurable business impact."
+  },
+  {
+    "id": 50,
+    "img": "https://i.ibb.co.com/4nbf3yrs/blog7.webp",
+    "name": "Karim Ullah",
+    "category": "Chief Operating Officer",
+    "category2": "blog",
+    "date": "2025-05-22",
+    "description": "Karim Ullah is an experienced Chief Operating Officer who scales operations and aligns organizational capabilities with strategic priorities. He ",
+     "ldescription": "designs operational models that balance growth with efficiency and oversees finance, HR, and customer operations to ensure smooth execution. Karim implements governance, transparent reporting, and process standardization to reduce variability and support predictable outcomes. He works with executive peers to translate strategy into operational plans, optimize resource allocation, and monitor performance through metrics and reviews. Karim’s pragmatic focus on execution, people development, and continuous improvement helps organizations scale sustainably while preserving service quality and organizational health."
   }
+
+
 ]

@@ -121,7 +121,7 @@ const GradientLogin = () => {
                         </div>
                     </div>
 
-                    <p className="text-sm">www.yoursite.com</p>
+                    <p className=" text-[10px]">WWW . AL_IT_SERVICE . COM</p>
 
                     {/* Decorative Elements */}
                     <motion.div

@@ -2,15 +2,11 @@
   0% {
     opacity: 0;
   }
-  20% {
-    opacity: 1;
-  }
+  20%,
   50% {
     opacity: 1;
   }
-  70% {
-    opacity: 0;
-  }
+  70%,
   100% {
     opacity: 0;
   }
@@ -20,73 +16,14 @@
   animation: offerTextFade 5s ease-in-out infinite;
 }
 
-
-/* navbar.css */
-
-/* Default light mode */
-.navbar-wrapper {
-  background-color: white;
-  color: black;
-}
-
-/* Dark mode */
-.navbar-wrapper.dark {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 5rem;
-  font-size: 14px;
-}
-
-.category-button {
-  background-color: #facc15;
-  color: black;
-  padding: 8px 20px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 250px;
-  font-weight: 600;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 250px;
-  background-color: white;
-  color: black;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-  padding: 1rem 0;
-  margin-top: 4px;
-}
-
-.dropdown-list {
-  padding: 0 1rem;
-}
-
-.dropdown-item {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e5e7eb;
-  color: #4b5563;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+/* Badges */
 .badge-new {
   font-size: 8px;
   background-color: black;
   color: white;
   padding: 1px 6px;
   border-radius: 4px;
+  user-select: none;
 }
 
 .badge-sale {
@@ -95,104 +32,21 @@
   color: white;
   padding: 1px 6px;
   border-radius: 4px;
+  user-select: none;
 }
 
-.icon-arrow {
-  font-size: 10px;
-  color: #9ca3af;
+/* Fade In animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.middle-menu {
-  display: flex;
-  gap: 1.35rem;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.middle-menu li a {
-  color: #d1d5db;
-  transition: color 0.3s;
-}
-
-.middle-menu li a:hover {
-  color: #facc15;
-}
-
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #d1d5db;
-  transition: color 0.3s;
-}
-
-.dropdown-toggle:hover {
-  color: #facc15;
-}
-
-.icon-arrow.rotate {
-  transform: rotate(90deg);
-  color: #facc15;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: 1.5rem;
-  left: 0;
-  width: 160px;
-  background-color: white;
-  color: #374151;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  z-index: 50;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-}
-
-.dropdown-content.hide {
-  opacity: 0;
-  transform: scale(0.95);
-  visibility: hidden;
-}
-
-.dropdown-content.show {
-  opacity: 1;
-  transform: scale(1);
-  visibility: visible;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 8px 16px;
-  transition: background-color 0.2s;
-}
-
-.dropdown-content a:hover {
-  background-color: #f3f4f6;
-}
-
-.offer-text {
-  width: 240px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #facc15;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.toggle-theme {
-  background: transparent;
-  border: none;
-  color: inherit;
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: 1rem;
-  transition: color 0.3s;
-}
-
-.toggle-theme:hover {
-  color: #facc15;
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
 }

@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../Firebase/Firebase.init';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-// import axios from 'axios';
+import axios from 'axios';
 
 export const Authconnect = createContext()
 
@@ -32,15 +32,33 @@ const Authincation = ({ children }) => {
     };
 
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log('current user', user);
-            setCurrentUser(user);
-            setLoading(false);
-        });
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    console.log('Current user:', user);
+    setCurrentUser(user);
 
-        return () => unsubscribe();
-    }, []);
+    if (user?.email) {
+      try {
+        await axios.post(
+          'http://localhost:5000/jwt',
+          { email: user.email },
+          { withCredentials: true }
+        );
+        console.log('JWT sent, token stored in cookie');
+      } catch (error) {
+        console.error('JWT error:', error.response?.data?.message || error.message);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      await axios.post('http://localhost:5000/logout', {}, { withCredentials: true });
+      console.log('Logout success');
+      setLoading(false);
+    }
+  });
+
+  return () => unsubscribe();
+}, []);
 
 
     const Authinfo = {

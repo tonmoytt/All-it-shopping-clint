@@ -8,11 +8,17 @@ import UPcomeing from '../UPcomeing/UPcomeing';
 import NewProduct from '../NewProduct/NewProduct';
 import Footer from '../Footer/Footer';
 import OptionalFooter from '../Footer/OptionalFooter/OptionalFooter';
+import { Helmet } from 'react-helmet';
+import Marquee from '../Marquee/Marquee';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title> AL-IT-Services | Home</title>
+            </Helmet>
            <Slider></Slider>
+           <Marquee></Marquee>
            <Post></Post>
            <Banner></Banner>
            <SpecialProduct></SpecialProduct>
