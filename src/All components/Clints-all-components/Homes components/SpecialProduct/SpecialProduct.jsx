@@ -83,8 +83,8 @@ const SpecialProduct = () => {
                 {/* Section 1 - Blog + Category */}
                 <div className='md:w-1/4 space-y-6'>
                     {/* LATEST BLOG section */}
-                    <div className='bg-white  rounded shadow'>
-                        <h2 className='text-center font-semibold mb-4 border-b pb-2 bg-gray-300'>LATEST BLOG</h2>
+                    <div className='bg-white p- rounded shadow'>
+                        <h2 className='text-center font-semibold my-4 border-b pb-2 bg-gray-300'>LATEST BLOG</h2>
 
                         <Swiper
                             slidesPerView={1}

@@ -31,33 +31,34 @@ const Post = () => {
   const visiblePosts = showAll ? filteredPosts : filteredPosts.slice(0, 8);
 
   return (
-    <div className="mt-20 flex flex-col md:flex-row gap-6 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+    <div className="mt-20 flex flex-col md:flex-row gap-6 max-w-7xl mx-auto px-4 md:pr-6 lg:px-4\">
       {/* Left Side: Products */}
       <div className="w-full md:w-3/4">
         {/* Header with Category Tabs */}
-        <div className="flex justify-between bg-gray-100 rounded-xl px-4 py-3">
-          <h1 className="uppercase text-xl font-sans font-bold leading-tight">
+        <div className="grid md:grid-cols-2 items-center  bg-gray-100 rounded-xl px-6 py-4 gap-4">
+          <h1 className="uppercase text-xl font-sans font-bold leading-tight text-center md:text-left md:mb-1 mb-6">
             Trending Products
           </h1>
-          <div className="flex gap-6 text-lg font-semibold text-gray-700 cursor-pointer">
+          <div className="flex flex-wrap gap-4 md:justify-end justify-center md:mr-10">
             {['New Arrival', 'Featured', 'Top Sell'].map(category => (
-              <p
+              <button
                 key={category}
                 onClick={() => {
                   setFilteredCategory(category);
                   setShowAll(false);
                 }}
-                className={`hover:text-yellow-500 transition ${
-                  filteredCategory === category
-                    ? 'text-yellow-500 font-bold'
-                    : ''
-                }`}
+                className={`px-4 py-2 rounded-md transition-colors duration-300 font-semibold
+          ${filteredCategory === category
+                    ? 'bg-yellow-500 text-white shadow-md hover:bg-yellow-600'
+                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-yellow-100 hover:text-yellow-600'
+                  }`}
               >
                 {category}
-              </p>
+              </button>
             ))}
           </div>
         </div>
+
 
         {/* Product Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">

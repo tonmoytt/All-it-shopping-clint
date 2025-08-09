@@ -93,7 +93,7 @@ const Navbar = () => {
     { name: 'Collection', to: '/collection' },
     { name: 'Contact', to: '/contact' },
     { name: 'Blog', to: '/blog' },
-    { name: 'Shop', to: '/' },
+    { name: 'Shop', to: '/shop' },
     { name: 'Services', to: '/' },
   ];
 

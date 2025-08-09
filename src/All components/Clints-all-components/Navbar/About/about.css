@@ -52,6 +52,7 @@
     cursor: pointer;
 }
 
+/* Services section */
 .services-section {
     text-align: center;
     margin: 40px 0;
@@ -75,4 +76,48 @@
     font-size: 40px;
     color: #555;
     margin-bottom: 10px;
+}
+
+/* ----------- Responsive Styles ------------ */
+@media (max-width: 900px) {
+    .about-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .about-container.reverse {
+        flex-direction: column;
+    }
+    .about-image, .about-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .about-content h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .about-content p, .about-content ul, .about-content ol {
+        font-size: 14px;
+        text-align: center;
+        padding: 0 10px;
+    }
+    .contact-btn {
+        display: block;
+        margin: 20px auto 0 auto;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 500px) {
+    .services-list {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .service-item {
+        max-width: 100%;
+    }
+    .service-icon {
+        font-size: 36px;
+    }
 }

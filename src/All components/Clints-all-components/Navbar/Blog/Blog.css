@@ -1,32 +1,37 @@
-.blog-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.blog-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-.blog-card {
-  border: 1px solid #eee;
-  padding: 15px;
-  background: #fff;
-  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+/* Header */
+.blog-header h1 {
+  color: #ffcc00;
+}
+
+/* Categories Filter */
+.categories-filter .category-btn {
+  cursor: pointer;
+}
+
+/* Featured Post */
+.featured-post img {
+  flex-shrink: 0;
+}
+
+/* Blog Cards Grid */
+.blog-container {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .blog-card img {
-  width: 100%;
-  height: auto;
-}
-
-.blog-card h3 {
-  font-size: 16px;
-  margin: 10px 0;
+  object-fit: cover;
 }
 
 .blog-meta {
   display: flex;
   gap: 15px;
-  font-size: 12px;
+  font-size: 13px;
   color: #777;
-  margin-bottom: 8px;
 }
 
 .blog-meta svg {
@@ -40,15 +45,15 @@
 }
 
 .full-desc {
-  margin-top: 0px;
+  margin-top: 0;
   color: #444;
 }
 
 .read-more {
-  margin-top: 0px;
+  margin-top: 0;
   background: none;
   border: none;
-  color: #0073e6;
+  color: #ffcc00;
   cursor: pointer;
   padding: 0;
 }
@@ -58,21 +63,142 @@
 }
 
 /* Pagination styling */
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 8px;
-}
-
 .pagination button {
-  padding: 5px 12px;
-  border: 1px solid #ccc;
-  background: white;
   cursor: pointer;
 }
 
-.pagination button.active {
-  background: #ffcc00;
-  border-color: #ffcc00;
+/* Newsletter */
+.newsletter input {
+  font-size: 16px;
+}
+
+.newsletter button {
+  cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .featured-post {
+    flex-direction: column;
+    text-align: center;
+  }
+  .featured-post img {
+    width: 100%;
+    max-height: 300px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-filter {
+    justify-content: center;
+  }
+}
+.popular-posts h2,
+.recent-comments h2,
+.author-spotlight h2,
+.tags-cloud h2,
+.call-to-action h2,
+.social-media h2 {
+  color: #ffcc00;
+}
+
+/* Popular posts */
+.popular-card img {
+  object-fit: cover;
+}
+
+/* Recent comments */
+.recent-comments ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Author Spotlight */
+.author-card img {
+  flex-shrink: 0;
+}
+
+/* Tags Cloud */
+.tags-cloud button {
+  cursor: pointer;
+}
+
+/* Call to Action */
+.call-to-action button {
+  cursor: pointer;
+}
+
+/* Social Media Icons */
+.social-media a {
+  transition: color 0.3s ease;
+}
+.social-media a:hover {
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .popular-posts .grid,
+  .author-spotlight .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+  /* popular post */
+  .popular-posts {
+  perspective: 1000px; /* for subtle 3D effect on hover */
+}
+
+.popular-card {
+  background-color: #fffbe6;
+  box-shadow: 0 8px 15px rgba(255, 204, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid #ffd54f;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.popular-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 30px rgba(255, 204, 0, 0.5);
+}
+
+.popular-card img {
+  border-radius: 12px;
+  border: 1.5px solid #ffeb99;
+  transition: transform 0.3s ease;
+}
+
+.popular-card img:hover {
+  transform: scale(1.05);
+}
+
+.btn-details {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  user-select: none;
+  box-shadow: 0 5px 8px rgba(255, 187, 0, 0.4);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-details:hover {
+  background-color: #f9a825;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(249, 168, 37, 0.7);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .popular-card {
+    margin: 0 auto;
+  }
 }

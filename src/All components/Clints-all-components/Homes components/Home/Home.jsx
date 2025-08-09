@@ -24,7 +24,7 @@ const Home = () => {
            <SpecialProduct></SpecialProduct>
            <UPcomeing></UPcomeing>
            <NewProduct></NewProduct>
-           <Footer></Footer>
+           {/* <Footer></Footer> */}
            {/* <OptionalFooter></OptionalFooter> */}
            
         </div>

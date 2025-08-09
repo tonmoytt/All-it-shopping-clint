@@ -36,20 +36,20 @@ const About = () => {
 
             {/* Our Services */}
             <div className="services-section border border-gray-200 py-2">
-                <h3 className="services-title">Our Services</h3>
+                <h3 className="services-title text-lg">Our Services</h3>
                 <div className="services-list">
                     <div className="service-item">
-                        <FaCloudDownloadAlt className="service-icon md:ml-28" />
+                        <FaCloudDownloadAlt className="service-icon ml-32 md:ml-28" />
                         <h4>FREE RESOURCES</h4>
                         <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>
                     <div className="service-item">
-                        <FaCogs className="service-icon md:ml-24" />
+                        <FaCogs className="service-icon  ml-32 md:ml-28" />
                         <h4>MULTI PURPOSE</h4>
                         <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>
                     <div className="service-item">
-                        <FaMobileAlt className="service-icon md:ml-28" />
+                        <FaMobileAlt className="service-icon  ml-32 md:ml-28" />
                         <h4>FULLY RESPONSIVE</h4>
                         <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>

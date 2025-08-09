@@ -11,19 +11,19 @@ const testimonials = [
   {
     id: 1,
     name: "Ariana Gomez",
-    image: "https://i.ibb.co/DYxG0R3/user1.jpg",
+    image: "https://i.ibb.co.com/cKPvVPDr/author6.jpg",
     description: "Bistro Boss is Great service and delicious food. Highly recommend to everyone!"
   },
   {
     id: 2,
     name: "John Doe",
-    image: "https://i.ibb.co/YhFhnKh/user2.jpg",
+   image: "https://i.ibb.co.com/1Jd0nwHX/author4.jpg",
     description: "This place exceeded my expectations. The ambiance and taste were top-notch!"
   },
   {
     id: 3,
     name: "Sara Lee",
-    image: "https://i.ibb.co/s2w3xz4/user3.jpg",
+    image: "https://i.ibb.co.com/1Jh8Cnck/author2.jpg",
     description: "We love coming here with our family. Always fresh, always tasty!"
   },
 ];

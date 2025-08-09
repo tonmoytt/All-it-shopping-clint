@@ -11,42 +11,46 @@ import {
   FaFootballBall,
   FaHome,
   FaQuoteLeft,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
 } from "react-icons/fa";
 import hot from '../../../assets/Images/blandercollection.avif';
 import benner from '../../../assets/Images/wallpaperflare.com_wallpaper.jpg';
 
-// Dummy brands logos - replace with your actual logos
 const brandLogos = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/0/09/Adidas_Logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/2/29/Under_armour_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/1/12/Puma_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/7a/Levis_logo.svg",
+  "https://i.ibb.co.com/pr3KkvcN/lg-logo.jpg",
+  "https://i.ibb.co.com/1J2FMRyJ/accesoriss.jpg",
+  "https://i.ibb.co.com/xKnkmymk/miyako-logo.jpg",
+  "https://i.ibb.co.com/JjYJsZmK/haire.png",
+  "https://i.ibb.co.com/nMqkTMSH/konka-logo.png",
+  "https://i.ibb.co.com/pr3KkvcN/lg-logo.jpg",
+  "https://i.ibb.co.com/1J2FMRyJ/accesoriss.jpg",
+  "https://i.ibb.co.com/xKnkmymk/miyako-logo.jpg",
+  "https://i.ibb.co.com/JjYJsZmK/haire.png",
+  "https://i.ibb.co.com/nMqkTMSH/konka-logo.png",
+  "https://i.ibb.co.com/pr3KkvcN/lg-logo.jpg",
+  "https://i.ibb.co.com/1J2FMRyJ/accesoriss.jpg",
+  "https://i.ibb.co.com/xKnkmymk/miyako-logo.jpg",
+  "https://i.ibb.co.com/JjYJsZmK/haire.png",
+  "https://i.ibb.co.com/nMqkTMSH/konka-logo.png",
 ];
 
-// Dummy blog posts (replace with your data fetching if available)
 const dummyBlogs = [
   {
     id: 1,
-    title: "Top 10 Spring Fashion Trends 2025",
+    title: "Top Clint",
     excerpt: "Discover what’s hot this spring in the world of fashion...",
-    image: "https://source.unsplash.com/400x300/?fashion,style",
+    image: "https://i.ibb.co.com/1Jd0nwHX/author4.jpg",
   },
   {
     id: 2,
-    title: "How to Accessorize Like a Pro",
+    title: "Our Marketor",
     excerpt: "Master the art of accessorizing with these easy tips...",
-    image: "https://source.unsplash.com/401x300/?accessories",
+    image: "https://i.ibb.co.com/1Jh8Cnck/author2.jpg",
   },
   {
     id: 3,
-    title: "Sustainable Clothing: Why It Matters",
+    title: "Sustainable Rice-Cooker",
     excerpt: "Learn about the importance of eco-friendly fashion choices...",
-    image: "https://source.unsplash.com/402x300/?sustainable,fashion",
+    image: "https://i.ibb.co.com/cKPvVPDr/author6.jpg",
   },
 ];
 
@@ -128,9 +132,10 @@ const Collection = () => {
 
   return (
     <div className="md:pt-36 bg-gray-50 min-h-screen py-10 px-4 md:px-0">
-      <div className="container mx-auto flex gap-10">
-        {/* Sidebar */}
-        <aside className="w-1/4 hidden lg:block sticky top-24 self-start space-y-10">
+      {/* CONTAINER: flex-wrap added for mobile */}
+      <div className="container mx-auto flex flex-wrap lg:flex-nowrap gap-10">
+        {/* Sidebar - hidden on mobile */}
+        <aside className="w-full lg:w-1/4 hidden lg:block sticky top-24 self-start space-y-10">
           {/* Categories */}
           <div className="bg-white rounded-lg shadow border border-gray-200 p-6">
             <h2 className="bg-yellow-400 text-gray-900 px-6 py-3 rounded font-extrabold text-lg tracking-wide">
@@ -160,7 +165,7 @@ const Collection = () => {
                 alt="Hot Deal"
                 className="rounded-md w-full object-cover shadow-sm"
               />
-              <div className="flex justify-center gap-3 mt-4">
+              <div className="flex justify-center gap-3 mt-4 flex-wrap">
                 {["10", "20", "30", "40"].map((num, i) => (
                   <div
                     key={i}
@@ -192,14 +197,14 @@ const Collection = () => {
           </div>
         </aside>
 
-        {/* Main content */}
-        <main className="flex-1 space-y-12">
+        {/* Main content - full width on mobile */}
+        <main className="flex-1 space-y-12 w-full">
           {/* Banner */}
           <section className="relative rounded-lg overflow-hidden shadow-lg">
             <img
               src={benner}
               alt="Fashion Banner"
-              className="w-full h-72 object-cover brightness-90"
+              className="w-full h-72 sm:h-96 object-cover brightness-90"
             />
             <div className="absolute top-10 left-10 max-w-md text-white">
               <h3 className="uppercase tracking-widest font-semibold text-sm">
@@ -219,7 +224,7 @@ const Collection = () => {
           </section>
 
           {/* Feature bar */}
-          <section className="grid grid-cols-3 bg-blue-700 text-white text-center py-5 font-semibold rounded-md shadow-inner">
+          <section className="grid grid-cols-1 sm:grid-cols-3 bg-blue-700 text-white text-center py-5 font-semibold rounded-md shadow-inner">
             <div>
               MONEY BACK
               <br />
@@ -239,9 +244,9 @@ const Collection = () => {
 
           {/* Products with filter */}
           <section>
-            <div className="flex justify-between items-center border-b border-gray-300 pb-3">
-              <h2 className="text-2xl font-bold tracking-wide">New Products</h2>
-              <div className="space-x-6 text-base font-semibold">
+            <div className="flex flex-col sm:flex-row justify-between items-center border-b border-gray-300 pb-3">
+              <h2 className="text-2xl font-bold tracking-wide mb-3 sm:mb-0">New Products</h2>
+              <div className="flex flex-wrap gap-4 sm:gap-6 text-base font-semibold">
                 {filterOptions.map((cat) => (
                   <button
                     key={cat}
@@ -321,18 +326,16 @@ const Collection = () => {
           </section>
 
           {/* Bottom Banner */}
-          <section className="grid grid-cols-2 gap-8 mt-12">
-            <div className="bg-gray-100 h-36 rounded-lg flex items-center justify-center font-bold text-2xl shadow-md hover:shadow-lg transition duration-300 cursor-pointer">
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+            <div className="bg-gray-100 h-36 rounded-lg flex items-center justify-center font-bold text-2xl shadow-md hover:shadow-lg transition duration-300 cursor-pointer px-4 text-center">
               2016 FASHION SALE - BUY NOW
             </div>
-            <div className="bg-yellow-400 h-36 rounded-lg flex items-center justify-center font-bold text-2xl shadow-md hover:shadow-lg transition duration-300 cursor-pointer">
+            <div className="bg-yellow-400 h-36 rounded-lg flex items-center justify-center font-bold text-2xl shadow-md hover:shadow-lg transition duration-300 cursor-pointer px-4 text-center">
               DESIGN - SAVE UPTO 50%
             </div>
           </section>
 
-          {/* --- NEW SECTIONS BELOW --- */}
-
-          {/* 1. Customer Testimonials */}
+          {/* Customer Testimonials */}
           <section className="mt-20 bg-white rounded-lg shadow-lg border border-gray-200 p-10 max-w-6xl mx-auto">
             <h2 className="text-3xl font-extrabold text-center mb-10 text-gray-900 tracking-wide">
               What Our Customers Say
@@ -354,7 +357,7 @@ const Collection = () => {
             </div>
           </section>
 
-          {/* 2. Brands Carousel */}
+          {/* Brands Carousel */}
           <section className="mt-20 max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-900 tracking-wide">
               Trusted Brands
@@ -371,7 +374,7 @@ const Collection = () => {
             </div>
           </section>
 
-          {/* 3. Newsletter Subscription */}
+          {/* Newsletter Subscription */}
           <section className="mt-20 bg-yellow-400 rounded-lg max-w-3xl mx-auto p-12 text-center shadow-lg relative overflow-hidden">
             <h2 className="text-4xl font-extrabold mb-6 text-white tracking-wide drop-shadow-lg">
               Stay Updated!
@@ -381,7 +384,7 @@ const Collection = () => {
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="flex justify-center max-w-md mx-auto gap-4"
+              className="flex flex-col sm:flex-row justify-center max-w-md mx-auto gap-4"
             >
               <input
                 type="email"
@@ -398,7 +401,7 @@ const Collection = () => {
             </form>
           </section>
 
-          {/* 4. Blog Highlights */}
+          {/* Blog Highlights */}
           <section className="mt-20 max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-900 tracking-wide">
               From Our Blog
@@ -426,7 +429,7 @@ const Collection = () => {
             </div>
           </section>
 
-          {/* 5. FAQ Accordion */}
+          {/* FAQ Accordion */}
           <section className="mt-20 max-w-4xl mx-auto bg-white rounded-lg shadow-lg border border-gray-200 p-8">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-900 tracking-wide">
               Frequently Asked Questions

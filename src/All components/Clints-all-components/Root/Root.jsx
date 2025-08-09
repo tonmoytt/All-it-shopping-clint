@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Homes components/Header/Header';
+import Footer from '../Homes components/Footer/Footer'
 
 const Root = () => {
     // const location = useLocation();
@@ -15,6 +16,7 @@ const Root = () => {
             <Header />
             <Navbar />
             <Outlet />
+            <Footer></Footer>
         </div>
     );
 };

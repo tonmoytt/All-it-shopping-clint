@@ -37,7 +37,7 @@ const Slider = () => {
     <div className="pt-32 relative">
       {/* Main slider container */}
       <div
-        className="relative max-w-[1680px] h-[460px] mx-auto p-4 rounded-lg overflow-hidden"
+        className="relative max-w-[1680px] h-[600px] mx-auto p-4 rounded-lg overflow-hidden"
         style={{
           backgroundImage:
             'url(https://i.ibb.co/TM9y6ZRB/37633-download-66-white-wallpaper-for-desktop-and-mobile.jpg)',
@@ -90,15 +90,15 @@ const Slider = () => {
       </div>
 
       {/* Below slider - product info with background */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 rounded-lg bg-white shadow-2xl px-4 py-6 mt-[-72px] relative z-10">
+      <div className="max-w-7xl   mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 rounded-lg bg-white shadow-2xl px-4 py-6 mt-[-72px] relative z-10">
         <div>
-          <img className="rounded-md h-60 w-full object-cover" src={img1} alt="Product 1" />
+          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img1} alt="Product 1" />
         </div>
         <div>
-          <img className="rounded-md h-60 w-full object-cover" src={img2} alt="Product 2" />
+          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img2} alt="Product 2" />
         </div>
         <div>
-          <img className="rounded-md h-60 w-full object-cover" src={img3} alt="Product 3" />
+          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img3} alt="Product 3" />
         </div>
       </div>
     </div>
