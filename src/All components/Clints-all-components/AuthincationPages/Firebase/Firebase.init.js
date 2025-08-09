@@ -5,22 +5,22 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBvA-ClyFk_Owh2PZcrvj0dRZeqpUCbORY",
-  authDomain: "shopping-site-c8f8e.firebaseapp.com",
-  projectId: "shopping-site-c8f8e",
-  storageBucket: "shopping-site-c8f8e.firebasestorage.app",
-  messagingSenderId: "79313206690",
-  appId: "1:79313206690:web:0fe6bfe2bb93b93d9246fb"
-};
 // const firebaseConfig = {
-//   apiKey: import.meta.env.VITE_apiKey,
-//   authDomain: import.meta.env.VITE_authDomain,
-//   projectId: import.meta.env.VITE_projectId,
-//   storageBucket: import.meta.env.VITE_storageBucket,
-//   messagingSenderId: import.meta.env.VITE_messagingSenderId,
-//   appId: import.meta.env.VITE_appId
+//   apiKey: "AIzaSyBvA-ClyFk_Owh2PZcrvj0dRZeqpUCbORY",
+//   authDomain: "shopping-site-c8f8e.firebaseapp.com",
+//   projectId: "shopping-site-c8f8e",
+//   storageBucket: "shopping-site-c8f8e.firebasestorage.app",
+//   messagingSenderId: "79313206690",
+//   appId: "1:79313206690:web:0fe6bfe2bb93b93d9246fb"
 // };
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

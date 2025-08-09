@@ -18,6 +18,7 @@ import Contact from './All components/Clints-all-components/Navbar/Contact/Conta
 import Blog from './All components/Clints-all-components/Navbar/Blog/Blog';
 import Collection from './All components/Clints-all-components/Navbar/Collection';
 import Shop from './All components/Clints-all-components/Navbar/Shop';
+import ScrollToTop from './All components/Clints-all-components/ScrollToTop/ScrollToTop.';
 
 const router = createBrowserRouter([
   {
@@ -67,10 +68,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelmetProvider>
-      <Authincation>
-        <RouterProvider router={router} />
-      </Authincation>
-    </HelmetProvider>
-  </StrictMode>
+  <HelmetProvider>
+    <Authincation>
+      
+      <RouterProvider router={router} />
+    </Authincation>
+  </HelmetProvider>
+</StrictMode>
 );

@@ -199,7 +199,7 @@ const Shop = () => {
                     className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="relative z-10 text-white text-3xl sm:text-5xl md:text-6xl font-bold drop-shadow text-center px-2">
-                    Simple is More
+                    Simplecity is the Best 
                 </div>
             </div>
 

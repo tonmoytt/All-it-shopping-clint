@@ -99,14 +99,14 @@ const Navbar = () => {
 
   // Categories items for dropdown
   const categoryItems = [
-    { name: 'Electronic', badge: 'NEW' },
-    { name: 'Blogs' },
-    { name: 'Accessories', badge: 'SALE' },
-    { name: 'Collection' },
-    { name: 'Contact' },
-    { name: 'Included Pages' },
-    { name: 'Aboutus' },
-    { name: 'FAQs' },
+    { name: 'New Product', badge: 'NEW' , to:'/shop'},
+    { name: 'New Arrival' , to:'/post'},
+    { name: 'Populer', badge: 'SALE' ,to:'/top sell' },
+    { name: 'Collection' , to:'/collection' },
+    { name: 'Contact' , to:'/contact'},
+    { name: 'Special Offers', to:'/special' },
+    { name: 'Aboutus', to:'/about' },
+    { name: 'FAQs', to:'/faq'},
   ];
 
   // Map categories to icons
