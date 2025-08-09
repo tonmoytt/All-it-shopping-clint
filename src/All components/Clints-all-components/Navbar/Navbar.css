@@ -1,52 +1,29 @@
-@keyframes offerTextFade {
-  0% {
-    opacity: 0;
+/* Make sure mobile menu covers full height and scrolls */
+@media (max-width: 767px) {
+  nav[aria-label="Mobile menu"] {
+    /* fixed height from below navbar + full screen */
+    top: 72px; /* height of main header (adjust if needed) */
+    bottom: 0;
+    overflow-y: auto;
   }
-  20%,
-  50% {
-    opacity: 1;
+
+  /* Increase click area for mobile toggles */
+  nav[aria-label="Mobile menu"] button,
+  nav[aria-label="Mobile menu"] a {
+    padding-top: 0.75rem;  /* 12px */
+    padding-bottom: 0.75rem;
   }
-  70%,
-  100% {
-    opacity: 0;
+
+  /* Slightly bigger font on mobile */
+  nav[aria-label="Mobile menu"] li,
+  nav[aria-label="Mobile menu"] a {
+    font-size: 1.125rem; /* text-lg */
   }
-}
 
-.animate-offerText {
-  animation: offerTextFade 5s ease-in-out infinite;
-}
-
-/* Badges */
-.badge-new {
-  font-size: 8px;
-  background-color: black;
-  color: white;
-  padding: 1px 6px;
-  border-radius: 4px;
-  user-select: none;
-}
-
-.badge-sale {
-  font-size: 8px;
-  background-color: #10b981;
-  color: white;
-  padding: 1px 6px;
-  border-radius: 4px;
-  user-select: none;
-}
-
-/* Fade In animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  /* Adjust badges for mobile */
+  .badge-new,
+  .badge-sale {
+    font-size: 9px;
+    padding: 2px 6px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease forwards;
 }

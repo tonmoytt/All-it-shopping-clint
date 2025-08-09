@@ -127,7 +127,7 @@ const Collection = () => {
   };
 
   return (
-    <div className="pt-20 bg-gray-50 min-h-screen py-10 px-4 md:px-0">
+    <div className="md:pt-36 bg-gray-50 min-h-screen py-10 px-4 md:px-0">
       <div className="container mx-auto flex gap-10">
         {/* Sidebar */}
         <aside className="w-1/4 hidden lg:block sticky top-24 self-start space-y-10">

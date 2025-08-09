@@ -1,6 +1,12 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { FaBars, FaChevronRight, FaMoon, FaSun } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
+import { 
+  FaLaptop, FaBlog, FaHeadphones, FaThLarge, FaEnvelope, 
+  FaFileAlt, FaInfoCircle, FaQuestionCircle 
+} from "react-icons/fa";
+import { FaTimes } from 'react-icons/fa'; 
+
 import Swal from 'sweetalert2';
 import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
 import userImg from '../../../assets/Logo/user.png';
@@ -13,8 +19,8 @@ const Navbar = () => {
 
   const { currentUser, SignoutUser } = useContext(Authconnect);
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For View More
-  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false); // For All Categories dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // View More
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false); // All Categories dropdown
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,14 +37,10 @@ const Navbar = () => {
   // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (
-        dropdownRef.current && !dropdownRef.current.contains(e.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setIsDropdownOpen(false);
       }
-      if (
-        categoriesRef.current && !categoriesRef.current.contains(e.target)
-      ) {
+      if (categoriesRef.current && !categoriesRef.current.contains(e.target)) {
         setIsCategoriesOpen(false);
       }
     };
@@ -107,11 +109,21 @@ const Navbar = () => {
     { name: 'FAQs' },
   ];
 
+  // Map categories to icons
+  const iconMap = {
+    Electronic: FaLaptop,
+    Blogs: FaBlog,
+    Accessories: FaHeadphones,
+    Collection: FaThLarge,
+    Contact: FaEnvelope,
+    "Included Pages": FaFileAlt,
+    Aboutus: FaInfoCircle,
+    FAQs: FaQuestionCircle
+  };
+
   return (
     <header
-      className={`fixed top-0 mt-16 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-md bg-black/80 shadow-lg' : 'bg-black/90'
-      }`}
+      className={`fixed top-0 mt-16 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-black/80 shadow-lg' : 'bg-black/90'}`}
     >
       <div className="max-w-full px-4 md:px-20 flex flex-wrap items-center justify-between gap-3 py-3">
         {/* Logo */}
@@ -137,37 +149,54 @@ const Navbar = () => {
               <FaBars />
               <span>All Categories</span>
               <FaChevronRight
-                className={`transform transition-transform duration-300 ${
-                  isCategoriesOpen ? 'rotate-90 text-yellow-400' : ''
-                }`}
+                className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-yellow-400' : ''}`}
               />
             </button>
 
             <div
-              className={`absolute top-full left-0 mt-2 w-56 bg-white text-gray-800 border border-gray-200 rounded-md shadow-xl z-50 transition-all duration-300 ease-out ${
-                isCategoriesOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
-              }`}
+              className={`absolute top-full left-0 mt-2 w-56 bg-white text-gray-800 border border-gray-200 rounded-md shadow-xl z-50 transition-all duration-300 ease-out ${isCategoriesOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}
             >
-              <ul className="p-4 space-y-2">
-                {categoryItems.map(({ name, badge }) => (
-                  <li
-                    key={name}
-                    className="flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors"
-                  >
-                    <span className="flex items-center gap-2">
-                      {name}
-                      {badge === 'NEW' && (
-                        <span className="badge-new">NEW</span>
+              <ul className="p-4 space-y-3 bg-gray-900/80 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-700 w-64">
+                {categoryItems.map(({ name, badge }) => {
+                  const Icon = iconMap[name] || FaFileAlt; // Fallback icon
+
+                  return (
+                    <li
+                      key={name}
+                      className="relative flex items-center justify-between px-4 py-3 rounded-lg border border-gray-700
+                                 bg-gray-800/50 hover:bg-gray-800
+                                 transition-all duration-300 ease-in-out transform hover:scale-[1.03]
+                                 hover:shadow-[0_0_15px_rgba(255,215,0,0.6)]
+                                 group cursor-pointer"
+                    >
+                      {/* Icon + Name */}
+                      <div className="flex items-center gap-3">
+                        <Icon className="text-yellow-400 text-lg group-hover:rotate-6 transition-transform duration-300" />
+                        <span className="text-gray-200 font-medium group-hover:text-yellow-400 transition-colors duration-300">
+                          {name}
+                        </span>
+                      </div>
+
+                      {/* Badge */}
+                      {badge && (
+                        <span
+                          className={`absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow-md animate-gradient-move ${
+                            badge === 'NEW'
+                              ? 'bg-gradient-to-r from-green-400 via-yellow-300 to-green-500'
+                              : 'bg-gradient-to-r from-red-500 via-pink-500 to-yellow-400'
+                          }`}
+                        >
+                          {badge}
+                        </span>
                       )}
-                      {badge === 'SALE' && (
-                        <span className="badge-sale">SALE</span>
+
+                      {/* Chevron */}
+                      {(name === 'Electronic' || name === 'Accessories') && (
+                        <FaChevronRight className="text-xs text-gray-400 group-hover:text-yellow-400 transition-colors duration-300" />
                       )}
-                    </span>
-                    {(name === 'Electronic' || name === 'Accessories') && (
-                      <FaChevronRight className="text-xs text-gray-400" />
-                    )}
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -195,15 +224,11 @@ const Navbar = () => {
             >
               View More
               <FaChevronRight
-                className={`transform transition-transform duration-300 ${
-                  isDropdownOpen ? 'rotate-90 text-yellow-400' : ''
-                }`}
+                className={`transform transition-transform duration-300 ${isDropdownOpen ? 'rotate-90 text-yellow-400' : ''}`}
               />
             </button>
             <div
-              className={`absolute top-full left-0 mt-2 w-40 bg-white text-gray-700 border border-gray-200 rounded-md shadow-xl z-50 transition-all duration-300 ease-out ${
-                isDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
-              }`}
+              className={`absolute top-full left-0 mt-2 w-40 bg-white text-gray-700 border border-gray-200 rounded-md shadow-xl z-50 transition-all duration-300 ease-out ${isDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}
             >
               <Link
                 to="/product"
@@ -235,7 +260,7 @@ const Navbar = () => {
         {/* Offer + Track order desktop */}
         <div className="hidden md:flex items-center gap-4">
           <div className="w-[240px] h-10 flex items-center justify-center bg-yellow-400 font-semibold text-sm rounded-md select-none ">
-          <h1 className='animate-offerText whitespace-nowrap'>FLAT 10% OFF ALL iPhone</h1>  
+            <h1 className="animate-offerText whitespace-nowrap">FLAT 10% OFF ALL iPhone</h1>
           </div>
           <Link
             to="/track-order"
@@ -273,102 +298,156 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <nav className="md:hidden bg-black/95 text-white px-4 py-4 space-y-4 select-none animate-fadeIn">
-          {/* Categories dropdown in mobile as collapsible */}
-          <div className="mb-3">
-            <button
-              onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-              className="flex items-center justify-between w-full font-semibold uppercase text-base hover:text-yellow-400 transition"
-              aria-expanded={isCategoriesOpen}
-            >
-              All Categories
-              <FaChevronRight
-                className={`transform transition-transform duration-300 ${
-                  isCategoriesOpen ? 'rotate-90 text-yellow-400' : ''
-                }`}
-              />
-            </button>
-            {isCategoriesOpen && (
-              <ul className="pl-4 mt-2 space-y-2 text-gray-300">
-                {categoryItems.map(({ name, badge }) => (
-                  <li
-                    key={name}
-                    className="flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors"
-                  >
-                    <span className="flex items-center gap-2">{name}
-                      {badge === 'NEW' && <span className="badge-new">NEW</span>}
-                      {badge === 'SALE' && <span className="badge-sale">SALE</span>}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+   
+{mobileMenuOpen && (
+  <nav
+    className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-80 backdrop-blur-sm"
+    aria-label="Mobile menu"
+  >
+    <div className="relative bg-gradient-to-b from-blue-900 via-blue-800 to-blue-300 text-gray-100 w-[90vw] max-w-xs py-8 px-6 space-y-6 select-none animate-fadeIn shadow-xl rounded-lg overflow-y-auto max-h-full">
+      
+      {/* Close Button */}
+      <button
+        onClick={() => setMobileMenuOpen(false)}
+        aria-label="Close menu"
+        className="absolute top-1 right-4 text-gray-300 hover:text-blue-400 transition-colors duration-300 focus:outline-none"
+      >
+        <FaTimes size={24} />
+      </button>
 
-          {menuItems.map(({ name, to }) => (
-            <Link
-              key={name}
-              to={to}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block uppercase text-base font-semibold hover:text-yellow-400 transition"
-            >
-              {name}
-            </Link>
-          ))}
+      {/* Categories dropdown in mobile as collapsible */}
+      <div className="mb-6">
+        <button
+          onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+          className="flex items-center justify-between w-full font-semibold uppercase text-lg tracking-wide hover:text-blue-300 transition-colors duration-300"
+          aria-expanded={isCategoriesOpen}
+        >
+          All Categories
+          <FaChevronRight
+            className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-300'}`}
+            size={18}
+          />
+        </button>
+        {isCategoriesOpen && (
+          <ul className="pl-5 mt-4 space-y-3 text-gray-300 font-medium max-h-60 overflow-y-auto">
+            {categoryItems.map(({ name, badge }) => {
+              const Icon = iconMap[name] || FaFileAlt;
+              return (
+                <li
+                  key={name}
+                  onClick={() => setIsCategoriesOpen(false)} // close categories on click
+                  className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-300 text-base"
+                >
+                  <span className="flex items-center gap-3">
+                    <Icon className="text-blue-400" />
+                    {name}
+                    {badge === 'NEW' && (
+                      <span className="badge-new ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        NEW
+                      </span>
+                    )}
+                    {badge === 'SALE' && (
+                      <span className="badge-sale ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-md">
+                        SALE
+                      </span>
+                    )}
+                  </span>
+                  <FaChevronRight className="text-sm text-gray-400" />
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
 
+      {menuItems.map(({ name, to }) => {
+        const mainIconMap = {
+          Home: FaLaptop,
+          'About us': FaInfoCircle,
+          Collection: FaThLarge,
+          Contact: FaEnvelope,
+          Blog: FaBlog,
+          Shop: FaHeadphones,
+          Services: FaFileAlt,
+        };
+        const Icon = mainIconMap[name] || FaFileAlt;
+        return (
           <Link
-            to="/product"
+            key={name}
+            to={to}
             onClick={() => setMobileMenuOpen(false)}
-            className="block uppercase text-base font-semibold hover:text-yellow-400 transition"
+            className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
           >
-            Product
+            <Icon className="text-blue-400" size={20} />
+            {name}
           </Link>
-          <Link
-            to="/category"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block uppercase text-base font-semibold hover:text-yellow-400 transition"
-          >
-            Category
-          </Link>
+        );
+      })}
 
-          <div className="flex items-center justify-between mt-4 gap-4">
-            {currentUser ? (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  handleSignOut();
-                }}
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-red-600 font-semibold hover:bg-red-700 transition"
-              >
-                <img className="w-7 h-7 rounded-full object-cover" src={logoutImg} alt="Logout" />
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 font-semibold hover:bg-blue-700 transition"
-              >
-                <img className="w-7 h-7 rounded-full object-cover" src={userImg} alt="Login" />
-                Login
-              </Link>
-            )}
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
-              title="Toggle theme"
-              aria-pressed={isDarkMode}
-            >
-              {isDarkMode ? (
-                <FaSun className="h-5 w-5 text-yellow-400" />
-              ) : (
-                <FaMoon className="h-5 w-5 text-gray-300" />
-              )}
-            </button>
-          </div>
-        </nav>
-      )}
+      <Link
+        to="/product"
+        onClick={() => setMobileMenuOpen(false)}
+        className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
+      >
+        <FaFileAlt className="text-blue-400" size={20} />
+        Product
+      </Link>
+      <Link
+        to="/category"
+        onClick={() => setMobileMenuOpen(false)}
+        className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
+      >
+        <FaThLarge className="text-blue-400" size={20} />
+        Category
+      </Link>
+
+      <div className="flex items-center justify-between mt-8 gap-4">
+        {currentUser ? (
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              handleSignOut();
+            }}
+            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-red-700 bg-opacity-90 hover:bg-red-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide"
+          >
+            <img
+              className="w-7 h-7 rounded-full object-cover"
+              src={logoutImg}
+              alt="Logout"
+            />
+            Logout
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-blue-700 bg-opacity-90 hover:bg-blue-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide"
+          >
+            <img
+              className="w-7 h-7 rounded-full object-cover"
+              src={userImg}
+              alt="Login"
+            />
+            Login
+          </Link>
+        )}
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 shadow-md transition duration-300"
+          title="Toggle theme"
+          aria-pressed={isDarkMode}
+        >
+          {isDarkMode ? (
+            <FaSun className="h-6 w-6 text-yellow-400" />
+          ) : (
+            <FaMoon className="h-6 w-6 text-white" />
+          )}
+        </button>
+      </div>
+    </div>
+  </nav>
+)}
+
     </header>
   );
 };

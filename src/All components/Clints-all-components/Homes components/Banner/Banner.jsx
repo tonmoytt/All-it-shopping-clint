@@ -26,11 +26,11 @@ const Banner = () => {
       <div className="flex flex-col max-w-full md:max-w-fit gap-6">
         <div className="flex flex-col sm:flex-row gap-5">
           <div className="flex-shrink-0">
-            <img className="rounded-md object-cover w-full max-w-[300px]" src={img3} alt="" />
+            <img className="rounded-md object-cover  " src={img3} alt="" />
           </div>
           <div className="flex-shrink-0">
             <img
-              className="rounded-md w-full max-w-[320px] h-[199px] object-cover"
+              className="rounded-md w-full   object-cover"
               src={img4}
               alt=""
             />
