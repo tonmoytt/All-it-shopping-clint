@@ -34,7 +34,7 @@ const products = [
 
 const Slider = () => {
   return (
-    <div className="pt-32 relative">
+    <div className="pt-40 md:pt-32 relative">
       {/* Main slider container */}
       <div
         className="relative max-w-[1680px] h-[600px] mx-auto p-4 rounded-lg overflow-hidden"
@@ -59,16 +59,19 @@ const Slider = () => {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
-          className="rounded-lg overflow-hidden"
+          className="rounded-lg  overflow-hidden"
         >
+          
+
+         
           {products.map((product) => (
             <SwiperSlide key={product.id}>
-              <div className="w-full h-80 md:h-96  flex flex-col md:flex-row gap-10 md:gap-20 items-center justify-center md:justify-start md:ml-40 px-4 md:px-0">
-                <div className="flex-shrink-0 md:ml-96">
+              <div className="w-full h-[500px] md:h-96  flex flex-col md:flex-row gap-1 md:gap-20 items-center justify-center md:justify-start md:ml-40 px-4 md:px-0">
+                <div className="flex-shrink-0 md:ml-96  ">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="object-contain h-48 md:h-60"
+                    className="object-contain h-40 md:h-60 "
                   />
                 </div>
                 <div className="flex-1  bg-opacity-70 rounded-lg p-6 shadow-lg w-full max-w-md">

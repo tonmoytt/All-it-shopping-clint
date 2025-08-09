@@ -6,19 +6,19 @@ import Footer from '../Homes components/Footer/Footer'
 import ScrollToTop from '../ScrollToTop/ScrollToTop.';
 
 const Root = () => {
-    // const location = useLocation();
+    const location = useLocation();
 
     // Check if current route is /signup or /login
-    // const isAuthPage = location.pathname === '/signup' || location.pathname === '/login' || location.pathname === '/collection';
+    const isAuthPage = location.pathname === '/signup' || location.pathname === '/login' 
 
     return (
         <div >
              <ScrollToTop />
-            {/* {!isAuthPage && } */}
+            
             <Header />
             <Navbar />
             <Outlet />
-            <Footer></Footer>
+            {!isAuthPage && <Footer/> }
         </div>
     );
 };
