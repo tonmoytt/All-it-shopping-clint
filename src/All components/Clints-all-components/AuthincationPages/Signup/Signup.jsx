@@ -48,12 +48,12 @@ const SignupPage = () => {
 
   // 🔹 Save to Backend
   const user = { name, lastname, email, password, address };
-  const response = await axios.post("http://localhost:5000/signup", user);
+  const response = await axios.post("https://al-it-server.vercel.app/signup", user);
 
   // শুধু signup সফল হলে JWT রিকোয়েস্ট যাবে
   if (response.status >= 200 && response.status < 300) {
     await axios.post(
-      "http://localhost:5000/jwt",
+      "https://al-it-server.vercel.app/jwt",
       { email: user.email },
       { withCredentials: true }
     );

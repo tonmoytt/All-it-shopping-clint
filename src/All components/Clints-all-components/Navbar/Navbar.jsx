@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
 import userImg from '../../../assets/Logo/user.png';
 import logoutImg from '../../../assets/Logo/l.png';
-import './navbar.css';
+ 
 
 const Navbar = () => {
   const location = useLocation();
@@ -260,7 +260,7 @@ const Navbar = () => {
         {/* Offer + Track order desktop */}
         <div className="hidden md:flex items-center gap-4">
           <div className="w-[240px] h-10 flex items-center justify-center bg-yellow-400 font-semibold text-sm rounded-md select-none ">
-            <h1 className="animate-offerText whitespace-nowrap">FLAT 10% OFF ALL iPhone</h1>
+            <h1 className="animate-offerText whitespace-nowrap">FLAT 10% OFF ALL Blender</h1>
           </div>
           <Link
             to="/track-order"

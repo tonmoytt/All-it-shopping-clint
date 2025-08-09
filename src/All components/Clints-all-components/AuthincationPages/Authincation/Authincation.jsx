@@ -40,7 +40,7 @@ useEffect(() => {
     if (user?.email) {
       try {
         await axios.post(
-          'http://localhost:5000/jwt',
+          'https://al-it-server.vercel.app/jwt',
           { email: user.email },
           { withCredentials: true }
         );
@@ -51,7 +51,7 @@ useEffect(() => {
         setLoading(false);
       }
     } else {
-      await axios.post('http://localhost:5000/logout', {}, { withCredentials: true });
+      await axios.post('https://al-it-server.vercel.app/logout', {}, { withCredentials: true });
       console.log('Logout success');
       setLoading(false);
     }

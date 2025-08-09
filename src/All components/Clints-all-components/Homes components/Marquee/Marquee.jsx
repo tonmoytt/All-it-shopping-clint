@@ -9,7 +9,7 @@ import {
   FaClock,
   FaCalendarAlt,
 } from "react-icons/fa";
-import "./marquee.css";
+import "./Marquee.css";
 
 const Marquee = () => {
   const [dateTime, setDateTime] = useState(new Date());

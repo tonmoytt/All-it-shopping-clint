@@ -138,7 +138,10 @@ const SpecialProduct = () => {
                                                     <img src={sub.icon} alt={sub.name} className='w-6 h-6 object-contain' />
                                                 </div>
                                                 <div className='flex justify-between w-full'>
-                                                    <p className='text-start w-full font-semibold mt-2'>{sub.name} ------> </p>
+                                                    <p className='text-start w-full font-semibold mt-2'>
+                                                        {sub.name} ------&gt;
+                                                    </p>
+
                                                     <button className='btn hover:btn-secondary'>Search it</button>
                                                 </div>
 
@@ -223,47 +226,47 @@ const SpecialProduct = () => {
 
                 <div className='md:w-1/4 bg-white p-4 rounded shadow'>
                     <h2 className='text-center font-semibold mb-4 border-b pb-2 bg-gray-300'>LATEST BLOG</h2>
- 
-                   <Swiper
-  slidesPerView={1}
-  pagination={{ clickable: true }}
-  modules={[Pagination]}
-  className='w-full'
->
-  {
-    // Chunking Specialdata into arrays of 7 items
-    [...Array(Math.ceil(Specialdata.length / 7))].map((_, i) => (
-      <SwiperSlide key={i}>
-        {
-          Specialdata.slice(i * 7, i * 7 + 7).map(item => (
-            <div key={item.id} className='flex gap-3 mb-4'>
-              <img src={item.image} alt={item.title} className='w-16 shadow h-16 rounded object-cover' />
-              <div>
-                <h4 className='text-xs mb-1 '>{item.name}</h4>
-                <div className='flex items-center gap-1 mb-1'>
-                  <p className='text-xs text-gray-500 line-through'>${item.oldPrice}</p>
-                  <p className='text-xs font-bold text-red-600'>${item.price}</p>
-                </div>
-                <div className='flex gap-1 mt-1'>
-                  {item.colors?.map((color, index) => (
-                    <span
-                      key={index}
-                      className='w-2 h-2 rounded-full inline-block'
-                      style={{ backgroundColor: color }}
-                    ></span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </SwiperSlide>
-    ))
-  }
-</Swiper>
 
- 
- 
+                    <Swiper
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination]}
+                        className='w-full'
+                    >
+                        {
+                            // Chunking Specialdata into arrays of 7 items
+                            [...Array(Math.ceil(Specialdata.length / 7))].map((_, i) => (
+                                <SwiperSlide key={i}>
+                                    {
+                                        Specialdata.slice(i * 7, i * 7 + 7).map(item => (
+                                            <div key={item.id} className='flex gap-3 mb-4'>
+                                                <img src={item.image} alt={item.title} className='w-16 shadow h-16 rounded object-cover' />
+                                                <div>
+                                                    <h4 className='text-xs mb-1 '>{item.name}</h4>
+                                                    <div className='flex items-center gap-1 mb-1'>
+                                                        <p className='text-xs text-gray-500 line-through'>${item.oldPrice}</p>
+                                                        <p className='text-xs font-bold text-red-600'>${item.price}</p>
+                                                    </div>
+                                                    <div className='flex gap-1 mt-1'>
+                                                        {item.colors?.map((color, index) => (
+                                                            <span
+                                                                key={index}
+                                                                className='w-2 h-2 rounded-full inline-block'
+                                                                style={{ backgroundColor: color }}
+                                                            ></span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+
+
+
                 </div>
 
             </div>
