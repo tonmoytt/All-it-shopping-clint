@@ -448,7 +448,7 @@ const Navbar = () => {
           {isDarkMode ? (
             <FaSun className="h-6 w-6 cursor-pointer text-yellow-400" />
           ) : (
-            <FaMoon className="h-6 w-6 cursor-pointer text-white" />
+            <FaMoon className="h-6 w-6 cursor-pointer text-gray-400" />
           )}
         </button>
       </div>
