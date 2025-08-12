@@ -19,6 +19,7 @@ import Blog from './All components/Clints-all-components/Navbar/Blog/Blog';
 import Collection from './All components/Clints-all-components/Navbar/Collection';
 import Shop from './All components/Clints-all-components/Navbar/Shop';
 import ScrollToTop from './All components/Clints-all-components/ScrollToTop/ScrollToTop.';
+import Dashboard from './All components/Clints-all-components/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: '/shop',
         element: <Shop />
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard />
       },
     ]
   }

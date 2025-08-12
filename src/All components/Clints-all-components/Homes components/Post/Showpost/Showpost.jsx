@@ -49,7 +49,7 @@ const Showpost = ({ data }) => {
 
       {/* Details Button */}
       <Link to={`/details/${id}`}>
-        <button className="mt-2 bg-black text-white text-xs px-3 py-1 rounded hover:bg-gray-800 transition">
+        <button className="mt-2 bg-black text-white text-xs px-3 py-1 cursor-pointer rounded hover:bg-gray-800 transition">
           Details
         </button>
       </Link>

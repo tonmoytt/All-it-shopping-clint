@@ -8,7 +8,8 @@ import UPcomeing from '../UPcomeing/UPcomeing';
 import NewProduct from '../NewProduct/NewProduct';
 import Footer from '../Footer/Footer';
 import OptionalFooter from '../Footer/OptionalFooter/OptionalFooter';
-import { Helmet } from 'react-helmet';
+// react-helmet এর পরিবর্তে react-helmet-async থেকে import করো
+import { Helmet } from 'react-helmet-async'; 
 import Marquee from '../Marquee/Marquee';
 
 const Home = () => {
@@ -26,7 +27,6 @@ const Home = () => {
            <NewProduct></NewProduct>
            {/* <Footer></Footer> */}
            {/* <OptionalFooter></OptionalFooter> */}
-           
         </div>
     );
 };

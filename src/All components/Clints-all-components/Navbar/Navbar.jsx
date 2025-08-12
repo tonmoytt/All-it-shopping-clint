@@ -94,7 +94,7 @@ const Navbar = () => {
     { name: 'Contact', to: '/contact' },
     { name: 'Blog', to: '/blog' },
     { name: 'Shop', to: '/shop' },
-    { name: 'Services', to: '/' },
+    { name: 'My Cart', to: '/dashboard' },
   ];
 
   // Categories items for dropdown
@@ -274,11 +274,11 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4 select-none">
           {currentUser ? (
             <button onClick={handleSignOut} aria-label="Logout" className="focus:outline-none">
-              <img className="w-9 h-9 rounded-full object-cover" src={logoutImg} alt="Logout" />
+              <img className="w-9 h-9 rounded-full object-cover cursor-pointer" src={logoutImg} alt="Logout" />
             </button>
           ) : (
             <Link to="/login" aria-label="Login">
-              <img className="w-8 h-8 rounded-full object-cover" src={userImg} alt="User Login" />
+              <img className="w-8 h-8 rounded-full object-cover cursor-pointer" src={userImg} alt="User Login" />
             </Link>
           )}
 
@@ -289,9 +289,9 @@ const Navbar = () => {
             aria-pressed={isDarkMode}
           >
             {isDarkMode ? (
-              <FaSun className="h-5 w-5 text-yellow-400" />
+              <FaSun className="h-5 w-5 cursor-pointer text-yellow-400" />
             ) : (
-              <FaMoon className="h-5 w-5 text-gray-300" />
+              <FaMoon className="h-5 w-5 cursor-pointer text-gray-300 hover:text-red-400" />
             )}
           </button>
         </div>
@@ -301,7 +301,7 @@ const Navbar = () => {
    
 {mobileMenuOpen && (
   <nav
-    className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-80 backdrop-blur-sm"
+    className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-70 backdrop-blur-md"
     aria-label="Mobile menu"
   >
     <div className="relative bg-gradient-to-b from-blue-900 via-blue-800 to-blue-300 text-gray-100 w-[90vw] max-w-xs py-8 px-6 space-y-6 select-none animate-fadeIn shadow-xl rounded-lg overflow-y-auto max-h-full">
@@ -310,49 +310,50 @@ const Navbar = () => {
       <button
         onClick={() => setMobileMenuOpen(false)}
         aria-label="Close menu"
-        className="absolute top-1 right-4 text-gray-300 hover:text-blue-400 transition-colors duration-300 focus:outline-none"
+        className="absolute top-2 right-3 text-gray-300 hover:text-blue-400 transition-colors duration-300 focus:outline-none"
       >
-        <FaTimes size={24} />
+        <FaTimes size={20} />
       </button>
 
-      {/* Categories dropdown in mobile as collapsible */}
-      <div className="mb-6">
+      {/* Categories dropdown */}
+      <div>
         <button
           onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-          className="flex items-center justify-between w-full font-semibold uppercase text-lg tracking-wide hover:text-blue-300 transition-colors duration-300"
+          className="flex items-center justify-between w-full font-semibold uppercase text-base tracking-wide hover:text-blue-300 transition-colors duration-300 focus:outline-none"
           aria-expanded={isCategoriesOpen}
         >
           All Categories
           <FaChevronRight
-            className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-300'}`}
+            className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-400'}`}
             size={18}
           />
         </button>
+
         {isCategoriesOpen && (
-          <ul className="pl-5 mt-4 space-y-3 text-gray-300 font-medium max-h-60 overflow-y-auto">
+          <ul className="pl-5 mt-4 space-y-2 max-h-52 overflow-y-auto text-gray-300 font-medium">
             {categoryItems.map(({ name, badge }) => {
               const Icon = iconMap[name] || FaFileAlt;
               return (
                 <li
                   key={name}
-                  onClick={() => setIsCategoriesOpen(false)} // close categories on click
-                  className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-300 text-base"
+                  onClick={() => setIsCategoriesOpen(false)}
+                  className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-250 text-base rounded-md px-2 py-1"
                 >
                   <span className="flex items-center gap-3">
                     <Icon className="text-blue-400" />
                     {name}
                     {badge === 'NEW' && (
-                      <span className="badge-new ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-md">
+                      <span className="ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
                         NEW
                       </span>
                     )}
                     {badge === 'SALE' && (
-                      <span className="badge-sale ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-md">
+                      <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
                         SALE
                       </span>
                     )}
                   </span>
-                  <FaChevronRight className="text-sm text-gray-400" />
+                  <FaChevronRight className="text-gray-400" size={14} />
                 </li>
               );
             })}
@@ -360,47 +361,52 @@ const Navbar = () => {
         )}
       </div>
 
-      {menuItems.map(({ name, to }) => {
-        const mainIconMap = {
-          Home: FaLaptop,
-          'About us': FaInfoCircle,
-          Collection: FaThLarge,
-          Contact: FaEnvelope,
-          Blog: FaBlog,
-          Shop: FaHeadphones,
-          Services: FaFileAlt,
-        };
-        const Icon = mainIconMap[name] || FaFileAlt;
-        return (
-          <Link
-            key={name}
-            to={to}
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
-          >
-            <Icon className="text-blue-400" size={20} />
-            {name}
-          </Link>
-        );
-      })}
+      {/* Main menu links */}
+      <div className="flex flex-col gap-4">
+        {menuItems.map(({ name, to }) => {
+          const mainIconMap = {
+            Home: FaLaptop,
+            'About us': FaInfoCircle,
+            Collection: FaThLarge,
+            Contact: FaEnvelope,
+            Blog: FaBlog,
+            Shop: FaHeadphones,
+            Services: FaFileAlt,
+          };
+          const Icon = mainIconMap[name] || FaFileAlt;
+          return (
+            <Link
+              key={name}
+              to={to}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex border-t items-center gap-2 uppercase font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <Icon className="text-blue-400" size={15} />
+              {name}
+            </Link>
+          );
+        })}
 
-      <Link
-        to="/product"
-        onClick={() => setMobileMenuOpen(false)}
-        className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
-      >
-        <FaFileAlt className="text-blue-400" size={20} />
-        Product
-      </Link>
-      <Link
-        to="/category"
-        onClick={() => setMobileMenuOpen(false)}
-        className="flex items-center gap-3 uppercase text-xl font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300"
-      >
-        <FaThLarge className="text-blue-400" size={20} />
-        Category
-      </Link>
+        {/* Extra fixed links */}
+        <Link
+          to="/product"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          <FaFileAlt className="text-blue-400" size={15} />
+          Product
+        </Link>
+        <Link
+          to="/category"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          <FaThLarge className="text-blue-400" size={15} />
+          Category
+        </Link>
+      </div>
 
+      {/* User actions + dark mode toggle */}
       <div className="flex items-center justify-between mt-8 gap-4">
         {currentUser ? (
           <button
@@ -408,12 +414,13 @@ const Navbar = () => {
               setMobileMenuOpen(false);
               handleSignOut();
             }}
-            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-red-700 bg-opacity-90 hover:bg-red-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide"
+            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-red-700 bg-opacity-90 hover:bg-red-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
           >
             <img
-              className="w-7 h-7 rounded-full object-cover"
+              className="w-7 h-7 rounded-full object-cover cursor-pointer"
               src={logoutImg}
               alt="Logout"
+              draggable={false}
             />
             Logout
           </button>
@@ -421,32 +428,34 @@ const Navbar = () => {
           <Link
             to="/login"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-blue-700 bg-opacity-90 hover:bg-blue-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide"
+            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-blue-700 bg-opacity-90 hover:bg-blue-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
           >
             <img
               className="w-7 h-7 rounded-full object-cover"
               src={userImg}
               alt="Login"
+              draggable={false}
             />
             Login
           </Link>
         )}
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 shadow-md transition duration-300"
+          className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
           title="Toggle theme"
           aria-pressed={isDarkMode}
         >
           {isDarkMode ? (
-            <FaSun className="h-6 w-6 text-yellow-400" />
+            <FaSun className="h-6 w-6 cursor-pointer text-yellow-400" />
           ) : (
-            <FaMoon className="h-6 w-6 text-white" />
+            <FaMoon className="h-6 w-6 cursor-pointer text-white" />
           )}
         </button>
       </div>
     </div>
   </nav>
 )}
+
 
     </header>
   );
