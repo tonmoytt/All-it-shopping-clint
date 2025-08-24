@@ -1,17 +1,17 @@
 import { useContext, useState, useEffect, useRef } from 'react';
 import { FaBars, FaChevronRight, FaMoon, FaSun } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  FaLaptop, FaBlog, FaHeadphones, FaThLarge, FaEnvelope, 
-  FaFileAlt, FaInfoCircle, FaQuestionCircle 
+import {
+  FaLaptop, FaBlog, FaHeadphones, FaThLarge, FaEnvelope,
+  FaFileAlt, FaInfoCircle, FaQuestionCircle
 } from "react-icons/fa";
-import { FaTimes } from 'react-icons/fa'; 
+import { FaTimes } from 'react-icons/fa';
 
 import Swal from 'sweetalert2';
 import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
 import userImg from '../../../assets/Logo/user.png';
 import logoutImg from '../../../assets/Logo/l.png';
- 
+
 
 const Navbar = () => {
   const location = useLocation();
@@ -28,11 +28,18 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const categoriesRef = useRef(null);
 
+  // ✅ Scroll logic: navbar fixed থাকবে, শুধু dropdowns close হবে
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      // ✅ Close only dropdowns (not mobile menu)
+      setIsDropdownOpen(false);
+      setIsCategoriesOpen(false);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -99,14 +106,14 @@ const Navbar = () => {
 
   // Categories items for dropdown
   const categoryItems = [
-    { name: 'New Product', badge: 'NEW' , to:'/shop'},
-    { name: 'New Arrival' , to:'/post'},
-    { name: 'Populer', badge: 'SALE' ,to:'/top sell' },
-    { name: 'Collection' , to:'/collection' },
-    { name: 'Contact' , to:'/contact'},
-    { name: 'Special Offers', to:'/special' },
-    { name: 'Aboutus', to:'/about' },
-    { name: 'FAQs', to:'/faq'},
+    { name: 'New Product', badge: 'NEW', to: '/shop' },
+    { name: 'New Arrival', to: '/post' },
+    { name: 'Populer', badge: 'SALE', to: '/top sell' },
+    { name: 'Collection', to: '/collection' },
+    { name: 'Contact', to: '/contact' },
+    { name: 'Special Offers', to: '/special' },
+    { name: 'Aboutus', to: '/about' },
+    { name: 'FAQs', to: '/faq' },
   ];
 
   // Map categories to icons
@@ -123,8 +130,12 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 mt-16 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-black/80 shadow-lg' : 'bg-black/90'}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+    ${isScrolled ? 'backdrop-blur-md bg-black/80 shadow-lg' : 'bg-black/90'} 
+    ${['/', '/collection', '/shop'].includes(location.pathname) ? 'mt-[54px]' : 'mt-0'}
+  `}
     >
+
       <div className="max-w-full px-4 md:px-20 flex flex-wrap items-center justify-between gap-3 py-3">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-white select-none">
@@ -180,11 +191,10 @@ const Navbar = () => {
                       {/* Badge */}
                       {badge && (
                         <span
-                          className={`absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow-md animate-gradient-move ${
-                            badge === 'NEW'
+                          className={`absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow-md animate-gradient-move ${badge === 'NEW'
                               ? 'bg-gradient-to-r from-green-400 via-yellow-300 to-green-500'
                               : 'bg-gradient-to-r from-red-500 via-pink-500 to-yellow-400'
-                          }`}
+                            }`}
                         >
                           {badge}
                         </span>
@@ -298,163 +308,171 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-   
-{mobileMenuOpen && (
-  <nav
-    className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-70 backdrop-blur-md"
-    aria-label="Mobile menu"
-  >
-    <div className="relative bg-gradient-to-b from-blue-900 via-blue-800 to-blue-300 text-gray-100 w-[90vw] max-w-xs py-8 px-6 space-y-6 select-none animate-fadeIn shadow-xl rounded-lg overflow-y-auto max-h-full">
-      
-      {/* Close Button */}
-      <button
-        onClick={() => setMobileMenuOpen(false)}
-        aria-label="Close menu"
-        className="absolute top-2 right-3 text-gray-300 hover:text-blue-400 transition-colors duration-300 focus:outline-none"
-      >
-        <FaTimes size={20} />
-      </button>
 
-      {/* Categories dropdown */}
-      <div>
-        <button
-          onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
-          className="flex items-center justify-between w-full font-semibold uppercase text-base tracking-wide hover:text-blue-300 transition-colors duration-300 focus:outline-none"
-          aria-expanded={isCategoriesOpen}
+      {mobileMenuOpen && (
+        <nav
+          className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-70 backdrop-blur-md"
+          aria-label="Mobile menu"
         >
-          All Categories
-          <FaChevronRight
-            className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-400'}`}
-            size={18}
-          />
-        </button>
+          <div className="relative bg-gradient-to-b from-blue-900 via-blue-800 to-blue-300 text-gray-100 w-[90vw] max-w-xs py-8 px-6 space-y-6 select-none animate-fadeIn shadow-xl rounded-lg overflow-y-auto max-h-full">
 
-        {isCategoriesOpen && (
-          <ul className="pl-5 mt-4 space-y-2 max-h-52 overflow-y-auto text-gray-300 font-medium">
-            {categoryItems.map(({ name, badge }) => {
-              const Icon = iconMap[name] || FaFileAlt;
-              return (
-                <li
-                  key={name}
-                  onClick={() => setIsCategoriesOpen(false)}
-                  className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-250 text-base rounded-md px-2 py-1"
-                >
-                  <span className="flex items-center gap-3">
-                    <Icon className="text-blue-400" />
-                    {name}
-                    {badge === 'NEW' && (
-                      <span className="ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
-                        NEW
-                      </span>
-                    )}
-                    {badge === 'SALE' && (
-                      <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
-                        SALE
-                      </span>
-                    )}
-                  </span>
-                  <FaChevronRight className="text-gray-400" size={14} />
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-
-      {/* Main menu links */}
-      <div className="flex flex-col gap-4">
-        {menuItems.map(({ name, to }) => {
-          const mainIconMap = {
-            Home: FaLaptop,
-            'About us': FaInfoCircle,
-            Collection: FaThLarge,
-            Contact: FaEnvelope,
-            Blog: FaBlog,
-            Shop: FaHeadphones,
-            Services: FaFileAlt,
-          };
-          const Icon = mainIconMap[name] || FaFileAlt;
-          return (
-            <Link
-              key={name}
-              to={to}
+            {/* Close Button */}
+            <button
               onClick={() => setMobileMenuOpen(false)}
-              className="flex border-t items-center gap-2 uppercase font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              aria-label="Close menu"
+              className="absolute top-2 right-3 text-gray-300 hover:text-blue-400 transition-colors duration-300 focus:outline-none"
             >
-              <Icon className="text-blue-400" size={15} />
-              {name}
-            </Link>
-          );
-        })}
+              <FaTimes size={20} />
+            </button>
 
-        {/* Extra fixed links */}
-        <Link
-          to="/product"
-          onClick={() => setMobileMenuOpen(false)}
-          className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          <FaFileAlt className="text-blue-400" size={15} />
-          Product
-        </Link>
-        <Link
-          to="/category"
-          onClick={() => setMobileMenuOpen(false)}
-          className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          <FaThLarge className="text-blue-400" size={15} />
-          Category
-        </Link>
-      </div>
+            {/* Categories dropdown */}
+           <div>
+  <button
+    onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+    className="flex items-center justify-between w-full font-semibold uppercase text-base tracking-wide hover:text-blue-300 transition-colors duration-300 focus:outline-none"
+    aria-expanded={isCategoriesOpen}
+  >
+    All Categories
+    <FaChevronRight
+       onClick={(e) => {
+                    e.stopPropagation();
+                    setIsCategoriesOpen(!isCategoriesOpen); // ✅ Toggle properly
+                  }}
+      className={`cursor-pointer transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-400'}`}
+      size={18}
+    />
+  </button>
 
-      {/* User actions + dark mode toggle */}
-      <div className="flex items-center justify-between mt-8 gap-4">
-        {currentUser ? (
-          <button
+  {isCategoriesOpen && (
+    <ul className="pl-5 mt-4 space-y-2 max-h-52 overflow-y-auto text-gray-300 font-medium">
+      {categoryItems.map(({ name, badge }) => {
+        const Icon = iconMap[name] || FaFileAlt;
+        return (
+          <li
+            key={name}
             onClick={() => {
-              setMobileMenuOpen(false);
-              handleSignOut();
+              setIsCategoriesOpen(false); // ✅ Dropdown close হবে
+              setMobileMenuOpen(false); // ✅ Mobile menu close হবে (optional)
             }}
-            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-red-700 bg-opacity-90 hover:bg-red-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
+            className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-250 text-base rounded-md px-2 py-1"
           >
-            <img
-              className="w-7 h-7 rounded-full object-cover cursor-pointer"
-              src={logoutImg}
-              alt="Logout"
-              draggable={false}
-            />
-            Logout
-          </button>
-        ) : (
-          <Link
-            to="/login"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 px-5 py-3 rounded-lg bg-blue-700 bg-opacity-90 hover:bg-blue-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
-          >
-            <img
-              className="w-7 h-7 rounded-full object-cover"
-              src={userImg}
-              alt="Login"
-              draggable={false}
-            />
-            Login
-          </Link>
-        )}
-        <button
-          onClick={() => setIsDarkMode(!isDarkMode)}
-          className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          title="Toggle theme"
-          aria-pressed={isDarkMode}
-        >
-          {isDarkMode ? (
-            <FaSun className="h-6 w-6 cursor-pointer text-yellow-400" />
-          ) : (
-            <FaMoon className="h-6 w-6 cursor-pointer text-gray-400" />
-          )}
-        </button>
-      </div>
-    </div>
-  </nav>
-)}
+            <span className="flex items-center gap-3">
+              <Icon className="text-blue-400" />
+              {name}
+              {badge === 'NEW' && (
+                <span className="ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
+                  NEW
+                </span>
+              )}
+              {badge === 'SALE' && (
+                <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
+                  SALE
+                </span>
+              )}
+            </span>
+            <FaChevronRight className="text-gray-400" size={14} />
+          </li>
+        );
+      })}
+    </ul>
+  )}
+</div>
+
+
+            {/* Main menu links */}
+            <div className="flex flex-col gap-4">
+              {menuItems.map(({ name, to }) => {
+                const mainIconMap = {
+                  Home: FaLaptop,
+                  'About us': FaInfoCircle,
+                  Collection: FaThLarge,
+                  Contact: FaEnvelope,
+                  Blog: FaBlog,
+                  Shop: FaHeadphones,
+                  Services: FaFileAlt,
+                };
+                const Icon = mainIconMap[name] || FaFileAlt;
+                return (
+                  <Link
+                    key={name}
+                    to={to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex border-t items-center gap-2 uppercase font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  >
+                    <Icon className="text-blue-400" size={15} />
+                    {name}
+                  </Link>
+                );
+              })}
+
+              {/* Extra fixed links */}
+              <Link
+                to="/product"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
+                <FaFileAlt className="text-blue-400" size={15} />
+                Product
+              </Link>
+              <Link
+                to="/category"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex border-t items-center gap-2 uppercase  font-semibold tracking-wide hover:text-blue-300 transition-colors duration-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
+                <FaThLarge className="text-blue-400" size={15} />
+                Category
+              </Link>
+            </div>
+
+            {/* User actions + dark mode toggle */}
+            <div className="flex items-center justify-between mt-8 gap-4">
+              {currentUser ? (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleSignOut();
+                  }}
+                  className="flex items-center gap-3 px-5 py-3 rounded-lg bg-red-700 bg-opacity-90 hover:bg-red-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
+                >
+                  <img
+                    className="w-7 h-7 rounded-full object-cover cursor-pointer"
+                    src={logoutImg}
+                    alt="Logout"
+                    draggable={false}
+                  />
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-5 py-3 rounded-lg bg-blue-700 bg-opacity-90 hover:bg-blue-800 shadow-lg transition duration-300 font-semibold text-white tracking-wide select-none"
+                >
+                  <img
+                    className="w-7 h-7 rounded-full object-cover"
+                    src={userImg}
+                    alt="Login"
+                    draggable={false}
+                  />
+                  Login
+                </Link>
+              )}
+              <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                title="Toggle theme"
+                aria-pressed={isDarkMode}
+              >
+                {isDarkMode ? (
+                  <FaSun className="h-6 w-6 cursor-pointer text-yellow-400" />
+                ) : (
+                  <FaMoon className="h-6 w-6 cursor-pointer text-gray-400" />
+                )}
+              </button>
+            </div>
+          </div>
+        </nav>
+      )}
 
 
     </header>

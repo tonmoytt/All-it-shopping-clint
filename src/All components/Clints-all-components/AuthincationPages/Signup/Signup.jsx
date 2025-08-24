@@ -116,57 +116,63 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f1e2e] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-[#0f1e2e] flex items-center justify-center px-6 pt-3">
       <div className="bg-[#0f1e2e] text-white rounded-lg overflow-hidden shadow-xl w-full max-w-7xl flex flex-col md:flex-row">
 
         {/* Left Side */}
-        <div className="w-full pt-40  md:w-1/2 relative p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center bg-[#0f1e2e] overflow-hidden">
-          {/* Decorative Shapes */}
-          <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-br-full"></div>
-          <div className="absolute top-40 sm:top-24 right-[20px] sm:right-[133px] z- w-8 h-8 sm:w-12 sm:h-12 bg-[#ff7043] rounded-bl-[60px] rotate-15"></div>
-          <div className="absolute bottom-[-50px] sm:bottom-[-80px] left-[-20px] sm:left-[-40px] w-40 h-40 sm:w-80 sm:h-80 bg-[#ff7043] rounded-full opacity-90"></div>
-          <div className="absolute bottom-0 right-[-10px] sm:right-[-20px] w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-tl-full"></div>
-          <div className="absolute left-[-15px] sm:left-[-30px] top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-16 sm:h-16 bg-[#ff7043] rounded-full"></div>
+       
 
-          {/* Image & Text */}
-          <div className="relative z-10 text-center md:text-left">
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 overflow-hidden mx-auto mb-4 sm:mb-6">
-              <img
-                src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg"
-                alt="person"
-                className="w-full h-full object-cover rounded-bl-[50px] sm:rounded-bl-[60px] md:rounded-bl-[80px] rounded-tr-[50px] sm:rounded-tr-[60px] md:rounded-tr-[80px]"
-              />
+
+          <div className="  w-full md:pt-40  md:w-1/2 relative p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center bg-[#0f1e2e] overflow-hidden">
+           <div className="hidden md:block">
+            {/* Decorative Shapes */}
+            <div className="absolute top-0 left-0 w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-br-full"></div>
+            <div className="absolute top-40 sm:top-24 right-[20px] sm:right-[133px] z- w-8 h-8 sm:w-12 sm:h-12 bg-[#ff7043] rounded-bl-[60px] rotate-15"></div>
+            <div className="absolute bottom-[-50px] sm:bottom-[-80px] left-[-20px] sm:left-[-40px] w-40 h-40 sm:w-80 sm:h-80 bg-[#ff7043] rounded-full opacity-90"></div>
+            <div className="absolute bottom-0 right-[-10px] sm:right-[-20px] w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-tl-full"></div>
+            <div className="absolute left-[-15px] sm:left-[-30px] top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-16 sm:h-16 bg-[#ff7043] rounded-full"></div>
+
+            {/* Image & Text */}
+            <div className=" relative z-10 text-center md:text-left">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 overflow-hidden mx-auto mb-4 sm:mb-6">
+                <img
+                  src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg"
+                  alt="person"
+                  className="w-full h-full object-cover rounded-bl-[50px] sm:rounded-bl-[60px] md:rounded-bl-[80px] rounded-tr-[50px] sm:rounded-tr-[60px] md:rounded-tr-[80px]"
+                />
+              </div>
+              <h2 className="text-center md:text-start text-2xl sm:text-3xl font-bold md:-ml-36 leading-snug">
+                Let’s Make it <br /> Happen Together!
+              </h2>
             </div>
-            <h2 className="text-center md:text-start text-2xl sm:text-3xl font-bold md:-ml-36 leading-snug">
-              Let’s Make it <br /> Happen Together!
-            </h2>
           </div>
         </div>
 
 
         {/* Right Side Form */}
-        <div className="w-full md:w-1/2 bg-[#0f1e2e] px-10 py-8">
-          <div className="text-right text-base font-sans mb-2">
+        <div className="   w-full md:w-1/2 bg-[#0f1e2e] px-3 md:py-10">
+          <div className="hidden md:block text-right text-base font-sans mb-2">
             Already have an account?{" "}
             <Link to="/login" className="text-[#ff7043] underline">
               Sign in here!
             </Link>
           </div>
 
-          <h2 className="text-2xl text-[#ff7043] font-bold mb-6">Create An Account</h2>
+          <h2 className="text-[28px] md:text34xl text-[#ff7043] font-bold ">Create An Account</h2>
+          <p className=" mb-4 text-xs justify-end flex">Have an account ?<span className="ml-1 underline text-[#ff7043]">Login</span> </p>
 
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
               <InputField label="First Name" name="firstname" type="text" placeholder="Enter your first name" />
               <InputField label="Last Name" name="lastname" type="text" placeholder="Enter your last name" />
               <InputField label="Email" name="email" type="email" placeholder="Enter your email" />
-              <InputField label="Address" name="address" type="text" placeholder="Enter your address" />
+              <InputField  label="Address" name="address" type="text" placeholder="Enter your address" />
               <InputField label="Create Password" name="password" type="password" placeholder="Create password" />
               <InputField label="Confirm Password" name="confirmpassword" type="password" placeholder="Confirm password" />
             </div>
 
             {/* Terms Checkbox */}
-            <div className="mt-4 text-base font-sans">
+            <div className="mt-4 text-xs md:text-base font-sans ">
               <label className="flex items-start gap-2">
                 <input name="checkbox" type="checkbox" className="mt-1" />
                 <span>
@@ -189,14 +195,9 @@ const SignupPage = () => {
 
           {/* Social Buttons */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
-            <button className="flex items-center justify-center gap-2 bg-[#3b5998] py-2 rounded text-white hover:opacity-90 text-base font-sans transition duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.5-3.88 3.78-3.88 1.1 0 2.25.2 2.25.2v2.48h-1.27c-1.25 0-1.64.78-1.64 1.57v1.89h2.8l-.45 2.9h-2.35v7.03C18.34 21.25 22 17.09 22 12.07z" />
-              </svg>
-              Sign up Facebook
-            </button>
 
-            <button
+
+             <button
               onClick={googleHandle}
               className="flex items-center justify-center gap-2 bg-[#00acee] py-2 rounded text-white hover:opacity-90 text-base font-sans transition duration-300"
             >
@@ -208,6 +209,14 @@ const SignupPage = () => {
               </svg>
               Sign up Google
             </button>
+            <button className="flex items-center justify-center gap-2 bg-[#3b5998] py-2 rounded text-white hover:opacity-90 text-base font-sans transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.5-3.88 3.78-3.88 1.1 0 2.25.2 2.25.2v2.48h-1.27c-1.25 0-1.64.78-1.64 1.57v1.89h2.8l-.45 2.9h-2.35v7.03C18.34 21.25 22 17.09 22 12.07z" />
+              </svg>
+              Sign up Facebook
+            </button>
+
+           
           </div>
 
 
