@@ -20,6 +20,16 @@ import Collection from './All components/Clints-all-components/Navbar/Collection
 import Shop from './All components/Clints-all-components/Navbar/Shop';
 import ScrollToTop from './All components/Clints-all-components/ScrollToTop/ScrollToTop.';
 import Dashboard from './All components/Clints-all-components/Dashboard/Dashboard';
+import ProductPage from './All components/Clints-all-components/Navbar/ProductPage';
+import CategoryPage from './All components/Clints-all-components/Navbar/CategoryPage';
+import Collection2 from './All components/Clints-all-components/Navbar/Allcategorys/Collection2/Collection2';
+import NewProduct from './All components/Clints-all-components/Homes components/NewProduct/NewProduct';
+import NewArrival from './All components/Clints-all-components/Navbar/Allcategorys/NewArrival2/NewArrival2';
+import PopularProducts2 from './All components/Clints-all-components/Navbar/Allcategorys/PopularProducts2/PopularProducts2';
+import NewProducts2 from './All components/Clints-all-components/Navbar/Allcategorys/NewProduct2/NewProduct2';
+import NewArrival2 from './All components/Clints-all-components/Navbar/Allcategorys/NewArrival2/NewArrival2';
+import FeaturedProducts from './All components/Clints-all-components/Navbar/Allcategorys/FeaturedProducts/FeaturedProducts';
+import Faq from './All components/Clints-all-components/Navbar/Allcategorys/Faq/Faq';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +76,38 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />
+      },
+      {
+        path: '/product',
+        element: <ProductPage />
+      },
+      {
+        path: '/category',
+        element: <CategoryPage />
+      },
+      {
+        path: '/collection2',
+        element: <Collection2 />
+      },
+      {
+        path: '/newproducts2',
+        element: <NewArrival2/>
+      },
+      {
+        path: '/popular2',
+        element: <PopularProducts2 />
+      },
+      {
+        path: '/new2',
+        element: <NewProducts2 />
+      },
+      {
+        path: '/special',
+        element: <FeaturedProducts />
+      },
+      {
+        path: '/faq',
+        element: <Faq />
       },
     ]
   }

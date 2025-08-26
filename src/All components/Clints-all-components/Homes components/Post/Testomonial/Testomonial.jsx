@@ -69,13 +69,43 @@ const Testomonial = () => {
         <input className="w-56 input my-2 " type="email" placeholder="Your email" />
         <button className="btn btn-secondary my-2 ">Subscribe </button>
         <p className="mt-4 mb-2">Join our social media</p>
-        <div className="flex mx-auto w-fit gap-2 mt-2">
-          <a className="my-1"> <FaFacebook className="w-7 h-7"></FaFacebook> </a>
-          <a className="my-1"> <FaYoutube className="w-7 h-7"></FaYoutube> </a>
-          <a className="my-1"> <FaInstagram className="w-7 h-7"></FaInstagram> </a>
-          <a className="my-1"> <FaTwitter className="w-7 h-7"></FaTwitter> </a>
-          <a className="my-1"> <FaTiktok className="w-7 h-7"></FaTiktok> </a>
-        </div>
+       <div className="flex mx-auto w-fit gap-2 mt-2">
+  <a
+    className="my-1 bg-[#1877F2] text-white w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 hover:shadow-lg transition-all duration-300"
+    href="#"
+  >
+    <FaFacebook className="w-5 h-5" />
+  </a>
+
+  <a
+    className="my-1 bg-[#FF0000] text-white w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 hover:shadow-lg transition-all duration-300"
+    href="#"
+  >
+    <FaYoutube className="w-5 h-5" />
+  </a>
+
+  <a
+    className="my-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-500 text-white w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 hover:shadow-lg transition-all duration-300"
+    href="#"
+  >
+    <FaInstagram className="w-5 h-5" />
+  </a>
+
+  <a
+    className="my-1 bg-[#1DA1F2] text-white w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 hover:shadow-lg transition-all duration-300"
+    href="#"
+  >
+    <FaTwitter className="w-5 h-5" />
+  </a>
+
+  <a
+    className="my-1 bg-black text-white w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 hover:shadow-lg transition-all duration-300"
+    href="#"
+  >
+    <FaTiktok className="w-5 h-5" />
+  </a>
+</div>
+
       </div>
     </div>
   );

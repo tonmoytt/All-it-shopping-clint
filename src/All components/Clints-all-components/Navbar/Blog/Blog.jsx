@@ -42,12 +42,22 @@ const Blog = () => {
     const postsPerPage = 6;
 
     useEffect(() => {
-        fetch("/All post data/post.json")
+        fetch("/All post data/Blog.json")
             .then((res) => res.json())
             .then((data) => {
                 const blog = data.filter((item) => item.category2 === "blog");
-                const topsell = data.filter((item) => item.productTag === "Top Sell");
+          
                 setBlogData(blog);
+             
+            });
+    }, []);
+    useEffect(() => {
+        fetch("/All post data/post.json")
+            .then((res) => res.json())
+            .then((data) => {
+            
+                const topsell = data.filter((item) => item.productTag === "Top Sell");
+                
                 setBlogData2(topsell);
             });
     }, []);

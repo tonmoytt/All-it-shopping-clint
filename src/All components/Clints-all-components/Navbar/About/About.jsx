@@ -78,7 +78,7 @@ const About = () => {
                     <img src={laptopImg} alt="Laptop" />
                 </div>
             </div>
-            <Footer></Footer>
+          
 
         </div>
     );

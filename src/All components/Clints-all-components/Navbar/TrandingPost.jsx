@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const TrandingPost = () => {
   const [post, setPost] = useState([]);
@@ -31,7 +32,7 @@ const TrandingPost = () => {
   // Reusable Product Card with stylish Details button
   const ProductCard = ({ item, colorful = false }) => (
     <div
-      className={`relative overflow-hidden rounded-xl border-2 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
+      className={`relative mb-10 overflow-hidden rounded-xl border-2 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
         colorful
           ? "bg-gradient-to-tr from-pink-400 via-purple-400 to-indigo-400 text-white"
           : "bg-white"
@@ -64,7 +65,7 @@ const TrandingPost = () => {
         </p>
 
         {/* Details Button */}
-        <button
+     <Link to={`/details/${item.id}`}> <button
           className="mt-4 relative inline-block px-2 py-1 rounded-lg font-semibold
             text-white
             bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
@@ -85,6 +86,7 @@ const TrandingPost = () => {
               transition-all duration-300"
           ></span>
         </button>
+        </Link>  
       </div>
 
       {/* Border Animation Effect */}

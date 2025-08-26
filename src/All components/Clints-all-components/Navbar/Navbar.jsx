@@ -106,15 +106,17 @@ const Navbar = () => {
 
   // Categories items for dropdown
   const categoryItems = [
-    { name: 'New Product', badge: 'NEW', to: '/shop' },
-    { name: 'New Arrival', to: '/post' },
-    { name: 'Populer', badge: 'SALE', to: '/top sell' },
-    { name: 'Collection', to: '/collection' },
+    { name: 'New Product', badge: 'NEW', to: '/new2' },
+    { name: 'New Arrival', to: '/newproducts2' },
+    { name: 'Populer', badge: 'SALE', to: '/popular2' },
+    { name: 'Collection', to: '/collection2' },
     { name: 'Contact', to: '/contact' },
     { name: 'Special Offers', to: '/special' },
     { name: 'Aboutus', to: '/about' },
     { name: 'FAQs', to: '/faq' },
   ];
+
+
 
   // Map categories to icons
   const iconMap = {
@@ -130,7 +132,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={` fixed top-0 left-0 w-full z-50 transition-all duration-300 
     ${isScrolled ? 'backdrop-blur-md bg-black/80 shadow-lg' : 'bg-black/90'} 
     ${['/', '/collection', '/shop'].includes(location.pathname) ? 'mt-[54px]' : 'mt-0'}
   `}
@@ -168,42 +170,38 @@ const Navbar = () => {
               className={`absolute top-full left-0 mt-2 w-56 bg-white text-gray-800 border border-gray-200 rounded-md shadow-xl z-50 transition-all duration-300 ease-out ${isCategoriesOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}
             >
               <ul className="p-4 space-y-3 bg-gray-900/80 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-700 w-64">
-                {categoryItems.map(({ name, badge }) => {
-                  const Icon = iconMap[name] || FaFileAlt; // Fallback icon
+                {categoryItems.map(({ name, badge, to }) => {
+                  const Icon = iconMap[name] || FaFileAlt;
 
                   return (
-                    <li
-                      key={name}
-                      className="relative flex items-center justify-between px-4 py-3 rounded-lg border border-gray-700
-                                 bg-gray-800/50 hover:bg-gray-800
-                                 transition-all duration-300 ease-in-out transform hover:scale-[1.03]
-                                 hover:shadow-[0_0_15px_rgba(255,215,0,0.6)]
-                                 group cursor-pointer"
-                    >
-                      {/* Icon + Name */}
-                      <div className="flex items-center gap-3">
-                        <Icon className="text-yellow-400 text-lg group-hover:rotate-6 transition-transform duration-300" />
-                        <span className="text-gray-200 font-medium group-hover:text-yellow-400 transition-colors duration-300">
-                          {name}
-                        </span>
-                      </div>
+                    <li key={name}>
+                      <Link
+                        to={to}
+                        className="relative flex items-center justify-between px-4 py-3 rounded-lg border border-gray-700
+                             bg-gray-800/50 hover:bg-gray-800
+                             transition-all duration-300 ease-in-out transform hover:scale-[1.03]
+                             hover:shadow-[0_0_15px_rgba(255,215,0,0.6)] group cursor-pointer"
+                      >
+                        {/* Icon + Name */}
+                        <div className="flex items-center gap-3">
+                          <Icon className="text-yellow-400 text-lg group-hover:rotate-6 transition-transform duration-300" />
+                          <span className="text-gray-200 font-medium group-hover:text-yellow-400 transition-colors duration-300">
+                            {name}
+                          </span>
+                        </div>
 
-                      {/* Badge */}
-                      {badge && (
-                        <span
-                          className={`absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow-md animate-gradient-move ${badge === 'NEW'
+                        {/* Badge */}
+                        {badge && (
+                          <span
+                            className={`absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow-md animate-gradient-move ${badge === 'NEW'
                               ? 'bg-gradient-to-r from-green-400 via-yellow-300 to-green-500'
                               : 'bg-gradient-to-r from-red-500 via-pink-500 to-yellow-400'
-                            }`}
-                        >
-                          {badge}
-                        </span>
-                      )}
-
-                      {/* Chevron */}
-                      {(name === 'Electronic' || name === 'Accessories') && (
-                        <FaChevronRight className="text-xs text-gray-400 group-hover:text-yellow-400 transition-colors duration-300" />
-                      )}
+                              }`}
+                          >
+                            {badge}
+                          </span>
+                        )}
+                      </Link>
                     </li>
                   );
                 })}
@@ -310,10 +308,9 @@ const Navbar = () => {
       {/* Mobile menu */}
 
       {mobileMenuOpen && (
-        <nav
-          className="md:hidden fixed inset-0 z-50 flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-70 backdrop-blur-md"
-          aria-label="Mobile menu"
-        >
+       <nav
+  className="md:hidden fixed inset-0 z-[9999] flex justify-center bg-gradient-to-r from-orange-300 via-red-300 to-cyan-400 bg-opacity-70 backdrop-blur-md overflow-y-auto"
+>
           <div className="relative bg-gradient-to-b from-blue-900 via-blue-800 to-blue-300 text-gray-100 w-[90vw] max-w-xs py-8 px-6 space-y-6 select-none animate-fadeIn shadow-xl rounded-lg overflow-y-auto max-h-full">
 
             {/* Close Button */}
@@ -326,7 +323,8 @@ const Navbar = () => {
             </button>
 
             {/* Categories dropdown */}
-           <div>
+            {/* Categories dropdown */}
+<div className='mt-3'>
   <button
     onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
     className="flex items-center justify-between w-full font-semibold uppercase text-base tracking-wide hover:text-blue-300 transition-colors duration-300 focus:outline-none"
@@ -334,49 +332,47 @@ const Navbar = () => {
   >
     All Categories
     <FaChevronRight
-       onClick={(e) => {
-                    e.stopPropagation();
-                    setIsCategoriesOpen(!isCategoriesOpen); // ✅ Toggle properly
-                  }}
-      className={`cursor-pointer transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-400'}`}
+      className={`transform transition-transform duration-300 ${isCategoriesOpen ? 'rotate-90 text-blue-300' : 'text-gray-400'}`}
       size={18}
     />
   </button>
 
   {isCategoriesOpen && (
-    <ul className="pl-5 mt-4 space-y-2 max-h-52 overflow-y-auto text-gray-300 font-medium">
-      {categoryItems.map(({ name, badge }) => {
+    <ul className="pl-3 mt-4 space-y-2 max-h-52 overflow-y-auto text-gray-300  font-medium">
+      {categoryItems.map(({ name, badge, to }) => {
         const Icon = iconMap[name] || FaFileAlt;
         return (
-          <li
-            key={name}
-            onClick={() => {
-              setIsCategoriesOpen(false); // ✅ Dropdown close হবে
-              setMobileMenuOpen(false); // ✅ Mobile menu close হবে (optional)
-            }}
-            className="flex justify-between items-center cursor-pointer hover:text-blue-300 transition-colors duration-250 text-base rounded-md px-2 py-1"
-          >
-            <span className="flex items-center gap-3">
-              <Icon className="text-blue-400" />
-              {name}
-              {badge === 'NEW' && (
-                <span className="ml-2 px-2 py-0.5 bg-green-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
-                  NEW
-                </span>
-              )}
-              {badge === 'SALE' && (
-                <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs font-semibold rounded-full shadow-sm select-none">
-                  SALE
-                </span>
-              )}
-            </span>
-            <FaChevronRight className="text-gray-400" size={14} />
+          <li key={name}>
+            <Link
+              to={to}
+              onClick={() => {
+                setIsCategoriesOpen(false);
+                setMobileMenuOpen(false);
+              }}
+              className="flex justify-between items-center gap-3 px-4 py-2  rounded-lg hover:bg-blue-800 transition-colors duration-300"
+            >
+              <div className="flex items-center gap-3">
+                <Icon className="text-blue-400" />
+                <span className='text-sm'>{name}</span>
+                {badge && (
+                  <span
+                    className={`ml-1 px-1 py-0.5 rounded-full text-xs text-white font-semibold shadow-sm ${
+                      badge === 'NEW' ? 'bg-green-600' : 'bg-red-600'
+                    }`}
+                  >
+                    {badge}
+                  </span>
+                )}
+              </div>
+              <FaChevronRight className="text-gray-400" size={14} />
+            </Link>
           </li>
         );
       })}
     </ul>
   )}
 </div>
+
 
 
             {/* Main menu links */}

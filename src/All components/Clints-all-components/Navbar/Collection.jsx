@@ -208,7 +208,7 @@ const Collection = () => {
             />
             <div className="absolute top-10 left-10 max-w-md text-white">
               <h3 className="uppercase tracking-widest font-semibold text-sm">
-                Spring 2016
+                Spring 2025
               </h3>
               <h1 className="text-4xl font-extrabold mt-1 leading-tight">
                 Women{" "}
@@ -389,7 +389,7 @@ const Collection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow rounded-md px-4 py-3 text-black font-semibold focus:outline-none focus:ring-4 focus:ring-yellow-200"
+                className="flex-grow rounded-md px-4 py-3 text-black border border-cyan-400 font-semibold focus:outline-none focus:ring-4 focus:ring-yellow-200"
                 required
               />
               <button

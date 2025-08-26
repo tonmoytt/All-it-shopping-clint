@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import img1 from '../../../../assets/Images/1st.avif';
 import img2 from '../../../../assets/Images/2nd img.avif';
 import img3 from '../../../../assets/Images/3rd.avif';
+import { Link } from 'react-router-dom';
 
 const products = [
   {
@@ -95,13 +96,13 @@ const Slider = () => {
       {/* Below slider - product info with background */}
       <div className="max-w-7xl   mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 rounded-lg bg-white shadow-2xl px-4 py-6 mt-[-72px] relative z-10">
         <div>
-          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img1} alt="Product 1" />
+        <Link to='/shop'>  <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img1} alt="Produt 1" /></Link> 
         </div>
         <div>
-          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img2} alt="Product 2" />
+         <Link to='/shop'>   <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img2} alt="Product 2" /></Link> 
         </div>
         <div>
-          <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img3} alt="Product 3" />
+         <Link to='/shop'>  <img className="rounded-md h-48 md:h-60 w-full object-cover" src={img3} alt="Product 3" /></Link> 
         </div>
       </div>
     </div>

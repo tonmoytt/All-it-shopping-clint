@@ -10,6 +10,7 @@ import BlogImg from "../../../../assets/Images/18.webp"
 import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { FaPlus } from 'react-icons/fa';
+import details from '../../../../assets/Logo/free-information-icon-348-thumb.png'
 
 const SpecialProduct = () => {
     const [Specialdata, setSpecialdata] = useState([])
@@ -239,25 +240,49 @@ const SpecialProduct = () => {
                                 <SwiperSlide key={i}>
                                     {
                                         Specialdata.slice(i * 7, i * 7 + 7).map(item => (
-                                            <div key={item.id} className='flex gap-3 mb-4'>
-                                                <img src={item.image} alt={item.title} className='w-16 shadow h-16 rounded object-cover' />
-                                                <div>
-                                                    <h4 className='text-xs mb-1 '>{item.name}</h4>
-                                                    <div className='flex items-center gap-1 mb-1'>
-                                                        <p className='text-xs text-gray-500 line-through'>${item.oldPrice}</p>
-                                                        <p className='text-xs font-bold text-red-600'>${item.price}</p>
+                                            <div key={item.id} className="flex gap-3 mb-4">
+                                                {/* Product Image */}
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    className="w-16 h-16 rounded object-cover shadow"
+                                                />
+
+                                                {/* Product Info */}
+                                                <div className="flex-1 flex flex-col">
+                                                    <h4 className="text-sm font-medium mb-1">{item.name}</h4>
+
+                                                    {/* Price */}
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <p className="text-xs text-gray-500 line-through">${item.oldPrice}</p>
+                                                        <p className="text-xs font-bold text-red-600">${item.price}</p>
                                                     </div>
-                                                    <div className='flex gap-1 mt-1'>
-                                                        {item.colors?.map((color, index) => (
-                                                            <span
-                                                                key={index}
-                                                                className='w-2 h-2 rounded-full inline-block'
-                                                                style={{ backgroundColor: color }}
-                                                            ></span>
-                                                        ))}
+
+                                                    {/* Colors + Details */}
+                                                    <div className="flex items-center w-full mt-2">
+                                                        {/* Colors - left aligned */}
+                                                        <div className="flex gap-1">
+                                                            {item.colors?.map((color, index) => (
+                                                                <span
+                                                                    key={index}
+                                                                    className="w-3 h-3 rounded-full border border-gray-300"
+                                                                    style={{ backgroundColor: color }}
+                                                                ></span>
+                                                            ))}
+                                                        </div>
+
+                                                        {/* Details Button - fully right aligned */}
+                                                        <Link
+                                                            to={`/details/${item.id}`}
+                                                            title="Details"
+                                                            className="ml-auto bg-red-300 hover:bg-red-400 transition-all duration-300 p-1 rounded-full flex items-center justify-center shadow-md"
+                                                        >
+                                                            <img className="w-3 h-3" src={details} alt="Details" />
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         ))
                                     }
                                 </SwiperSlide>
