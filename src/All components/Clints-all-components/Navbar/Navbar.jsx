@@ -8,9 +8,10 @@ import {
 import { FaTimes } from 'react-icons/fa';
 
 import Swal from 'sweetalert2';
-import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
+
 import userImg from '../../../assets/Logo/user.png';
 import logoutImg from '../../../assets/Logo/l.png';
+import { Authconnect } from '../AuthincationPages/Authincation/Authincation';
 
 
 const Navbar = () => {

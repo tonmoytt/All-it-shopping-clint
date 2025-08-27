@@ -52,7 +52,7 @@ const Details = () => {
 
     const postData = { ...item, userId: loggedInUserId };
 
-   axios.post(`http://localhost:5000/posts/${loggedInUserId}`, postData)
+   axios.post(`https://al-it-server.vercel.app/posts/${loggedInUserId}`, postData)
   .then(response => {
     Swal.fire({
       icon: 'success',

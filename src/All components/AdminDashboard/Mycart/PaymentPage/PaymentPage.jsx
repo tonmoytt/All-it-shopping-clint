@@ -15,11 +15,11 @@ const PaymentPage = () => {
   useEffect(() => {
     if (!userId) return;
 
-    axios.get(`http://localhost:5000/finalizedorders/${userId}`)
+    axios.get(`https://al-it-server.vercel.app/finalizedorders/${userId}`)
       .then(res => setFinalOrders(res.data || []))
       .catch(err => console.error(err));
 
-    axios.get(`http://localhost:5000/checkout/finalize/${userId}`)
+    axios.get(`https://al-it-server.vercel.app/checkout/finalize/${userId}`)
       .then(res => {
         if (res.data?.payments?.length) {
           setCheckoutData(res.data.payments[res.data.payments.length - 1]);
@@ -60,7 +60,7 @@ const PaymentPage = () => {
       cancelButtonColor: '#3085d6'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/finalizedorders/${userId}/${orderId}`)
+        axios.delete(`https://al-it-server.vercel.app/finalizedorders/${userId}/${orderId}`)
           .then(() => setFinalOrders(prev => prev.filter(order => order._id !== orderId)))
           .catch(() => Swal.fire('Error!', 'Failed to cancel the order.', 'error'));
       }
@@ -81,7 +81,7 @@ const PaymentPage = () => {
       cancelButtonColor: '#3085d6'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/finalizedorders/${userId}`)
+        axios.delete(`https://al-it-server.vercel.app/finalizedorders/${userId}`)
           .then(() => setFinalOrders([]))
           .catch(() => Swal.fire('Error!', 'Failed to cancel all orders.', 'error'));
       }

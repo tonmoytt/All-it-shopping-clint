@@ -17,7 +17,7 @@ const Navigate = useNavigate()
   useEffect(() => {
     if (!userId) return;
 
-    axios.get(`http://localhost:5000/finalizedorders/${userId}`)
+    axios.get(`https://al-it-server.vercel.app/finalizedorders/${userId}`)
       .then(res => {
         const ordersWithQty = res.data.map(item => ({ ...item, quantity: item.quantity || 1 }));
         setFinalOrders(ordersWithQty);
@@ -33,7 +33,7 @@ const Navigate = useNavigate()
 
     const newQty = type === 'increase' ? order.quantity + 1 : Math.max(1, order.quantity - 1);
 
-    axios.put(`http://localhost:5000/finalizedorders/${userId}/${id}`, { quantity: newQty })
+    axios.put(`https://al-it-server.vercel.app/finalizedorders/${userId}/${id}`, { quantity: newQty })
       .then(() => {
         setFinalOrders(prev => prev.map(o => o._id === id ? { ...o, quantity: newQty } : o));
       })
@@ -56,7 +56,7 @@ const Navigate = useNavigate()
       buttonsStyling: false
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/finalizedorders/${userId}/${id}`)
+        axios.delete(`https://al-it-server.vercel.app/finalizedorders/${userId}/${id}`)
           .then(() => {
             setFinalOrders(prev => prev.filter(o => o._id !== id));
             Swal.fire({
@@ -97,7 +97,7 @@ const handlePayment = () => {
     return Swal.fire('Incomplete Info', 'Please fill all billing details', 'warning');
   }
 
-  axios.post(`http://localhost:5000/checkout/finalize/${userId}`, {
+  axios.post(`https://al-it-server.vercel.app/checkout/finalize/${userId}`, {
     orders: finalOrders,
     billing
   })

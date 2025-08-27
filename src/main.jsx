@@ -127,8 +127,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
   <HelmetProvider>
-    <Authincation>
-      
+    <Authincation>    
       <RouterProvider router={router} />
     </Authincation>
   </HelmetProvider>

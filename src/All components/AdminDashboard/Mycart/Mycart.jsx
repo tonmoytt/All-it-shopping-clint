@@ -19,7 +19,7 @@ const Mycart = () => {
   useEffect(() => {
     if (!userId) return;
     setLoading(true);
-    axios.get(`http://localhost:5000/posts/${userId}`)
+    axios.get(`https://al-it-server.vercel.app/posts/${userId}`)
       .then(res => setCartItems(res.data.map(i => ({ ...i, quantity: 1, confirmed: false }))))
       .finally(() => setLoading(false));
   }, [userId]);
@@ -33,7 +33,7 @@ const Mycart = () => {
       confirmButtonText: 'Yes'
     }).then((res) => {
       if (res.isConfirmed) {
-        axios.delete(`http://localhost:5000/posts/${id}`)
+        axios.delete(`https://al-it-server.vercel.app/posts/${id}`)
           .then(() => {
             setCartItems(prev => prev.filter(i => i._id !== id));
             if (item.confirmed) setCheckoutTotal(prev => prev - item.price * item.quantity);
@@ -61,14 +61,14 @@ const Mycart = () => {
   const handleToggleOrder = async (item) => {
     try {
       if (!item.confirmed) {
-        await axios.post('http://localhost:5000/confirmorder', {
+        await axios.post('https://al-it-server.vercel.app/confirmorder', {
           userId, productId: item._id, quantity: item.quantity
         });
         setCartItems(prev => prev.map(i => i._id === item._id ? { ...i, confirmed: true } : i));
         setCheckoutTotal(prev => prev + item.price * item.quantity);
         Swal.fire('Confirmed!', 'Order added', 'success');
       } else {
-        await axios.delete(`http://localhost:5000/confirmorder/${item._id}?userId=${userId}`);
+        await axios.delete(`https://al-it-server.vercel.app/confirmorder/${item._id}?userId=${userId}`);
         setCartItems(prev => prev.map(i => i._id === item._id ? { ...i, confirmed: false } : i));
         setCheckoutTotal(prev => prev - item.price * item.quantity);
         Swal.fire('Canceled!', 'Order canceled', 'info');
@@ -85,7 +85,7 @@ const Mycart = () => {
     if (!confirmedItems.length) return Swal.fire('No Orders', 'Please confirm at least one item', 'info');
 
     try {
-      await axios.post('http://localhost:5000/confirmorder/finalize', {
+      await axios.post('https://al-it-server.vercel.app/confirmorder/finalize', {
         userId,
         orders: confirmedItems.map(i => ({   
         productId: i._id,
@@ -116,7 +116,7 @@ const Mycart = () => {
         {cartItems.map(item => (
           <div key={item._id} className="bg-white shadow-xl hover:shadow-2xl transition-shadow duration-500 rounded-2xl overflow-hidden flex flex-col">
             <div className="relative">
-              <img src={item.image} alt={item.name} className="w-full h-56 object-cover" />
+              <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
               <span className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded-full cursor-pointer hover:bg-red-700"
                 onClick={() => handleRemoveItem(item._id)}>
                 <FaTrash size={16} />
