@@ -30,6 +30,9 @@ import NewProducts2 from './All components/Clints-all-components/Navbar/Allcateg
 import NewArrival2 from './All components/Clints-all-components/Navbar/Allcategorys/NewArrival2/NewArrival2';
 import FeaturedProducts from './All components/Clints-all-components/Navbar/Allcategorys/FeaturedProducts/FeaturedProducts';
 import Faq from './All components/Clints-all-components/Navbar/Allcategorys/Faq/Faq';
+import Mycart from './All components/AdminDashboard/Mycart/Mycart';
+import CheckoutPage from './All components/AdminDashboard/Mycart/CheckoutPage/CheckoutPage';
+import PaymentPage from './All components/AdminDashboard/Mycart/PaymentPage/PaymentPage';
 
 const router = createBrowserRouter([
   {
@@ -74,8 +77,8 @@ const router = createBrowserRouter([
         element: <Shop />
       },
       {
-        path: '/dashboard',
-        element: <Dashboard />
+        path: '/mycart',
+        element: <Mycart />
       },
       {
         path: '/product',
@@ -108,6 +111,14 @@ const router = createBrowserRouter([
       {
         path: '/faq',
         element: <Faq />
+      },
+      {
+        path: '/checkout',
+        element: <CheckoutPage/>
+      },
+      {
+        path: '/payment',
+        element: <PaymentPage/>
       },
     ]
   }

@@ -101,7 +101,7 @@ const Navbar = () => {
     { name: 'Contact', to: '/contact' },
     { name: 'Blog', to: '/blog' },
     { name: 'Shop', to: '/shop' },
-    { name: 'My Cart', to: '/dashboard' },
+    { name: 'My Cart', to: '/mycart' },
   ];
 
   // Categories items for dropdown

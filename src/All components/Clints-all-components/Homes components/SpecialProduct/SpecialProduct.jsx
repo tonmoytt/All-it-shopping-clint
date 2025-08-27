@@ -122,7 +122,7 @@ const SpecialProduct = () => {
 
                         <Swiper
                             slidesPerView={1}
-                            Pagination={true}
+                            pagination={{ clickable: true }}
                             modules={[Pagination]}
                             className='w-full category-swiper'
                         >
