@@ -33,6 +33,7 @@ import Faq from './All components/Clints-all-components/Navbar/Allcategorys/Faq/
 import Mycart from './All components/AdminDashboard/Mycart/Mycart';
 import CheckoutPage from './All components/AdminDashboard/Mycart/CheckoutPage/CheckoutPage';
 import PaymentPage from './All components/AdminDashboard/Mycart/PaymentPage/PaymentPage';
+import PrivetRoute from './All components/Clints-all-components/AuthincationPages/PrivetRoute/PrivetRoute';
 
 const router = createBrowserRouter([
   {
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/mycart',
-        element: <Mycart />
+        element: <PrivetRoute><Mycart /></PrivetRoute> 
       },
       {
         path: '/product',
