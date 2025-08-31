@@ -8,7 +8,7 @@ import Footer from '../../Homes components/Footer/Footer';
 
 const About = () => {
     return (
-        <div className="about-section">
+        <div className="about-section  ">
 
             {/* About Us - First Section */}
             <h2 className="section-title text-3xl mt-4">About us</h2>

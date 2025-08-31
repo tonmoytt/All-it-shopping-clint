@@ -5,7 +5,7 @@ import Footer from '../../Homes components/Footer/Footer';
 
 const Contact = () => {
     return (
-        <div className="bg-white  ">
+        <div className="bg-white  mt-14 md:mt-20">
             {/* Contact Header */}
             <h2 className="text-3xl sm:text-4xl font-bold text-center mt-12 mb-12 text-green-700 px-4 sm:px-0">
                 Contact Us
@@ -101,7 +101,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="max-w-7xl mx-auto mt-20 px-6 lg:px-0 mb-16">
+            <div className=" max-w-7xl mx-auto mt-20 px-6 lg:px-0 mb-16">
                 <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-center text-green-700">Leave Us a Message</h3>
                 <p className="text-gray-600 text-center mb-10 italic">We welcome your questions and feedback.</p>
 

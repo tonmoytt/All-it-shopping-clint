@@ -82,7 +82,7 @@ const Blog = () => {
     const featuredPost = filteredData.length > 0 ? filteredData[0] : null;
 
     return (
-        <div className="blog-page max-w-7xl mx-auto px-4 py-12">
+        <div className="blog-page max-w-7xl  mt-14 md:mt-10 mx-auto px-4 py-12">
             {/* Header Section */}
             <header className="blog-header text-center mb-12">
                 <h1 className="text-4xl font-extrabold mb-4">Our Blog</h1>

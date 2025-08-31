@@ -5,11 +5,11 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Authconnect } from '../../../AuthincationPages/Authincation/Authincation';
 
-
 const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // spinner state
 
   // Get user from context
   const { currentUser } = useContext(Authconnect);
@@ -19,8 +19,14 @@ const Details = () => {
   useEffect(() => {
     fetch('/All post data/post.json')
       .then(res => res.json())
-      .then(res => setData(res))
-      .catch(err => console.error(err));
+      .then(res => {
+        setData(res);
+        setLoading(false); // data আসলে loading false
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
   }, []);
 
   // Find current product by id
@@ -31,11 +37,25 @@ const Details = () => {
     }
   }, [id, data]);
 
-  if (!product) return <p className="text-center mt-10 text-gray-500">Loading product details...</p>;
+  // যদি লোড হচ্ছে তখন spinner দেখাও
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-4 border-indigo-600 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <p className="text-center mt-10 text-gray-500">
+        Product not found.
+      </p>
+    );
+  }
 
   const { productCategory, description, image, name, price, model, ram, rom, brand, rating } = product;
 
-  
   const relatedProducts = data
     .filter(p => p.productCategory === productCategory && p.id !== product.id)
     .slice(0, 4);
@@ -52,34 +72,33 @@ const Details = () => {
 
     const postData = { ...item, userId: loggedInUserId };
 
-   axios.post(`https://al-it-server.vercel.app/posts/${loggedInUserId}`, postData)
-  .then(response => {
-    Swal.fire({
-      icon: 'success',
-      title: 'Added to Cart!',
-      text: 'Your product has been added successfully.',
-      timer: 2000,
-      showConfirmButton: false
-    });
-  })
-  .catch(error => {
-    if (error.response?.status === 409) {  // backend থেকে already added status
-      Swal.fire({
-        icon: 'info',
-        title: 'Already Added!',
-        text: 'This product is already in your cart.',
-        timer: 2000,
-        showConfirmButton: false
+    axios.post(`https://al-it-server.vercel.app/posts/${loggedInUserId}`, postData)
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Added to Cart!',
+          text: 'Your product has been added successfully.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+      })
+      .catch(error => {
+        if (error.response?.status === 409) {
+          Swal.fire({
+            icon: 'info',
+            title: 'Already Added!',
+            text: 'This product is already in your cart.',
+            timer: 2000,
+            showConfirmButton: false
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to add product!',
+          });
+        }
       });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Failed to add product!',
-      });
-    }
-  });
-
   };
 
   const handleWish = (item) => {
@@ -139,7 +158,7 @@ const Details = () => {
       </div>
 
       {/* Related Products */}
-            <section className="w-11/12 md:w-9/12 mx-auto mt-12 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500 p-8 border border-indigo-100">
+      <section className="w-11/12 md:w-9/12 mx-auto mt-12 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500 p-8 border border-indigo-100">
         <h2 className="text-3xl font-bold mb-6 text-indigo-700 tracking-wide">Related Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedProducts.length > 0 ? (

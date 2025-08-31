@@ -12,7 +12,8 @@ const CheckoutPage = () => {
   const [finalOrders, setFinalOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [billing, setBilling] = useState({ name: '', email: '', phone: '', address: '' });
-const Navigate = useNavigate()
+  const Navigate = useNavigate();
+
   // ✅ Fetch finalized orders
   useEffect(() => {
     if (!userId) return;
@@ -51,7 +52,8 @@ const Navigate = useNavigate()
       cancelButtonText: 'Cancel',
       customClass: {
         confirmButton: 'bg-red-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition',
-        cancelButton: 'bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:opacity-90 transition'
+        cancelButton: 'bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:opacity-90 transition',
+        actions: 'swal-actions-gap'
       },
       buttonsStyling: false
     }).then((result) => {
@@ -92,34 +94,41 @@ const Navigate = useNavigate()
   };
 
   // ✅ Handle Payment
-const handlePayment = () => {
-  if (!billing.name || !billing.email || !billing.phone || !billing.address) {
-    return Swal.fire('Incomplete Info', 'Please fill all billing details', 'warning');
-  }
+  const handlePayment = () => {
+    if (!billing.name || !billing.email || !billing.phone || !billing.address) {
+      return Swal.fire('Incomplete Info', 'Please fill all billing details', 'warning');
+    }
 
-  axios.post(`https://al-it-server.vercel.app/checkout/finalize/${userId}`, {
-    orders: finalOrders,
-    billing
-  })
-    .then((res) => {
-      if (res.data.insertedId || res.data.success) {
-        Swal.fire('Success!', 'Payment processed and billing info saved!', 'success');
-        setFinalOrders([]);
-        setBilling({ name: '', email: '', phone: '', address: '' });
-        Navigate('/payment')
-      } else {
-        Swal.fire('Error', 'Failed to save payment info', 'error');
-      }
+    axios.post(`https://al-it-server.vercel.app/checkout/finalize/${userId}`, {
+      orders: finalOrders,
+      billing
     })
-    .catch(() => Swal.fire('Error', 'Payment failed', 'error'));
-};
-
+      .then((res) => {
+        if (res.data.insertedId || res.data.success) {
+          Swal.fire('Success!', 'Payment processed and billing info saved!', 'success');
+          setFinalOrders([]);
+          setBilling({ name: '', email: '', phone: '', address: '' });
+          Navigate('/payment');
+        } else {
+          Swal.fire('Error', 'Failed to save payment info', 'error');
+        }
+      })
+      .catch(() => Swal.fire('Error', 'Payment failed', 'error'));
+  };
 
   const subtotal = finalOrders.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const tax = subtotal * 0.05;
   const total = subtotal + tax;
 
-  if (loading) return <p className="text-center mt-10">Loading your checkout...</p>;
+  // ✅ Spinner Loader
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-12 h-12 border-4 border-indigo-600 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   if (!finalOrders.length) return <p className="text-center mt-10 text-gray-500">No finalized orders yet.</p>;
 
   return (

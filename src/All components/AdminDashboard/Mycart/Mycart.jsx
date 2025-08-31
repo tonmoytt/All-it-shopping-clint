@@ -66,12 +66,12 @@ const Mycart = () => {
         });
         setCartItems(prev => prev.map(i => i._id === item._id ? { ...i, confirmed: true } : i));
         setCheckoutTotal(prev => prev + item.price * item.quantity);
-        Swal.fire('Confirmed!', 'Order added', 'success');
+        alert('Order Confirmed!', 'Order added', 'success');
       } else {
         await axios.delete(`https://al-it-server.vercel.app/confirmorder/${item._id}?userId=${userId}`);
         setCartItems(prev => prev.map(i => i._id === item._id ? { ...i, confirmed: false } : i));
         setCheckoutTotal(prev => prev - item.price * item.quantity);
-        Swal.fire('Canceled!', 'Order canceled', 'info');
+        Swal.fire('Canceled!', 'Order canceled', 'success');
       }
     } catch (err) {
       console.error(err);
@@ -88,12 +88,13 @@ const Mycart = () => {
       await axios.post('https://al-it-server.vercel.app/confirmorder/finalize', {
         userId,
         orders: confirmedItems.map(i => ({   
-        productId: i._id,
-        name: i.name,
-        description: i.description,
-        image: i.image,
-        quantity: i.quantity,
-        price: i.price }))
+          productId: i._id,
+          name: i.name,
+          description: i.description,
+          image: i.image,
+          quantity: i.quantity,
+          price: i.price 
+        }))
       });
       Swal.fire('Success!', 'Checkout successful', 'success');
       setCartItems(prev => prev.map(i => i.confirmed ? { ...i, confirmed: false, quantity: 1 } : i));
@@ -105,7 +106,15 @@ const Mycart = () => {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  // LOADING SPINNER
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-4 border-indigo-600 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   if (!cartItems.length) return <p className="text-center mt-10 text-gray-500">Your cart is empty.</p>;
 
   return (
