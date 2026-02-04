@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import { FaYoutube, FaFacebook } from "react-icons/fa";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Authconnect } from '../../../AuthincationPages/Authincation/Authincation';
@@ -9,7 +10,10 @@ const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [data, setData] = useState([]);
+  const [activeImage, setActiveImage] = useState('');
   const [loading, setLoading] = useState(true); // spinner state
+
+const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video facebbook youtube btn
 
   // Get user from context
   const { currentUser } = useContext(Authconnect);
@@ -28,6 +32,15 @@ const Details = () => {
         setLoading(false);
       });
   }, []);
+
+  // active inmage change 
+  useEffect(() => {
+  if (data.length > 0) {
+    const found = data.find(item => item.id.toString() === id);
+    setProduct(found);
+    setActiveImage(found?.image); // 👈 main image set
+  }
+}, [id, data]);
 
   // Find current product by id
   useEffect(() => {
@@ -114,21 +127,91 @@ const Details = () => {
   return (
     <>
       {/* Product Detail Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 pt-28 md:pt-36 gap-6 md:gap-8 w-11/12 md:w-8/12 mx-auto py-8 md:py-12 bg-white rounded-3xl shadow-2xl hover:shadow-[0_20px_50px_rgba(99,102,241,0.3)] transition-shadow duration-700 px-4 sm:px-8 mt-10">
-        {/* Image */}
-        <div className="flex justify-center items-center bg-gradient-to-tr from-indigo-50 to-indigo-100 p-4 sm:p-6 rounded-2xl shadow-inner">
-          <img src={image} alt={name} className="w-full max-w-xs sm:max-w-md object-cover rounded-xl shadow-lg border border-indigo-200" />
-        </div>
+      <div className="grid grid-cols-1 mt-10 md:mt-16 md:grid-cols-2 pt-4 md:pt-16 gap-6 md:gap-8 w-11/12 md:w-8/12 mx-auto py-8 md:py-12 bg-white md:rounded-3xl shadow-2xl hover:shadow-[0_20px_50px_rgba(99,102,241,0.3)] transition-shadow duration-700 px-4 sm:px-8 ">
+
+      {/* Image */}
+<div className="flex flex-col items-center bg-gradient-to-tr from-indigo-50 to-indigo-100 p-4 sm:p-6 rounded-2xl shadow-inner">
+
+  {/* Main Image */}
+  <img
+    src={activeImage}
+    alt={name}
+    className="w-full max-w-xs sm:max-w-md object-cover rounded-xl shadow-lg border border-indigo-200 transition-all duration-300"
+  />
+
+  {/* Thumbnails */}
+  <div className="flex gap-3 mt-4">
+    {[image, image, image].map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        onClick={() => setActiveImage(img)}
+        className={`w-16 h-16 object-cover rounded-lg cursor-pointer border-2 transition
+          ${activeImage === img ? 'border-indigo-600 scale-105' : 'border-gray-300'}
+        `}
+        alt="thumb"
+      />
+    ))}
+  </div>
+
+</div>
 
         {/* Details */}
         <div className="text-start flex flex-col justify-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold mb-2 sm:mb-3 text-indigo-700 drop-shadow-md">{name}</h1>
-          <p className="text-xl sm:text-3xl mt-1 sm:mt-2 text-green-700 font-semibold tracking-wider shadow-sm">৳{price.toFixed(2)}</p>
-          <p className="mt-6 sm:mt-8 text-gray-700 leading-relaxed text-base sm:text-lg tracking-wide">{description}</p>
+          <h1 className="text-xl sm:text-5xl font-extrabold mb-2 sm:mb-3 text-indigo-700 drop-shadow-md">{name}</h1>
+          <p className="text-md sm:text-3xl font-mono mt-1 sm:mt-2 text-green-700 font-semibold tracking-wider shadow-sm">Only:{price.toFixed(2)} Tk</p>
+          <p className="mt-6 sm:mt-8 text-gray-700 leading-relaxed text-sm sm:text-lg tracking-wide">{description}</p>
+
+          {/* product video */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
+
+
+
+  {/* Product Video Button */}
+  <button
+    onClick={() => setShowVideoLinks(!showVideoLinks)}
+    className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+  >
+    📺 Product Video
+  </button>
+</div>
+
+{/* Video Links */}
+{showVideoLinks && (
+  <div className="flex gap-4 mb-8 mt-4 animate-fadeIn">
+
+    {/* YouTube */}
+    <a
+      href={product.youtubeLink || "https://youtube.com"}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-1 md:gap-2 bg-red-600 hover:bg-red-700 text-white px-3 md:px-5 py-2 rounded-xl shadow-md transition"
+    >
+      <FaYoutube size={22} />
+      video 1
+    </a>
+
+    {/* Facebook */}
+    <a
+      href={product.facebookLink || "https://facebook.com"}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 md:px-5 py-2 rounded-xl shadow-md transition"
+    >
+      <FaFacebook size={22} />
+      Video 2
+    </a>
+
+  </div>
+)}
 
           {/* Specifications */}
           <div className="mt-8 sm:mt-10">
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-5 border-b-4 border-indigo-400 pb-2 text-indigo-700">Specifications</h2>
+           
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-5 border-b-4 border-indigo-400 pb-2 text-indigo-700">Specifications</h2>
+              {/* <button className='btn btn-accent'>Product video</button> */}
+          
+            
             <ul className="list-disc list-inside text-gray-800 font-medium space-y-2 sm:space-y-3 text-sm sm:text-lg">
               <li>Model: <span className="text-gray-600 font-normal">{model}</span></li>
               <li>Brand: <span className="text-gray-600 font-normal">{brand}</span></li>
@@ -138,20 +221,25 @@ const Details = () => {
             </ul>
           </div>
 
-          <p className="text-lg sm:text-2xl mt-8 sm:mt-10 font-bold text-gray-900">
+          <div className='flex justify-between mt-8 '>
+  <p className="text-lg sm:text-2xl sm:mt-10 font-bold text-gray-900">
             Rating: <span className="font-normal">{rating}</span>
           </p>
+          
+          </div>
+
+        
 
           {/* Actions */}
-          <div className="space-x-6 sm:space-x-8 mt-8 sm:mt-10 flex flex-wrap sm:flex-nowrap gap-4">
-            <button onClick={() => handleAddToCart(product)} className="transform hover:scale-110 transition-transform duration-300 shadow-xl">
-              <Link className="bg-indigo-700 hover:bg-indigo-800 text-white px-5 sm:px-8 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg">
+          <div className="space-x-2 sm:space-x-8 mt-8 sm:mt-10 flex gap-4">
+            <button onClick={() => handleAddToCart(product)} className="transform hover:scale-90 transition-transform duration-300 shadow-xl">
+              <Link className="bg-indigo-500 hover:bg-indigo-800 text-white px-3 sm:px-8 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg">
                 <span>Add to Cart</span>
-                <FaShoppingCart size={20} />
+                <FaShoppingCart className='hidden md:flex' size={20} />
               </Link>
             </button>
-            <button onClick={() => handleWish(product)} className="bg-gray-100 hover:bg-gray-200 px-5 py-3 rounded-3xl flex items-center shadow-md transition-colors duration-300 cursor-pointer">
-              <FaHeart className="text-red-600" size={24} />
+            <button onClick={() => handleWish(product)} className="bg-red-500 hover:bg-indigo-800 text-white px-4 md:px-6 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg transform hover:scale-110 transition-transform duration-300 ">
+              অর্ডার করতে চাই 
             </button>
           </div>
         </div>

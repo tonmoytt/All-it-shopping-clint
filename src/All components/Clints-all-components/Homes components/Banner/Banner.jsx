@@ -8,16 +8,16 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-6 py-10 px-6">
+    <div className="hidden md:flex w-full max-w-7xl mx-auto flex-col md:flex-row gap- py-10 px-6">
       {/* Left Column */}
       <div className="flex flex-col max-w-fit">
         <Link to='/shop'>   <img
-          className="h-88 w-[260px] rounded-md object-cover"
+          className="h-88 w-[260px] md:rounded-md object-cover"
           src={img1}
           alt=""
         /> </Link>
         <Link to='/shop'>   <img
-          className="h-[220px] w-[260px] mt-5 rounded-md object-cover"
+          className="h-[220px] w-[260px] mt-5 md:rounded-md object-cover"
           src={img2}
           alt=""
         /> </Link>

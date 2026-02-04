@@ -190,30 +190,80 @@ const Shop = () => {
     };
 
     return (
-        <div className="w-full bg-gray-50 min-h-screen flex flex-col">
+        <div className="w-full bg-gray-50 min-h-screen flex flex-col text-black">
             {/* Banner */}
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] bg-gray-200 flex items-center justify-center mb-4">
+            <div className="relative w-full h-[230px] sm:h-[400px] md:h-[500px] bg-gray-200 flex items-center justify-center mb-4">
                 <img
                     src={benner}
                     alt="Banner"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-[230px] md:h-full object-cover"
                 />
-                <div className="relative z-10 text-white text-3xl sm:text-5xl md:text-6xl font-bold drop-shadow text-center px-2">
-                    Simplecity is the Best 
-                </div>
+               <div className="relative mt-18 md:mt-0 z-10 text-center px-4">
+  <h1
+    className="
+      text-3xl sm:text-6xl md:text-7xl font-black
+      bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-500
+      bg-clip-text text-transparent
+      drop-shadow-[0_8px_30px_rgba(45,212,191,0.55)]
+      tracking-wide
+      animate-pulse
+      hover:scale-105
+      transition-all
+      duration-300
+    "
+  >
+    Simplecity
+  </h1>
+
+  <p
+    className="
+      mt-1 text-lg sm:text-xl md:text-2xl font-medium
+     bg-gradient-to-r from-red-500 via-white to-yellow-500
+      bg-clip-text text-transparent
+      drop-shadow-[0_8px_30px_rgba(45,212,191,0.55)]
+      tracking-wide
+      animate-pulse
+      hover:scale-105
+      transition-all
+      duration-300
+    "
+  >
+    is the best
+  </p>
+</div>
             </div>
 
             {/* Mobile Filter Toggle */}
             {/* Mobile Toggle Button */}
-            <div className="max-w-7xl mx-auto px-4 py-4 md:hidden flex justify-end">
-                <button
-                    onClick={() => setFiltersOpen(!filtersOpen)}
-                    className="text-gray-700 bg-purple-100 p-2 rounded shadow focus:outline-none"
-                    aria-label="Toggle filters"
-                >
-                    {filtersOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-                </button>
-            </div>
+            <div className="max-w-7xl mx-auto px-4 pb-2 md:py-4 md:hidden flex justify-between items-center w-full">
+  {/* Shop Now Button */}
+  <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 rounded-lg shadow-lg">
+    <h1 className="text-l sm:text-2xl font-bold text-white tracking-wide">
+      Shop Now
+    </h1>
+  </div>
+
+  {/* Filters Toggle Button */}
+  <div>
+    <button
+      onClick={() => setFiltersOpen(!filtersOpen)}
+      className="
+        text-gray-700
+        bg-purple-100
+        p-2
+        rounded
+        shadow
+        focus:outline-none
+        hover:bg-purple-200
+        transition-colors
+        duration-200
+      "
+      aria-label="Toggle filters"
+    >
+      {filtersOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+    </button>
+  </div>
+</div>
 
             {/* Overlay for Mobile when Filters are Open */}
             {filtersOpen && (
@@ -229,7 +279,7 @@ const Shop = () => {
                     }`}
             >
                 {/* Close Button Inside Sidebar */}
-                <div className="flex justify-end p-4 border-b">
+                <div className="flex justify-end p-2 md:p-4 border-b">
                     <button
                         onClick={() => setFiltersOpen(false)}
                         className="text-gray-700 hover:text-red-500"
@@ -255,11 +305,18 @@ const Shop = () => {
                     className={`col-span-12 md:col-span-3 bg-white p-4 rounded-xl shadow-lg transition-transform duration-300
             ${filtersOpen ? "translate-x-0" : "-translate-x-full"}
             md:translate-x-0 fixed md:static top-0 left-0 h-full md:h-auto z-50 md:z-auto overflow-y-auto
-            w-72 md:w-auto`}
+            w-68 md:w-auto`}
                 >
                     {/* Brand Filter */}
                     <div className="mb-6">
-                        <h2 className="font-semibold mb-3">Brand</h2>
+                       <h2 className="mb-4 text-xl md:text-xl font-extrabold tracking-wider
+whitespace-nowrap inline-block
+bg-gradient-to-r from-pink-400 via-fuchsia-500 to-purple-600
+bg-clip-text text-transparent
+drop-shadow-[0_0_6px_rgba(236,72,153,0.6)]
+drop-shadow-[0_0_16px_rgba(168,85,247,0.9)]">
+  BongoNex Customize
+</h2>
                         <input
                             type="text"
                             placeholder="Search brand..."
@@ -329,7 +386,7 @@ const Shop = () => {
                             onChange={(e) => setPriceRange(Number(e.target.value))}
                             className="w-full"
                         />
-                        <p className="text-gray-600">Up to SAR {priceRange}</p>
+                        <p className="text-gray-600">Up to TK {priceRange}</p>
                     </div>
 
                     {/* Color Filter */}
@@ -476,14 +533,14 @@ const Shop = () => {
                 {/* Products */}
                 <main className="col-span-12 md:col-span-9">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-                        <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 rounded-lg shadow-lg">
+                        <div className="hidden md:flex bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2 rounded-lg shadow-lg">
                             <h1 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
                                 Shop Now
                             </h1>
                         </div>
                         <div className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-xl shadow-lg border border-gray-200">
-                            <p className="flex items-center gap-2 text-gray-800 font-semibold text-lg">
-                                <FaSort className="text-purple-500 text-xl" /> Sort by
+                            <p className="flex items-center gap-2 text-gray-800 font-semibold md:text-lg">
+                                <FaSort className="text-purple-500 text-base md:text-xl" /> Sort by
                             </p>
                             <select
                                 value={sortOption}
@@ -512,7 +569,7 @@ const Shop = () => {
                             </span>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                             {filteredData.length === 0 && (
                                 <p className="col-span-full text-center text-gray-500">
                                     No products found.
@@ -527,7 +584,7 @@ const Shop = () => {
                                     glarePosition="top"
                                     tiltMaxAngleX={10}
                                     tiltMaxAngleY={10}
-                                    className="relative group rounded-2xl border border-transparent bg-gradient-to-br from-white via-gray-50 to-gray-100 
+                                    className="relative group rounded-t-xl rounded-b-md border border-transparent bg-gradient-to-br from-white via-gray-50 to-gray-100 
         shadow-lg hover:shadow-2xl transform transition-all duration-500 overflow-hidden"
                                 >
                                     {/* Shine Animation */}
@@ -539,11 +596,11 @@ const Shop = () => {
                                     <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></span>
 
                                     {/* Image */}
-                                    <div className="relative overflow-hidden rounded-t-2xl">
+                                    <div className="relative mx-1 md:mx-0 overflow-hidden rounded-t-xl">
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className="w-72 h-72 mx-auto object-cover rounded-t-2xl transform group-hover:scale-110 transition-transform duration-700"
+                                            className="w-60 md:w-72 h-28  md:h-72 mx-auto object-cover rounded-t-2xl transform group-hover:scale-110 transition-transform duration-700"
                                         />
                                         {/* Heart Icon */}
                                         <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-md cursor-pointer hover:bg-pink-500 hover:text-white transition-colors duration-300">
@@ -552,31 +609,31 @@ const Shop = () => {
                                     </div>
 
                                     {/* Info */}
-                                    <div className="p-4 space-y-2">
+                                    <div className="p-4 space-y-1">
                                         <div className="flex justify-between items-center  ">
                                             <p className="text-xs text-gray-400">{item.model}</p>
                                             <p
-  className="px-3 py-1 rounded-full text-white text-sm font-semibold bg-gradient-to-r from-greeen-500 via-blue-500 to-cyan-500 shadow-md"
+  className="px-2 py-1 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-green-500 via-blue-500 to-cyan-500 shadow-md"
 >
   {item.status}
 </p>
 
                                         </div>
-                                        <h3 className="font-semibold text-lg text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
-                                            {item.name}
+                                        <h3 className="font-semibold text-sm md:text-base text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+                                           {item.name} <span className="text-gray-400">*</span>
                                         </h3>
-                                        <p className="text-blue-600 font-bold text-lg">
-                                            SAR {item.price.toFixed(2)}
+                                        <p className="text-blue-600 font-serif text-sm md:text-base mt-2">
+                                           <span className="text-gray-600">Price:</span> {item.price.toFixed(2)} <span className="text-red-500">TK</span> 
                                         </p>
-                                        <div className="flex justify-between items-center">
-                                            <p className="text-sm text-gray-500">{item.brand}</p>
+                                        <div className="flex justify-between items-center gap-2 "  >
+                                            <p className="text-xs text-gray-500">{item.brand}</p>
                                             <Link to={`/details/${item.id}`}>
                                                 <button
                                                     className="relative px-3 py-1 text-sm font-medium text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 
                 rounded-lg overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300"
                                                 >
                                                     <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg"></span>
-                                                    <span className="relative z-10">Details</span>
+                                                    <span className="relative z-10">Shop</span>
                                                 </button>
                                             </Link>
                                         </div>

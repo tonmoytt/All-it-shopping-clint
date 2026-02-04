@@ -32,7 +32,7 @@ const TrandingPost = () => {
   // Reusable Product Card with stylish Details button
   const ProductCard = ({ item, colorful = false }) => (
     <div
-      className={`relative mb-10 overflow-hidden rounded-xl border-2 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
+      className={`relative mb-10 overflow-hidden rounded-md border-2 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
         colorful
           ? "bg-gradient-to-tr from-pink-400 via-purple-400 to-indigo-400 text-white"
           : "bg-white"
@@ -50,23 +50,23 @@ const TrandingPost = () => {
       {/* Info */}
       <div className={`p-4 ${colorful ? "bg-opacity-70" : ""}`}>
         <p
-          className={`font-semibold text-base ${
+          className={`font-semibold text-sm md:text-base ${
             colorful ? "text-white" : "text-gray-800"
           }`}
         >
-          {item.name}
+         * {item.name} *
         </p>
         <p
-          className={`font-bold mt-1 ${
+          className={`font-bold mt-3 text-sm ${
             colorful ? "text-yellow-200" : "text-blue-600"
           }`}
         >
-          SAR {item.price}
+          <span className="text-gray-600 font-serif"> Price: </span> {item.price} <span className="font-bold text-red-500">TK</span>
         </p>
 
         {/* Details Button */}
      <Link to={`/details/${item.id}`}> <button
-          className="mt-4 relative inline-block px-2 py-1 rounded-lg font-semibold
+          className="mt-2 relative inline-block px-2 py-1 rounded-lg w-full font-semibold
             text-white
             bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
             shadow-lg
@@ -102,7 +102,7 @@ const TrandingPost = () => {
           <h2 className="text-2xl font-extrabold mb-6 text-gray-800">
             🚀 Trending Products
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-8">
             {trendingProducts.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
@@ -136,7 +136,7 @@ const TrandingPost = () => {
           <h2 className="text-2xl font-extrabold mb-6 text-indigo-600">
             ✨ New Arrivals
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:gap-4">
             {newArrivals.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}

@@ -11,9 +11,7 @@
   overflow: hidden;
   position: relative;
   background: linear-gradient(90deg, #eef2f7, #d6e0f0);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(100, 115, 150, 0.15);
-  padding: 1rem 0;
+  border-radius: 4px;
   user-select: none;
 }
 
@@ -21,7 +19,7 @@
   display: flex;
   gap: 3.5rem;
   white-space: nowrap;
-  animation: marquee 30s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 .marquee-item {
@@ -32,17 +30,17 @@
   font-size: 1.15rem;
   color: #3a3f55;
   cursor: default;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .marquee-item:hover {
-  color: #5b4b8a;
+  color: #755cc2;
 }
 
 .marquee-item svg {
   font-size: 1.8rem;
-  color: #5b4b8a;
-  transition: color 0.3s ease;
+  color: #b90ecf;
+  transition: color 0.2s ease;
 }
 
 .marquee-item:hover svg {
@@ -54,7 +52,7 @@
   display: flex;
   justify-content: center;
   gap: 2.5rem;
-  margin-bottom: 1.25rem;
+  
   flex-wrap: wrap;
 }
 

@@ -32,7 +32,7 @@ const Testomonial = () => {
   return (
     <div>
 
-      <div className="w-full lg:w-[85%] h-[400px] p-4 bg-gradient-to-br from-[#fff9f0] to-[#f7f7f7] rounded-lg shadow-lg">
+      <div className="w-full lg:w-[85%] h-[400px] md:p-4 bg-gradient-to-br from-[#fff9f0] to-[#f7f7f7] rounded-lg shadow-lg">
         <h2 className="text-xl font-bold text-center text-[#333] mb-6 underline decoration-yellow-400 decoration-4 underline-offset-4">
           What Our Clients Say
         </h2>
@@ -62,12 +62,12 @@ const Testomonial = () => {
           ))}
         </Swiper>
       </div>
-
-      <div className="bg-gray-200 text-center w-full lg:w-[85%] mt-6 h-[335px] rounded-md">
-        <h1 className="text-2xl mb-2 pt-6 ">Newslitter</h1>
-        <p className="my-4 ">Join Our Mailing List</p>
+{/* news letter section */}
+      <div className="bg-gray-200 text-center w-full lg:w-[85%] mt-1 h-[335px] rounded-md">
+        <h1 className="text-2xl mb-2 pt-6 text-black">Newslitter</h1>
+        <p className="my-4 text-blue-400">Join Our Mailing List</p>
         <input className="w-56 input my-2 " type="email" placeholder="Your email" />
-        <button className="btn btn-secondary my-2 ">Subscribe </button>
+        <button className="btn btn-secondary my-2 w-56">Subscribe </button>
         <p className="mt-4 mb-2">Join our social media</p>
        <div className="flex mx-auto w-fit gap-2 mt-2">
   <a

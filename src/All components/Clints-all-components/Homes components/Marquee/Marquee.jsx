@@ -31,13 +31,19 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="hidden md:flex flex-col max-w-7xl mx-auto w-full font-sans select-none px-4 pt-6">
+    <div className=" flex-col  max-w-8xl md:max-w-7xl mx-auto w-full font-sans select-none px- md:px-4 pt- md:pt-6 ">
       {/* Top Info Bar */}
-      <div className="info-bar" aria-label="Information Bar">
+      
+      <div className=" info-bar w-full" aria-label="Information Bar">
+        <div className="hidden :flex gap-1">
         <div className="info-card" title="Date">
           <FaCalendarAlt />
           <span>{dateTime.toLocaleDateString()}</span>
         </div>
+
+        <div className="hidden md:flex">
+
+        
         <div className="divider-dot" />
         <div className="info-card" title="Shipping Info">
           <span role="img" aria-label="Shipping">
@@ -52,15 +58,22 @@ const Marquee = () => {
           </span>
           <span>Secure Payment Options</span>
         </div>
-        <div className="divider-dot" />
-        <div className="info-card" title="Time">
+</div>
+        
+        <div className="hidden md:flex divider-dot" />
+        <div className="info-card w-full md:w-fit" title="Time">
           <FaClock />
           <span>{dateTime.toLocaleTimeString()}</span>
+        </div>
+
+
+        
+
         </div>
       </div>
 
       {/* Marquee */}
-      <div className="marquee-wrapper" aria-label="Trending products marquee">
+      <div className="marquee-wrapper px-4 py-2" aria-label="Trending products marquee">
         <div className="marquee" role="list">
           {[...items, ...items].map((item, idx) => (
             <div

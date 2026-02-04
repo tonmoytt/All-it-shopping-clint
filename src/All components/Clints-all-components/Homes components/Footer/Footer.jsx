@@ -93,7 +93,7 @@ const Footer = () => {
           </ul>
 
           {/* App Store Buttons */}
-          <div className="mt-6 space-y-3">
+          <div className="hidden md:flex mt-6 space-y-3">
             <a
               href="#"
               className="store-btn play-store"

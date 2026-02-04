@@ -28,3 +28,28 @@
   }
 }
 /* mobile menu style */
+
+ 
+.bn-shop {
+  font-size: 64px;
+  font-weight: 900;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d
+  );
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease infinite;
+  letter-spacing: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

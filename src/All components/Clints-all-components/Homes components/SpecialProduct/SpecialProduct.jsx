@@ -15,26 +15,20 @@ import details from '../../../../assets/Logo/free-information-icon-348-thumb.png
 const SpecialProduct = () => {
     const [Specialdata, setSpecialdata] = useState([])
     const [Dealdata, setDealdata] = useState([])
+
     useEffect(() => {
         fetch('/All post data/post.json')
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
-
                 setSpecialdata(data.filter(item => item.specialCategory === 'special'))
                 setDealdata(data.filter(item => item.dealCategory === 'DEAL'))
-                // console.log("Special Products:", data.filter(item => item.specialCategory === 'special'))
-                // console.log("Deal Products:", data.filter(item => item.dealCategory === 'DEAL'))
-
             })
     }, [])
-
 
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     // Countdown Logic
     useEffect(() => {
-        // Deal End Time - set it to 24 hours from now or any static deadline
         const endTime = new Date();
         endTime.setHours(endTime.getHours() + 24); // 24 hours from now
 
@@ -46,7 +40,7 @@ const SpecialProduct = () => {
                 clearInterval(timer);
                 setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
             } else {
-                const days = Math.floor(diff / (10000 * 60 * 60 * 24));
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
                 const minutes = Math.floor((diff / 1000 / 60) % 60);
                 const seconds = Math.floor((diff / 1000) % 60);
@@ -57,7 +51,6 @@ const SpecialProduct = () => {
 
         return () => clearInterval(timer);
     }, []);
-
 
     const categoryData = [
         {
@@ -77,21 +70,23 @@ const SpecialProduct = () => {
             ],
         },
     ];
-    return (
 
-        <div className="max-w-7xl mx-auto px-4 py-10">
+    return (
+        <div className="max-w-7xl mx-auto md:px-4 md:py-2 text-black">
             <div className='flex flex-col md:flex-row gap-6'>
+
                 {/* Section 1 - Blog + Category */}
-                <div className='md:w-1/4 space-y-6'>
+                <div className='md:w-1/4 md:space-y-6'>
                     {/* LATEST BLOG section */}
-                    <div className='bg-white p- rounded shadow'>
-                        <h2 className='text-center font-semibold my-4 border-b pb-2 bg-gray-300'>LATEST BLOG</h2>
+                    <div className='bg-white  rounded shadow  py-2'>
+                        <h2 className='text-center font-semibold mx-2 my-2 mb-2 border-b pb-2 text-pink-500 bg-gray-300'>LATEST BLOG</h2>
 
                         <Swiper
                             slidesPerView={1}
                             spaceBetween={20}
                             pagination={{ clickable: true }}
-                            modules={[Pagination]}
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            modules={[Pagination, Autoplay]}
                             className='w-full'
                         >
                             {[1, 2].map((_, index) => (
@@ -115,7 +110,6 @@ const SpecialProduct = () => {
                         </Swiper>
                     </div>
 
-
                     {/* SHOP BY CATEGORIES */}
                     <div className='bg-white p-4 rounded shadow w-full'>
                         <h2 className='text-lg bg-gray-300 font-bold mb-4 border-b p-2'>SHOP BY CATEGORIES</h2>
@@ -123,7 +117,8 @@ const SpecialProduct = () => {
                         <Swiper
                             slidesPerView={1}
                             pagination={{ clickable: true }}
-                            modules={[Pagination]}
+                            autoplay={{ delay: 4000, disableOnInteraction: false }}
+                            modules={[Pagination, Autoplay]}
                             className='w-full category-swiper'
                         >
                             {categoryData.map((category, index) => (
@@ -142,10 +137,8 @@ const SpecialProduct = () => {
                                                     <p className='text-start w-full font-semibold mt-2'>
                                                         {sub.name} ------&gt;
                                                     </p>
-
                                                     <button className='btn hover:btn-secondary'>Search it</button>
                                                 </div>
-
                                             </div>
                                         ))}
                                     </div>
@@ -153,89 +146,87 @@ const SpecialProduct = () => {
                             ))}
                         </Swiper>
                     </div>
-
                 </div>
 
-
                 {/* Section 2 - Deal of the Day */}
-
                 <div className='md:w-2/4 bg-white pt-4 px-4  rounded shadow'>
                     <h2 className='text-xl font-bold mb-4 text-center py-1 bg-gray-300'>DEAL OF THE DAY</h2>
 
-                    <Swiper navigation={true} modules={[Navigation]} className='w-full mt-20'>
+                    <Swiper
+                        navigation={true}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
+                        modules={[Navigation, Autoplay]}
+                        className='w-full mt-4 md:mt-10'
+                    >
                         {Dealdata?.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <div className='flex flex-col md:flex-row gap-4 items-center'>
-                                    {/* Product Image */}
-                                    <div className='w-full md:w-1/2'>
-                                        <img src={item.image} alt="deal" className='w-full h-auto rounded' />
-                                    </div>
+    <div className='flex flex-col md:flex-row gap-2 items-start'>
+        {/* Product Image */}
+        <div className='w-full md:w-1/2 flex-shrink-0'>
+            <img src={item.image} alt="deal" className='w-full h-[270px] rounded' />
+        </div>
 
-                                    {/* Details */}
-                                    <div className='w-full md:w-1/2 space-y-2'>
-                                        <h1 className='font-semibold'>{item.name}</h1>
-                                        <p className='text-sm bg-green-500 text-white w-fit px-2 py-1 rounded'>Sale</p>
-                                        <h3 className='text-lg font-bold'>{item.title}</h3>
-                                        <p className='line-through text-gray-400'>${item.oldPrice}</p>
-                                        <p className='text-red-500 font-bold text-xl'>${item.price}</p>
+        {/* Details */}
+        <div className='w-full md:w-1/2 space-y-2 min-h-[200px] md:min-h-[250px]'>
+            <h1 className='font-semibold'>{item.name}</h1>
+            <p className='text-sm bg-green-500 text-white w-fit px-2 py-1 rounded'>Sale</p>
+            <h3 className='text-lg font-bold'>{item.title}</h3>
+            <p className='line-through text-gray-400'>${item.oldPrice}</p>
+            <p className='text-red-500 font-bold text-xl'>${item.price}</p>
 
-                                        {/* Countdown Timer */}
-                                        <div className='flex gap-2 text-center mt-12'>
-                                            <div>
-                                                <div className='border-1 border-gray-400  px-2 py-1 rounded font-semibold '>
-                                                    {String(timeLeft.days).padStart(2, '10')}d
-                                                </div>
-                                                <p className='text-xs text-gray-600 mt-1'>Day</p>
-                                            </div>
-                                            <div>
-                                                <div className='border-1 border-gray-400  px-2 py-1 rounded font-semibold'>
-                                                    {String(timeLeft.hours).padStart(2, '0')}h
-                                                </div>
-                                                <p className='text-xs text-gray-600 mt-1'>Hour</p>
-                                            </div>
-                                            <div>
-                                                <div className='border-1 border-gray-400  px-2 py-1 rounded font-semibold'>
-                                                    {String(timeLeft.minutes).padStart(2, '0')}m
-                                                </div>
-                                                <p className='text-xs text-gray-600 mt-1'>Mins</p>
-                                            </div>
-                                            <div>
-                                                <div className='border-1 border-gray-400  px-2 py-1 rounded font-semibold'>
-                                                    {String(timeLeft.seconds).padStart(2, '0')}s
-                                                </div>
-                                                <p className='text-xs text-gray-600 mt-1'>Sec</p>
-                                            </div>
+            {/* Countdown Timer */}
+            <div className='flex gap-2 text-center mt-3 md:mt-6'>
+                <div>
+                    <div className='border-1 border-gray-400 px-2 py-1 rounded font-semibold '>
+                        {String(timeLeft.days).padStart(2, '10')}d
+                    </div>
+                    <p className='text-xs text-gray-600 mt-1'>Day</p>
+                </div>
+                <div>
+                    <div className='border-1 border-gray-400 px-2 py-1 rounded font-semibold'>
+                        {String(timeLeft.hours).padStart(2, '0')}h
+                    </div>
+                    <p className='text-xs text-gray-600 mt-1'>Hour</p>
+                </div>
+                <div>
+                    <div className='border-1 border-gray-400 px-2 py-1 rounded font-semibold'>
+                        {String(timeLeft.minutes).padStart(2, '0')}m
+                    </div>
+                    <p className='text-xs text-gray-600 mt-1'>Mins</p>
+                </div>
+                <div>
+                    <div className='border-1 border-gray-400 px-2 py-1 rounded font-semibold'>
+                        {String(timeLeft.seconds).padStart(2, '0')}s
+                    </div>
+                    <p className='text-xs text-gray-600 mt-1'>Sec</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                                        </div>
-                                    </div>
+    <p className='mt-3 text-center font-semibold text-gray-600 min-h-[40px]'>{item.description}</p>
 
-
-
-                                </div>
-
-                                <p className='mt-6 text-center font-semibold text-gray-600'>{item.description}</p>
-                                <div className='flex  justify-between mt-8'>
-                                    <Link to={`/details/${item.id}`}> <button className='btn btn-secondary'>Details</button></Link>
-                                    <button className='btn btn-active'>Wishlist</button>
-                                </div>
-                            </SwiperSlide>
+    <div className='flex justify-between my-2 md:my-4'>
+        <Link to={`/details/${item.id}`}> <button className='btn btn-secondary'>Details</button></Link>
+        <button className='btn btn-active'>Wishlist</button>
+    </div>
+</SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
                 {/* Section 3 - Special Product */}
-
                 <div className='md:w-1/4 bg-white p-4 rounded shadow'>
                     <h2 className='text-center font-semibold mb-4 border-b pb-2 bg-gray-300'>LATEST BLOG</h2>
 
                     <Swiper
                         slidesPerView={1}
                         pagination={{ clickable: true }}
-                        modules={[Pagination]}
+                        autoplay={{ delay: 4000, disableOnInteraction: false }}
+                        modules={[Pagination, Autoplay]}
                         className='w-full'
                     >
                         {
-                            // Chunking Specialdata into arrays of 7 items
                             [...Array(Math.ceil(Specialdata.length / 7))].map((_, i) => (
                                 <SwiperSlide key={i}>
                                     {
@@ -260,7 +251,6 @@ const SpecialProduct = () => {
 
                                                     {/* Colors + Details */}
                                                     <div className="flex items-center w-full mt-2">
-                                                        {/* Colors - left aligned */}
                                                         <div className="flex gap-1">
                                                             {item.colors?.map((color, index) => (
                                                                 <span
@@ -271,7 +261,6 @@ const SpecialProduct = () => {
                                                             ))}
                                                         </div>
 
-                                                        {/* Details Button - fully right aligned */}
                                                         <Link
                                                             to={`/details/${item.id}`}
                                                             title="Details"
@@ -282,18 +271,13 @@ const SpecialProduct = () => {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         ))
                                     }
                                 </SwiperSlide>
                             ))
                         }
                     </Swiper>
-
-
-
                 </div>
-
             </div>
         </div>
     );
