@@ -375,35 +375,53 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
 </div>
 
  {/* Related Products */}
-      <section  id="related-products" 
-       className="w-11/12 md:w-9/12 mx-auto mt-12 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500 p-8 border border-indigo-100">
-        <h2 className="text-3xl font-bold mb-6 text-indigo-700 tracking-wide">Related Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {relatedProducts.length > 0 ? (
-            relatedProducts.map(item => (
-              <div key={item.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer flex flex-col">
-                <img src={item.image} alt={item.name} className="rounded-t-lg object-cover w-full h-48" />
-                <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold text-indigo-700 mb-2">{item.name}</h3>
-                  <p className="text-gray-600 flex-grow">{item.description}</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-green-600 font-bold text-lg">${item.price.toFixed(2)}</span>
-                    <button className="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:bg-indigo-700 transition-colors duration-300 text-sm">
-                      Add to cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-500">No related products found.</p>
-          )}
-        </div>
-      </section>
+     
           
         </div>
       </div>
+ <section
+  id="related-products"
+  className="w-11/12 md:w-9/12 mx-auto  bg-white  shadow-xl hover:shadow-2xl transition-shadow duration-500 p-6 sm:p-8 border border-indigo-100"
+>
+  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-indigo-700 tracking-wide text-center sm:text-left">
+    Related Products
+  </h2>
 
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {relatedProducts.length > 0 ? (
+      relatedProducts.map(item => (
+        <div
+          key={item.id}
+          className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer flex flex-col"
+        >
+          <img
+            src={item.image}
+            alt={item.name}
+            className="rounded-t-lg object-cover w-full h-48 sm:h-52 md:h-56 lg:h-60"
+          />
+          <div className="p-4 flex flex-col flex-grow">
+            <h3 className="text-lg font-semibold text-indigo-700 mb-2 line-clamp-2">
+              {item.name}
+            </h3>
+            <p className="text-gray-600 flex-grow text-sm line-clamp-3">
+              {item.description}
+            </p>
+            <div className="mt-4 flex items-center justify-between">
+              <span className="text-green-600 font-bold text-lg">
+                ${item.price.toFixed(2)}
+              </span>
+              <button className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors duration-300 text-sm">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      ))
+    ) : (
+      <p className="text-gray-500 col-span-full text-center">No related products found.</p>
+    )}
+  </div>
+</section>
      
     </>
   );
