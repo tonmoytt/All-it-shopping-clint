@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import { FaHeart, FaShoppingCart,FaClipboardList } from 'react-icons/fa';
 import { FaYoutube, FaFacebook } from "react-icons/fa";
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -12,6 +12,36 @@ const Details = () => {
   const [data, setData] = useState([]);
   const [activeImage, setActiveImage] = useState('');
   const [loading, setLoading] = useState(true); // spinner state
+
+
+
+
+  // price section
+
+// price section
+const [qty, setQty] = useState(1);
+const [isInCart, setIsInCart] = useState(false);
+const [discountAmount, setDiscountAmount] = useState(580);
+const [basePrice, setBasePrice] = useState(0); // initialize as 0
+const [discountPrice, setDiscountPrice] = useState(0);
+const [animatedDiscount, setAnimatedDiscount] = useState(0);
+const [animatedTotal, setAnimatedTotal] = useState(0);
+
+// Update prices whenever product or qty changes
+useEffect(() => {
+  if (product) {
+    setBasePrice(product.price);
+    const newDiscountPrice = product.price - discountAmount;
+    setDiscountPrice(newDiscountPrice);
+    setAnimatedDiscount(discountAmount);
+    setAnimatedTotal(newDiscountPrice * qty);
+  }
+}, [product, qty, discountAmount]);
+
+
+
+
+  // pricetion ses
 
 const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video facebbook youtube btn
 
@@ -159,51 +189,58 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
         {/* Details */}
         <div className="text-start flex flex-col justify-center">
           <h1 className="text-xl sm:text-5xl font-extrabold mb-2 sm:mb-3 text-indigo-700 drop-shadow-md">{name}</h1>
-          <p className="text-md sm:text-3xl font-mono mt-1 sm:mt-2 text-green-700 font-semibold tracking-wider shadow-sm">Only:{price.toFixed(2)} Tk</p>
+        <p className="text-lg  sm:text-3xl font-semibold mt-2 sm:mt-3 text-gray-800 flex items-baseline gap-2 shadow-sm">
+  <span className="text-gray-900 font-bold text-base sm:text-lg">Price:</span>
+  <span className="text-green-700 font-extrabold text-lg sm:text-3xl">{price.toFixed(2)}</span>
+  <span className="text-red-500 font-semibold text-base sm:text-lg">Tk</span>
+</p>
+          <p className='text-gray-500 mt-2 text-xs font-sans'>*Discount 580 Tk* </p>
           <p className="mt-6 sm:mt-8 text-gray-700 leading-relaxed text-sm sm:text-lg tracking-wide">{description}</p>
 
-          {/* product video */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
-
-
-
+      {/* Buttons Section */}
+<div className="flex sm:flex-row items-center sm:items-start gap-4 mt-6 ">
   {/* Product Video Button */}
   <button
-    onClick={() => setShowVideoLinks(!showVideoLinks)}
-    className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
-  >
-    📺 Product Video
-  </button>
+  onClick={() => setShowVideoLinks(!showVideoLinks)}
+  className="w-full bg-indigo-50 text-indigo-800 font-semibold px-3 py-2 rounded-xl text-xs shadow-lg hover:scale-105 transition-transform duration-300 text-center"
+>
+  Product Video
+</button>
+
+<button
+  onClick={() => {
+    const relatedSection = document.getElementById('related-products');
+    relatedSection?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  className="w-full bg-pink-50 text-pink-800 font-semibold px-3 py-2 rounded-xl shadow-lg hover:bg-indigo-700 text-xs transition-colors duration-300 text-center "
+>
+  More Products
+</button>
 </div>
 
 {/* Video Links */}
 {showVideoLinks && (
-  <div className="flex gap-4 mb-8 mt-4 animate-fadeIn">
-
-    {/* YouTube */}
+  <div className="flex sm:flex-row gap-4 mb-8 mt-4 animate-fadeIn">
     <a
       href={product.youtubeLink || "https://youtube.com"}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-1 md:gap-2 bg-red-600 hover:bg-red-700 text-white px-3 md:px-5 py-2 rounded-xl shadow-md transition"
+      className="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl shadow-md text-center font-medium transition-colors duration-300"
     >
-      <FaYoutube size={22} />
-      video 1
+      Video 1
     </a>
-
-    {/* Facebook */}
     <a
       href={product.facebookLink || "https://facebook.com"}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 md:px-5 py-2 rounded-xl shadow-md transition"
+      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl shadow-md text-center font-medium transition-colors duration-300"
     >
-      <FaFacebook size={22} />
       Video 2
     </a>
-
   </div>
 )}
+
+
 
           {/* Specifications */}
           <div className="mt-8 sm:mt-10">
@@ -221,32 +258,125 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
             </ul>
           </div>
 
-          <div className='flex justify-between mt-8 '>
-  <p className="text-lg sm:text-2xl sm:mt-10 font-bold text-gray-900">
-            Rating: <span className="font-normal">{rating}</span>
-          </p>
-          
-          </div>
+         <div className='flex items-center mt-6 gap-2'>
+  <p className="text-lg sm:text-2xl font-bold text-gray-900">
+    Rating:
+  </p>
+  <div className="flex">
+    {[1, 2, 3, 4, 5].map((star) => (
+      <svg
+        key={star}
+        xmlns="http://www.w3.org/2000/svg"
+        className={`h-6 w-6 ${
+          star <= rating ? 'text-yellow-400' : 'text-gray-300'
+        }`}
+        fill={star <= rating ? 'currentColor' : 'none'}
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={star <= rating ? 0 : 2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+        />
+      </svg>
+    ))}
+  </div>
+</div>
 
         
 
-          {/* Actions */}
-          <div className="space-x-2 sm:space-x-8 mt-8 sm:mt-10 flex gap-4">
-            <button onClick={() => handleAddToCart(product)} className="transform hover:scale-90 transition-transform duration-300 shadow-xl">
-              <Link className="bg-indigo-500 hover:bg-indigo-800 text-white px-3 sm:px-8 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg">
-                <span>Add to Cart</span>
-                <FaShoppingCart className='hidden md:flex' size={20} />
-              </Link>
-            </button>
-            <button onClick={() => handleWish(product)} className="bg-red-500 hover:bg-indigo-800 text-white px-4 md:px-6 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg transform hover:scale-110 transition-transform duration-300 ">
-              অর্ডার করতে চাই 
-            </button>
-          </div>
-        </div>
-      </div>
+        
 
-      {/* Related Products */}
-      <section className="w-11/12 md:w-9/12 mx-auto mt-12 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500 p-8 border border-indigo-100">
+{/* price section  */}
+<div className='text-black mt-4'>
+  {!isInCart && (
+  <>
+  {/* Quantity Selector */}
+<div className="flex  sm:flex-row items-center justify-between mb-4 gap-4">
+  <span className="font-extrabold text-indigo-700 text-base sm:text-lg tracking-wide drop-shadow-sm">
+  অর্ডারের পরিমাণ :
+</span>
+  <div className="flex items-center border border-gray-300 rounded-xl overflow-hidden">
+    <button
+      onClick={() => setQty(Math.max(1, qty - 1))}
+      className="w-10 h-10 sm:w-12 sm:h-12 font-bold text-lg sm:text-xl bg-gray-100 hover:bg-gray-200 transition"
+    >
+      -
+    </button>
+    <span className="w-10 sm:w-12 text-center font-bold text-gray-800">{qty}</span>
+    <button
+      onClick={() => setQty(qty + 1)}
+      className="w-10 h-10 sm:w-12 sm:h-12 font-bold text-lg sm:text-xl bg-gray-100 hover:bg-gray-200 transition"
+    >
+      +
+    </button>
+  </div>
+</div>
+
+{/* GREEN DISCOUNT BOX */}
+<div className="p-5 sm:p-6 rounded-2xl bg-green-50 border border-green-200 shadow-md space-y-3 mb-8">
+  {/* মূল প্রাইস */}
+  <div className="flex justify-between text-sm sm:text-base font-medium text-gray-700">
+    <span>প্রোডাক্টের মূল্য :</span>
+    <span className="line-through text-gray-400">৳{basePrice}</span>
+  </div>
+
+  {/* ডিসকাউন্ট */}
+  {discountAmount > 0 && (
+    <div className="flex justify-between text-sm sm:text-base font-semibold text-green-700">
+      <span>ছাড় :</span>
+      <span>- ৳{animatedDiscount} Tk</span>
+    </div>
+  )}
+
+  {/* ডিসকাউন্টের পরে মূল্য */}
+  <div className="flex justify-between text-sm sm:text-base font-semibold text-gray-800">
+    <span>ছাড়ের পরে মূল্য :</span>
+    <span>৳{discountPrice} Tk</span>
+  </div>
+
+  {/* অর্ডারের পরিমাণ */}
+  <div className="flex justify-between text-sm sm:text-base font-medium text-gray-700">
+    <span>পরিমাণ :</span>
+    <span>{qty} টি</span>
+  </div>
+
+  {/* মোট দাম */}
+  <div className="border-t pt-3 flex justify-between text-lg sm:text-xl font-extrabold text-indigo-700">
+    <span>মোট দাম :</span>
+    <span className="text-green-600">৳{animatedTotal} Tk</span>
+  </div>
+</div>
+  </>
+)}
+</div>
+
+  {/* Actions */}
+         <div className="space-x-2 sm:space-x-18 mt-4 sm:mt-10 flex gap-3">
+  <button
+    onClick={() => handleAddToCart(product)}
+    className="transform hover:scale-90 transition-transform duration-300 shadow-xl"
+  >
+    <Link className="bg-indigo-500 hover:bg-indigo-800 text-white px-4 sm:px-5 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-">
+      <span>Add to Cart</span>
+      <FaShoppingCart className="hidden md:flex" size={20} />
+    </Link>
+  </button>
+
+  <button
+    onClick={() => handleWish(product)}
+    className="bg-red-500 hover:bg-indigo-800 text-white px-4 md:px-6 py-2 sm:py-3 rounded-3xl flex items-center space-x-3 shadow-lg font-semibold text-base sm:text-lg transform hover:scale-110 transition-transform duration-300"
+  >
+    <FaClipboardList className='hidden md:block' size={18} /> {/* Order icon */}
+    <span>অর্ডার করতে চাই</span>
+  </button>
+</div>
+
+ {/* Related Products */}
+      <section  id="related-products" 
+       className="w-11/12 md:w-9/12 mx-auto mt-12 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500 p-8 border border-indigo-100">
         <h2 className="text-3xl font-bold mb-6 text-indigo-700 tracking-wide">Related Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedProducts.length > 0 ? (
@@ -270,8 +400,16 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
           )}
         </div>
       </section>
+          
+        </div>
+      </div>
+
+     
     </>
   );
 };
 
 export default Details;
+
+
+
