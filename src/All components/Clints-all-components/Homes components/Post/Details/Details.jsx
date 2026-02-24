@@ -191,7 +191,7 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
           <h1 className="text-xl sm:text-5xl font-extrabold mb-2 sm:mb-3 text-indigo-700 drop-shadow-md">{name}</h1>
         <p className="text-lg  sm:text-3xl font-semibold mt-2 sm:mt-3 text-gray-800 flex items-baseline gap-2 shadow-sm">
   <span className="text-gray-900 font-bold text-base sm:text-lg">Price:</span>
-  <span className="text-green-700 font-extrabold text-lg sm:text-3xl">{price.toFixed(2)}</span>
+  <span className="text-green-700 font-extrabold text-lg sm:text-xl">{price.toFixed(2)}</span>
   <span className="text-red-500 font-semibold text-base sm:text-lg">Tk</span>
 </p>
           <p className='text-gray-500 mt-2 text-xs font-sans'>*Discount 580 Tk* </p>
@@ -378,7 +378,115 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
      
           
         </div>
+      {/* more info  */}
+     
+<div className="w-full flex justify-center mt-6">
+  <div className="w-full max-w-md bg-gray-100 shadow-xl rounded-md overflow-hidden border">
+
+    {/* Green Header */}
+    <div className="bg-green-600 text-white text-center py-3 px-4 text-lg sm:text-xl font-bold">
+      প্রথমে দেখুন, তারপর টাকা দিন!
+    </div>
+
+    <div className="p-4 space-y-3">
+
+      {/* Orange Offer Text */}
+      <h3 className="text-orange-600 font-bold text-center text-base sm:text-lg">
+        এই অফারটি শুধুমাত্র আজকের জন্য
+      </h3>
+
+      {/* Feature List */}
+      <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
+        <li className="flex items-center gap-2 border-b pb-2">
+          <span className="text-green-600 font-bold">✔</span>
+          ঠান্ডা পানি ঢুকবে না
+        </li>
+        <li className="flex items-center gap-2 border-b pb-2">
+          <span className="text-green-600 font-bold">✔</span>
+          ইনসাইড নরম ফ্লিস লাইনার (Winter-Friendly)
+        </li>
+        <li className="flex items-center gap-2 border-b pb-2">
+          <span className="text-green-600 font-bold">✔</span>
+          লং ডিজাইন, পানি ঢোকে না
+        </li>
+        <li className="flex items-center gap-2 border-b pb-2">
+          <span className="text-green-600 font-bold">✔</span>
+          টেকসই ও টাইট সেলাই
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="text-green-600 font-bold">✔</span>
+          100% ওয়াটারপ্রুফ ও স্কিড-ফ্রি
+        </li>
+      </ul>
+
+      {/* Trust Text */}
+      <p className="text-center text-gray-800 font-semibold mt-4">
+        দামে নয়—আপনি ফোকাস করুন কোয়ালিটিতে,
+      </p>
+
+      <p className="text-center text-green-700 text-sm font-medium">
+        এখনো হাজারো কাস্টমার কিনছে! আপনারাও নিতে পারেন।
+      </p>
+
+      {/* Big Price */}
+      <div className="text-center mt-6">
+        <span className="text-4xl sm:text-5xl font-extrabold text-red-600 tracking-wider">
+          10,000
+        </span>
       </div>
+
+    </div>
+  </div>
+</div>
+
+{/* WHO CAN USE SECTION */}
+<div className="w-full flex justify-center mt-2">
+  <div className="w-full max-w-md bg-gray-100 px-5 py-8">
+
+    {/* Orange Border Title Box */}
+    <div className="border-2 border-orange-400 rounded-2xl text-center py-4 px-3 mb-6 bg-white shadow-sm">
+      <h2 className="text-orange-500 font-bold text-lg sm:text-xl">
+        কারা এই প্রোডাক্ট ব্যবহার করবেন?
+      </h2>
+    </div>
+
+    {/* List Section */}
+    <ul className="space-y-4 text-gray-700 text-sm sm:text-base font-medium">
+
+      <li className="flex items-start gap-3">
+        <span className="text-green-600 text-lg">👍</span>
+        ঘাড়, কাঁধ, পিঠ বা পায়ের টান ও ক্লান্তি দূর করতে চান।
+      </li>
+
+      <li className="flex items-start gap-3">
+        <span className="text-green-600 text-lg">👍</span>
+        যারা সারাদিন বসে বা দাঁড়িয়ে কাজ করেন এবং পেশিতে ব্যথা অনুভব করেন।
+      </li>
+
+      <li className="flex items-start gap-3">
+        <span className="text-green-600 text-lg">👍</span>
+        যাদের শরীরের মাসলগুলো দ্রুত রিল্যাক্স দরকার।
+      </li>
+
+      <li className="flex items-start gap-3">
+        <span className="text-green-600 text-lg">👍</span>
+        ব্যস্ত জীবনে ঘরে বসেই সহজে মাসাজ করতে চান।
+      </li>
+
+    </ul>
+
+    {/* Order Button */}
+    <div className="mt-8 flex justify-center">
+      <button className="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white font-semibold px-8 py-3 rounded-lg shadow-md flex items-center gap-2">
+        👍 অর্ডার করতে চাই
+      </button>
+    </div>
+
+  </div>
+</div>
+      </div>
+
+
 
       {/* releted */}
  <section
