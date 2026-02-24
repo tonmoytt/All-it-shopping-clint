@@ -316,7 +316,7 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
 </div>
 
 {/* GREEN DISCOUNT BOX */}
-<div className="p-5 sm:p-6 rounded-2xl bg-green-50 border border-green-200 shadow-md space-y-3 mb-8">
+<div className="p-5 sm:p-6 rounded-md bg-green-50 border border-green-200 shadow-md space-y-3 mb-2">
   {/* মূল প্রাইস */}
   <div className="flex justify-between text-sm sm:text-base font-medium text-gray-700">
     <span>প্রোডাক্টের মূল্য :</span>
@@ -379,6 +379,8 @@ const [showVideoLinks, setShowVideoLinks] = useState(false);  //product video fa
           
         </div>
       </div>
+
+      {/* releted */}
  <section
   id="related-products"
   className="w-11/12 md:w-9/12 mx-auto  bg-white  shadow-xl hover:shadow-2xl transition-shadow duration-500 p-6 sm:p-8 border border-indigo-100"
